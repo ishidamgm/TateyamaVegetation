@@ -1,0 +1,27 @@
+Package: TateyamaVegetation
+Type: Package
+Title: 富山県立山植生モニタリング調査
+Version: 0.1.20250728
+Authors@R: c(
+    person("Megumi", "Ishida", email = "ishidam@sanchikanri.com", role = c("aut", "cre")),
+    person("Haruki", "Nakajima", role = "aut"),
+    person("Satoru", "Kojima", role = "aut"),
+    person(given = "富山県", role = "fnd", comment = "Sponsor"))
+Maintainer: Megumi Ishida <ishidam@sanchikanri.com>
+Description: 1998年～。富山県の支援を受けて実施された、立山地域における植生モニタリング調査のデータを含みます。
+License: file LICENCE
+Depends:
+    akima,
+    ggplot2,
+    dplyr,
+    ggrepel,
+    metR,
+    tools,
+    TateyamaForest
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2

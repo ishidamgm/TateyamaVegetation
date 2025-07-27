@@ -1,0 +1,1167 @@
+---
+title: "Package yokoe Documentation"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE, message = TRUE)
+```
+
+## Function: `area`
+
+**Documentation:**
+
+```
+Return a area from polygon xy coordinates
+
+Description:
+
+     Return a area from polygon xy coordinates
+
+Usage:
+
+     area(xy)
+     
+Arguments:
+
+      xy: a atrix or data frame of xy coordinates
+
+Value:
+
+     a vector of polygon area
+
+Examples:
+
+     xy<-data.frame(x=c(0,1,2,1),y=c(1,2,1,0))
+     plot(xy,type="b") ; polygon(xy)
+     area(xy)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: area
+### Title: Return a area from polygon xy coordinates
+### Aliases: area
+
+### ** Examples
+
+xy<-data.frame(x=c(0,1,2,1),y=c(1,2,1,0))
+plot(xy,type="b") ; polygon(xy)
+area(xy)
+
+
+
+
+
+
+```
+
+**Executed Example:**
+```{r area_example, eval=TRUE, error=TRUE}
+try(example('area', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `circumference`
+
+**Documentation:**
+
+```
+Return circumference length of polygon line
+
+Description:
+
+     Return circumference length of polygon line
+
+Usage:
+
+     circumference(l.)
+     
+Arguments:
+
+      l.: data frame of line coordinates (x,y)
+
+Value:
+
+     a numeric of circumference length of polygon line
+
+Examples:
+
+     l. <- data.frame(x=c(0,0,1,1),y=c(0,1,1,0))
+     plot(l.,type="b") ; polygon(l.)
+     circumference(l.)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: circumference
+### Title: Return circumference length of polygon line
+### Aliases: circumference
+
+### ** Examples
+
+l. <- data.frame(x=c(0,0,1,1),y=c(0,1,1,0))
+plot(l.,type="b") ; polygon(l.)
+circumference(l.)
+
+
+
+```
+
+**Executed Example:**
+```{r circumference_example, eval=TRUE, error=TRUE}
+try(example('circumference', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `degree`
+
+**Documentation:**
+
+```
+Constant for conversion from degree to radian ####
+
+Description:
+
+     Constant for conversion from degree to radian ####
+
+Usage:
+
+     degree
+     
+Format:
+
+     An object of class 'numeric' of length 1.
+
+```
+
+
+
+**Executed Example:**
+```{r degree_example, eval=TRUE, error=TRUE}
+try(example('degree', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `dstpp`
+
+**Documentation:**
+
+```
+Return vector for distance between adjacent two points
+
+Description:
+
+     Return vector for distance between adjacent two points
+
+Usage:
+
+     dstpp(x, y)
+     
+Arguments:
+
+       x: vector of x coordinates
+
+       y: vector of y coordinates
+
+Value:
+
+     vector for distance between adjacent two points
+
+Examples:
+
+     l.<-TR@L[[1]]
+     plot(l.)
+     x<-l.[,1] ;y<-l.[,2]
+     dstpp(x,y)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: dstpp
+### Title: Return vector for distance between adjacent two points
+### Aliases: dstpp
+
+### ** Examples
+
+l.<-TR@L[[1]]
+plot(l.)
+x<-l.[,1] ;y<-l.[,2]
+dstpp(x,y)
+
+
+
+```
+
+**Executed Example:**
+```{r dstpp_example, eval=TRUE, error=TRUE}
+try(example('dstpp', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `f123`
+
+**Documentation:**
+
+```
+2D graphics of hose floor 1-2-3
+
+Description:
+
+     2D graphics of hose floor 1-2-3
+
+Usage:
+
+     f123()
+     
+Examples:
+
+     f123()
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: f123
+### Title: 2D graphics of hose floor 1-2-3
+### Aliases: f123
+
+### ** Examples
+
+f123()
+
+
+
+
+```
+
+**Executed Example:**
+```{r f123_example, eval=TRUE, error=TRUE}
+try(example('f123', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `g`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     g()
+     
+Examples:
+
+     g()
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: g
+### Title: Title
+### Aliases: g
+
+### ** Examples
+
+g()
+
+
+
+
+```
+
+**Executed Example:**
+```{r g_example, eval=TRUE, error=TRUE}
+try(example('g', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `hashira2d`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     hashira2d(h. = hashira, label = F)
+     
+Arguments:
+
+       d:
+
+Examples:
+
+     plot_gaiheki()
+     hashira2d()
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: hashira2d
+### Title: Title
+### Aliases: hashira2d
+
+### ** Examples
+
+plot_gaiheki()
+hashira2d()
+
+
+
+
+```
+
+**Executed Example:**
+```{r hashira2d_example, eval=TRUE, error=TRUE}
+try(example('hashira2d', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `hashira3d`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     hashira3d(h. = hashira)
+     
+Arguments:
+
+       d:
+
+Examples:
+
+     yokoe3d()
+     hashira3d()
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: hashira3d
+### Title: Title
+### Aliases: hashira3d
+
+### ** Examples
+
+yokoe3d()
+hashira3d()
+
+
+
+
+```
+
+**Executed Example:**
+```{r hashira3d_example, eval=TRUE, error=TRUE}
+try(example('hashira3d', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `kabe2d`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     kabe2d(d = kabe.)
+     
+Arguments:
+
+       d:
+
+Examples:
+
+     plot_gaiheki()
+     hashira2d(label=T)
+     #  to.<-read.csv("data_raw/to.csv")
+     kabe.<- data.frame(no=1,id="to_rouka",space="engawa", floor=1,  x=3447.948,y=1643.072, z=700, w=4800, d=180,h=1800,deg=90)
+     kabe2d(kabe.)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: kabe2d
+### Title: Title
+### Aliases: kabe2d
+
+### ** Examples
+
+plot_gaiheki()
+hashira2d(label=T)
+#  to.<-read.csv("data_raw/to.csv")
+kabe.<- data.frame(no=1,id="to_rouka",space="engawa", floor=1,  x=3447.948,y=1643.072, z=700, w=4800, d=180,h=1800,deg=90)
+kabe2d(kabe.)
+
+
+
+
+
+
+```
+
+**Executed Example:**
+```{r kabe2d_example, eval=TRUE, error=TRUE}
+try(example('kabe2d', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `kabe_line`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     kabe_line(. = kabe_F1)
+     
+Arguments:
+
+       .:
+
+Examples:
+
+     f123()
+     kabe_line(kabe_F1)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: kabe_line
+### Title: Title
+### Aliases: kabe_line
+
+### ** Examples
+
+f123()
+kabe_line(kabe_F1)
+
+
+
+
+```
+
+**Executed Example:**
+```{r kabe_line_example, eval=TRUE, error=TRUE}
+try(example('kabe_line', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `kaidan2d`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     kaidan2d(kd = kaidan)
+     
+Arguments:
+
+    kd.z:
+
+Examples:
+
+     kaidan<-data.frame(w=1800,d=900,h=2700,sn=12,deg=0)
+     kaidan<-data.frame(id="f12",x=3600,y=5850,z=700,kaidan)
+     kaidan[2,1] <-c("f23");kaidan[2,2:9] <- c(9000,5850,2700,900,800,900,4,0)
+     str(kaidan)
+     f123()
+     kaidan2d(kaidan)#  #save(kaidan,file="data/kaidan.RData")
+     #save(kaidan,file="data/kaidan.RData")
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: kaidan2d
+### Title: Title
+### Aliases: kaidan2d
+
+### ** Examples
+
+kaidan<-data.frame(w=1800,d=900,h=2700,sn=12,deg=0)
+kaidan<-data.frame(id="f12",x=3600,y=5850,z=700,kaidan)
+kaidan[2,1] <-c("f23");kaidan[2,2:9] <- c(9000,5850,2700,900,800,900,4,0)
+str(kaidan)
+f123()
+kaidan2d(kaidan)#  #save(kaidan,file="data/kaidan.RData")
+#save(kaidan,file="data/kaidan.RData")
+
+
+
+
+```
+
+**Executed Example:**
+```{r kaidan2d_example, eval=TRUE, error=TRUE}
+try(example('kaidan2d', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `nearest`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     nearest(x, X)
+     
+Arguments:
+
+      xy: matrix of x,y coordinates
+
+      XY: matrix of inclde x,y coordinates
+
+Examples:
+
+     X<-1:20
+     x<-10:15+rnorm(6)
+     nearest(x,X)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: nearest
+### Title: Title
+### Aliases: nearest
+
+### ** Examples
+
+
+
+
+X<-1:20
+x<-10:15+rnorm(6)
+nearest(x,X)
+
+
+
+
+```
+
+**Executed Example:**
+```{r nearest_example, eval=TRUE, error=TRUE}
+try(example('nearest', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `package_docs_with_examples`
+
+**Documentation:**
+
+```
+Generate Package Documentation with Examples and Knit to HTML
+
+Description:
+
+     Generate Package Documentation with Examples and Knit to HTML
+
+Usage:
+
+     package_docs_with_examples(
+       package_name,
+       output_rmd = "package_docs_with_examples.Rmd",
+       output_html = "package_docs_with_examples.html"
+     )
+     
+Arguments:
+
+package_name: The name of the package (character string)
+
+output_rmd: The output Rmd filename (default:
+          "package_docs_with_examples.Rmd")
+
+output_html: The output HTML filename (default:
+          "package_docs_with_examples.html")
+
+Value:
+
+     None. The Rmd and HTML files are generated in the current working
+     directory.
+
+Examples:
+
+     package_docs_with_examples("yokoe")
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: package_docs_with_examples
+### Title: Generate Package Documentation with Examples and Knit to HTML
+### Aliases: package_docs_with_examples
+
+### ** Examples
+
+package_docs_with_examples("yokoe")
+
+
+
+
+```
+
+**Executed Example:**
+```{r package_docs_with_examples_example, eval=TRUE, error=TRUE}
+try(example('package_docs_with_examples', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `plot_gaiheki`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     plot_gaiheki()
+     
+Examples:
+
+     #data(package="yokoe")
+     plot_gaiheki()
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: plot_gaiheki
+### Title: Title
+### Aliases: plot_gaiheki
+
+### ** Examples
+
+#data(package="yokoe")
+plot_gaiheki()
+
+
+
+
+```
+
+**Executed Example:**
+```{r plot_gaiheki_example, eval=TRUE, error=TRUE}
+try(example('plot_gaiheki', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `points_append`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     points_append(xy = p2)
+     
+Arguments:
+
+      xy:
+
+Examples:
+
+     f123()
+     kabe2d()
+     points(p2)
+     p2_append <- points_append(p2)
+     points(p2_append,pch=10)
+     p2<-p2_append
+     # save(p2,file="data/p2.RData")
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: points_append
+### Title: Title
+### Aliases: points_append
+
+### ** Examples
+
+f123()
+kabe2d()
+points(p2)
+p2_append <- points_append(p2)
+points(p2_append,pch=10)
+p2<-p2_append
+# save(p2,file="data/p2.RData")
+
+
+
+
+```
+
+**Executed Example:**
+```{r points_append_example, eval=TRUE, error=TRUE}
+try(example('points_append', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `points_delete`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     points_delete(d)
+     
+Arguments:
+
+       y:
+
+Examples:
+
+     .<-data.frame(x=1:20 ,y=x^1.5)
+     plot(.$x,.$y)
+     .<-points_delete(.,type="o",col="red")
+     plot(.$x,.$y)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: points_delete
+### Title: Title
+### Aliases: points_delete
+
+### ** Examples
+
+.<-data.frame(x=1:20 ,y=x^1.5)
+plot(.$x,.$y)
+.<-points_delete(.,type="o",col="red")
+plot(.$x,.$y)
+
+
+
+```
+
+**Executed Example:**
+```{r points_delete_example, eval=TRUE, error=TRUE}
+try(example('points_delete', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `points_grid_snap`
+
+**Documentation:**
+
+```
+points_grid_snap
+
+Description:
+
+     points_grid_snap
+
+Usage:
+
+     points_grid_snap(xy = p., grid = 450)
+     
+Arguments:
+
+    grid:
+
+Examples:
+
+     p.<-data.frame(x=runif(30) , y=runif(30))
+     grid.=0.1
+     plot(p.)
+     abline(h=seq(0,1,grid.),v=seq(0,1,grid.))
+     p..<-points_grid_snap(xy=p.,grid=grid.)
+     points(p..,col="red")
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: points_grid_snap
+### Title: points_grid_snap
+### Aliases: points_grid_snap
+
+### ** Examples
+
+p.<-data.frame(x=runif(30) , y=runif(30))
+grid.=0.1
+plot(p.)
+abline(h=seq(0,1,grid.),v=seq(0,1,grid.))
+p..<-points_grid_snap(xy=p.,grid=grid.)
+points(p..,col="red")
+
+
+
+```
+
+**Executed Example:**
+```{r points_grid_snap_example, eval=TRUE, error=TRUE}
+try(example('points_grid_snap', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `points_move`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     points_move(xy = p2)
+     
+Arguments:
+
+      xy:
+
+Examples:
+
+     f123()
+     points(p2)
+     p2_corrected <- points_move(p2)
+     points(p2_corrected,pch=10)
+     p2<-p2_corrected
+     # save(p2,file="data/p2.RData")
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: points_move
+### Title: Title
+### Aliases: points_move
+
+### ** Examples
+
+f123()
+points(p2)
+p2_corrected <- points_move(p2)
+points(p2_corrected,pch=10)
+p2<-p2_corrected
+# save(p2,file="data/p2.RData")
+
+
+
+
+
+```
+
+**Executed Example:**
+```{r points_move_example, eval=TRUE, error=TRUE}
+try(example('points_move', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `points_nearest`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     points_nearest(xy, XY)
+     
+Arguments:
+
+      xy: data frame of x,y coordinates
+
+      XY: data frame of inclde x,y coordinates
+
+Examples:
+
+     XY<-data.frame(x=1:20 ,y=(1:20)^1)
+     plot(XY)
+     text(XY[,1],XY[,2]-1,1:20)
+     xy<-cbind(x=10:15 ,y=(10:15)^1.01)
+     points(xy,col="red")
+      points_nearest(xy,XY)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: points_nearest
+### Title: Title
+### Aliases: points_nearest
+
+### ** Examples
+
+
+
+
+XY<-data.frame(x=1:20 ,y=(1:20)^1)
+plot(XY)
+text(XY[,1],XY[,2]-1,1:20)
+xy<-cbind(x=10:15 ,y=(10:15)^1.01)
+points(xy,col="red")
+ points_nearest(xy,XY)
+
+
+
+```
+
+**Executed Example:**
+```{r points_nearest_example, eval=TRUE, error=TRUE}
+try(example('points_nearest', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `points_rect_select`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     points_rect_select(x, y)
+     
+Arguments:
+
+       y:
+
+Examples:
+
+     x<-1:20 ; y<- x^1.5
+     plot(x,y)
+     points_rect_select(x,y)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: points_rect_select
+### Title: Title
+### Aliases: points_rect_select
+
+### ** Examples
+
+x<-1:20 ; y<- x^1.5
+plot(x,y)
+points_rect_select(x,y)
+
+
+
+```
+
+**Executed Example:**
+```{r points_rect_select_example, eval=TRUE, error=TRUE}
+try(example('points_rect_select', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `to2d`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     to2d(d = to)
+     
+Arguments:
+
+       d:
+
+Examples:
+
+     plot_gaiheki()
+     hashira2d()
+     #  to.<-read.csv("data_raw/to.csv")
+     to.<- data.frame(no=1,id="to_rouka",space="engawa", floor=1,  x=3447.948,y=1643.072, z=700, w=11800, d=100,h=1800,deg=0)
+     to2d(to.)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: to2d
+### Title: Title
+### Aliases: to2d
+
+### ** Examples
+
+plot_gaiheki()
+hashira2d()
+#  to.<-read.csv("data_raw/to.csv")
+to.<- data.frame(no=1,id="to_rouka",space="engawa", floor=1,  x=3447.948,y=1643.072, z=700, w=11800, d=100,h=1800,deg=0)
+to2d(to.)
+
+
+
+
+```
+
+**Executed Example:**
+```{r to2d_example, eval=TRUE, error=TRUE}
+try(example('to2d', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `vh2xy`
+
+**Documentation:**
+
+```
+Title
+
+Description:
+
+     Title
+
+Usage:
+
+     vh2xy(v, h)
+     
+Arguments:
+
+       h:
+
+Examples:
+
+     f123()
+     points(vh2xy(4,1))
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: vh2xy
+### Title: Title
+### Aliases: vh2xy
+
+### ** Examples
+
+f123()
+points(vh2xy(4,1))
+
+
+
+```
+
+**Executed Example:**
+```{r vh2xy_example, eval=TRUE, error=TRUE}
+try(example('vh2xy', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
+## Function: `yokoe3d`
+
+**Documentation:**
+
+```
+3D plot of Yokoe house
+
+Description:
+
+     3D plot of Yokoe house
+
+Usage:
+
+     yokoe3d()
+     
+Examples:
+
+     #library(rgl)
+     yokoe3d()
+     #lines3d(seq(-10000,80000,900),seq(-10000,180000,900),0,col="gray")
+     f123()
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: yokoe3d
+### Title: 3D plot of Yokoe house
+### Aliases: yokoe3d
+
+### ** Examples
+
+
+#library(rgl)
+yokoe3d()
+#lines3d(seq(-10000,80000,900),seq(-10000,180000,900),0,col="gray")
+f123()
+
+
+
+
+```
+
+**Executed Example:**
+```{r yokoe3d_example, eval=TRUE, error=TRUE}
+try(example('yokoe3d', package = 'yokoe', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
