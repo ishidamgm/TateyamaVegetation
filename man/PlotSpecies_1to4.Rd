@@ -5,10 +5,10 @@
 \title{各調査区の1〜4期の出現種と各期被度合計
 ※　1期については　Domin_Krajina}
 \usage{
-PlotSpecies_1to4(調査地 = "有峰")
+PlotSpecies_1to4(site = "Mimatsu")
 }
 \arguments{
-\item{調査地}{漢字で入力のこと}
+\item{site}{ex.　"Arimine"}
 }
 \value{
 data.frame
@@ -19,10 +19,10 @@ data.frame
 }
 \examples{
 
-( df <-　PlotSpecies_1to4 ("美松"))
- # write.csv(df, "data_raw/PlotSpecies美松.csv")
+( df <-　PlotSpecies_1to4 ("Mimatsu"))
+ #
 
- PlotSpecies_1to4 ("有峰")
- # write.csv(df, "data_raw/PlotSpecies美松.csv")
+ ( df2 <-　PlotSpecies_1to4 ("Arimine"))
+ # write.csv(df2, "data_raw/PlotSpecies有峰.csv")
 
 }

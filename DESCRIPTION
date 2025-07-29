@@ -12,8 +12,7 @@ Description: 1998年～。富山県の支援を受けて実施された、立山
 License: file LICENCE
 Depends:
     akima,
-    ggplot2,
-    dplyr,
+    tidyverse,
     ggrepel,
     metR,
     tools,

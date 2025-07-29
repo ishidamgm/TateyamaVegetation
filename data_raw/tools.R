@@ -1,7 +1,7 @@
 library(TateyamaVegetation)
+help(package="TateyamaVegetation")
 
-
-data(TateyamaVegetation)
+data(package="TateyamaVegetation")
 
 
 devtools::document()
