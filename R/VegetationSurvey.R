@@ -49,7 +49,7 @@ hindo<-function(r) {## floor(r/0.2-0.00001)+1
 #' 各調査区の1〜4期の出現種と各期被度合計
 #' ※　1期については　Domin_Krajina
 #'
-#' @param 調査地   漢字で入力のこと
+#' @param site　　ex.　"Arimine"
 #'
 #' @returns  data.frame
 #'
@@ -57,14 +57,14 @@ hindo<-function(r) {## floor(r/0.2-0.00001)+1
 #'
 #' @examples
 #'
-#' ( df <-　PlotSpecies_1to4 ("美松"))
-#'  # write.csv(df, "data_raw/PlotSpecies美松.csv")
+#' ( df <-　PlotSpecies_1to4 ("Mimatsu"))
+#'  #
 #'
-#'  PlotSpecies_1to4 ("有峰")
-#'  # write.csv(df, "data_raw/PlotSpecies美松.csv")
+#'  ( df2 <-　PlotSpecies_1to4 ("Arimine"))
+#'  # write.csv(df2, "data_raw/PlotSpecies有峰.csv")
 #'
-PlotSpecies_1to4 <-function(調査地="有峰"){
-  d<-subset(vv,plot=="Arimine")
+PlotSpecies_1to4 <-function(site="Mimatsu"){
+  d<-subset(vv,plot==site)
   sp.<-unique(d$sp)
 
   return(
@@ -79,5 +79,27 @@ PlotSpecies_1to4 <-function(調査地="有峰"){
 }
 
 
+
+#' 特定種の野帳記録
+#'
+#' @param sp.
+#'
+#' @returns　データフレーム　特定種の野帳記録
+#'
+#'
+#' @export
+#'
+#' @examples
+#' vv_sp_check("ヒロバスゲ")
+#'
+#' vv_sp_check("ウダイカンバ")
+#'
+#' vv_sp_check("ミヤマイタチシダ")
+#'
+#'
+#'
+vv_sp_check<-function(sp.="ヒロバスゲ"){
+  subset(vv,sp==sp.)
+}
 
 

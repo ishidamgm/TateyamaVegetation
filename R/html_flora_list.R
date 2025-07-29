@@ -63,6 +63,8 @@ html_family_label <- function(species_list){
 
 #' html植物目録の作成
 #'
+#' # 米倉浩司・梶田忠 (2003-) 「BG Plants 和名－学名インデックス」（YList），http://ylist.info」
+#'
 #' @param spj　和名
 #' @param memo　メモ
 #'
@@ -73,31 +75,32 @@ html_family_label <- function(species_list){
 #'
 #' @examples
 #' spj <- c("ブナ","コナラ","スギ","アカミノイヌツゲ","イタヤカエデ","アオカラムシ","ミズナラ")
-#' memo<-c("位山","平井","平井","平井","キャンパス","位山","名古屋","位山")
-#' filename="flora_list_test.htm"
+#' (fl.<-  FloraListMaker(spj))
+#' memo.<-c("位山","平井","平井","平井","キャンパス","位山","名古屋","位山")
+#' (fl.<-  FloraListMaker(spj,memo.))
 #'
-#' (FloraList.<- FloraListMaker(spj,memo))
+#' # 植生調査植物目録
+#' sp0<-unique(vv$sp)#'
+#' (fl. <- FloraListMaker(sp0))
 #'
-#' #美松調査区の植物目録
-#' names(vv)
-#' names(APG)
-#' spj<-unique(subset(vv,plot=="Mimatsu")$sp)[1:106] #野帳から出現種を抽出
+#'# cat(fl.,file="data_raw/test_FloraList.html")  # html保存
 #'
-#' spj[is.na(match(spj,APG$種名))]
+#' # 植生調査植物目録(美松・有峰)
+#' sp0<-unique(subset(vv,plot=="Mimatsu")$sp)
+#' # cat(FloraListMaker(sp0),file="data_raw/FloraList_Mimatsu.html")
 #'
-#' memo.<-rep("Mimatsu",length(spj))
-#' (FloraList.<- FloraListMaker(spj,memo=memo.))
+#' sp0<-unique(subset(vv,plot=="Arimine")$sp)
+#' # cat(FloraListMaker(sp0),file="data_raw/FloraList_Arimine.html")
 #'
-#' #　htmlに保存　ブラウザ用
-#' #cat(FloraList., file=filename)
-#'
-FloraListMaker<-function(spj,memo){
+FloraListMaker<-function(spj=sp0,memo=NA){
   spi<-match(spj,APG$種名)
+  if(anyNA(spi))cat(spj[is.na(spi)],"はリストにありません")
+  spi<-na.omit(spi)
   sn<-APG$学名[spi]
-  spl<-APG[spi,];
+  spl<-APG[spi,]
   i <- order(spl$ID)
   spl<-spl[i,]
-  memo<-memo[i]
+  ifelse(!is.na(memo),memo<-memo[i],memo<-rep("",length(spj)))
 
   fn<-length(unique(spl$科名));gn<-length(unique(spl$属名));spn<-length(unique(spl$種名))
   (z_<-paste(fn,"科 ",gn,"属 ",spn,"種",sep=""))  #　分類群の数
@@ -119,12 +122,12 @@ FloraListMaker<-function(spj,memo){
     if(ii==1 | (ii!=1 && spl$科名[ii]!=spl$科名[ii-1]) ) {fl.<-paste0(html_family_label(spl[ii,]))} else {fl.<-""}
 
     sp.<-paste(
-      "<tr>","<td>","<font size=-1 face =\"ＭＳ 明朝,平成明朝\">",spl$種名[ii],"</font>","</td>",
-      "<td>","<font size=-1 face =\"Times New Roman\">",html_science_name(spl$学名[ii]),
+      "<tr>","<td>","<font size=-0 face =\"ＭＳ 明朝,平成明朝\">",spl$種名[ii],"</font>","</td>",
+      "<td>","<font size=-0 face =\"Times New Roman\">",html_science_name(spl$学名[ii]),
       "</font>","</td>","</tr>",sep="")
 
     if(is.null(memo[ii])){memo.<-""}else{
-      memo.<-paste("<tr>","<td>","</td>","<td>","<font size=\"-3\" face =\"ＭＳ 明朝,平成明朝\">","　",memo[ii],"</font>","</td>","</tr>",sep="")
+      memo.<-paste("<tr>","<td>","</td>","<td>","<font size=\"-2\" face =\"ＭＳ 明朝,平成明朝\">","　",memo[ii],"</font>","</td>","</tr>",sep="")
     }
 
     l<-paste(l,fl.,sp.,memo.)
@@ -184,9 +187,15 @@ RData_flora<-function(){
 #'
 #' @examples
 #' head(APG)
-#' sp.<-c("ブナ","ハイマツ","リュウキュウマツ","イソマツ")
+#' sp.<-c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ")
+#' sp..<-c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ")
 #' cat("以下はAPGリストにありません")
 #' data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+#' data.frame(sp=sp..[!is.element(sp.,APG$種名)])
+#' is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$別名)
+#' is.element(c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ"),YList$和名)
+#'
+#'
 #'
 #'
 RData_APG<-function(){
@@ -194,4 +203,16 @@ RData_APG<-function(){
 }
 
 
+# YList<-read.csv("data_raw/20210514YList.csv")
+# # 米倉浩司・梶田忠 (2003-) 「BG Plants 和名－学名インデックス」（YList），http://ylist.info」
+# names(YList)
+# is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$和名)
+# is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$別名)
+#
+# flora
+# is.element(c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ"),YList$和名)
+#
+# match(c("コイワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","コゴメグサ","タテヤマオウギ"),YList$和名)
+# YList$和名[match(c("コイワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","コゴメグサ","タテヤマオウギ"),YList$別名)]
 
+# write.csv(flora,file="data_raw/flora_old.csv")
