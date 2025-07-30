@@ -65,7 +65,7 @@ treemap <-function(plot.name="Mimatsu"){
   interp_res <-rasXYZ[[which(names(rasXYZ)==plot.name)]]
   interp_df<-ggplot_contour_data(interp_res)
   # Trees location
-  df <- subset(dd4,plot==plot.name & !is.na(d06))
+  df <- subset(ForestTrees,plot==plot.name & !is.na(d06))
 
   #grid
   .<-plt[plt$na==plot.name,]

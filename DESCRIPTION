@@ -1,7 +1,7 @@
 Package: TateyamaVegetation
 Type: Package
 Title: 富山県立山植生モニタリング調査
-Version: 0.1.20250728
+Version: 0.1.20250731
 Authors@R: c(
     person("Megumi", "Ishida", email = "ishidam@sanchikanri.com", role = c("aut", "cre")),
     person("Haruki", "Nakajima", role = "aut"),
@@ -15,8 +15,7 @@ Depends:
     tidyverse,
     ggrepel,
     metR,
-    tools,
-    TateyamaForest
+    tools
 Suggests: 
     testthat,
     knitr,
