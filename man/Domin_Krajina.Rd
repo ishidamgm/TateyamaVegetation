@@ -16,4 +16,8 @@ Domin_Krajina(cv)
 
 Domin_Krajina(26.5)
 
+cover<-seq(0,100,1)
+plot(cover, Domin_Krajina(cover),type="l")
+
+
 }

@@ -1,0 +1,512 @@
+ii
+nrow(spl)
+spl$科名
+spl$種名
+spj<-unique(subset(vv,plot=="Mimatsu")$sp)[1:106]
+memo.<-rep("Mimatsu",length(spj))
+(FloraList.<- FloraListMaker(spj,memo=memo.))
+spj
+match(spj,vv$種名)
+spj
+names(vv)
+APG$種名.和名.
+names(APG)
+head(APG)
+match(spj,APG$種名)
+spj
+match(spj,APG$種名)
+spj[is.na(match(spj,APG$種名))]
+install.packages("roxygen2")
+install.packages("C:/Users/zero/Dropbox/00D/00/立山植生モニタリング事業/第05期/2025/TateyamaVegetation_0.1.20250612.tar.gz", repos = NULL, type = "source")
+---
+title: "R Notebook"
+plot(cars)
+head(vv)
+head(flora)
+flora$美松
+flora$美松!=""
+head(flora)
+flora[flora$美松!="",c("spj","sp")]
+sp.<-c("ブナ","ハイマツ","リュウキュウマツ")
+is.element(sp.,flora$spj)
+sp.[!is.element(sp.,flora$spj)]
+sp.<-c("ブナ","ハイマツ","リュウキュウマツ","イソマツ")
+sp.[!is.element(sp.,flora$spj)]
+print(sp.[!is.element(sp.,flora$spj)],"はfloraリストにありません")
+print(paste(sp.[!is.element(sp.,flora$spj)],"はfloraリストにありません"))
+cat(paste(sp.[!is.element(sp.,flora$spj)],"はfloraリストにありません"))
+cat("以下はfloraリストにありません")
+sp.[!is.element(sp.,flora$spj)]
+flora[flora$美松!="",c("spj","sp")]
+sp.<-c("ブナ","ハイマツ","リュウキュウマツ","イソマツ")
+cat("以下はfloraリストにありません")
+sp.[!is.element(sp.,flora$spj)]
+data.frame(sp.[!is.element(sp.,flora$spj)])
+data.frame(sp=sp.[!is.element(sp.,flora$spj)])
+cat("以下はfloraリストにありません")
+data.frame(sp=sp.[!is.element(sp.,flora$spj)])
+nrow(APG)
+data()
+save(APG,file="data/APG.RData")
+head(APG)
+head(APG)
+#' sp.<-c("ブナ","ハイマツ","リュウキュウマツ","イソマツ")
+sp.<-c("ブナ","ハイマツ","リュウキュウマツ","イソマツ")
+cat("以下はAPGリストにありません")
+data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+sp.<-c("ブナ","ハイマツ","リュウキュウマツ","イソマツ")
+cat("以下はAPGリストにありません")
+data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+APG
+# 植生調査とりまとめ
+入力野帳
+立山植生のフローラリスト
+vv
+subset(vv,plot="Mimatsu")
+subset(vv,plot=="Mimatsu")
+vv<-vv
+View(vv)
+# 立山植生モニタリングIII期_植物目録作成.R  //Ishiad　####
+##  学名データ格納 ###########
+#
+#
+l<-APG # read.csv("m:/00d/文献/Flora/種名.csv",as.is=TRUE)
+names(l)
+spj<-l$種名 #match("ブナ",spj))
+APG
+library(TateyamaVegetation)
+APG
+flora
+lines <- readLines("R/html_flora_list.R", encoding = "UTF-8")
+lines <- gsub('¥"', '"', lines, fixed = TRUE)
+lines <- gsub('¥n', '\\n', lines, fixed = TRUE)
+writeLines(lines, "R/html_flora_list_fixed.R", useBytes = TRUE)
+library(TateyamaVegetation)
+vv
+vv$plot=="Arinine"
+subset(vv,plot=="Arimine")
+flora$有峰
+flora$有峰!=""
+flora
+subset(flora,有峰!="")$spj
+flora
+subset(flora,有峰!="" | 有峰!="0")$spj
+subset(flora,有峰!="" &  有峰!="0")$spj
+vv
+paste("_",和科名,sep="")
+library(TateyamaVegetation)
+package_docs_with_examples("TateyamaVegetation")
+hindo(seq(0,1,.1))
+hindo(seq(0,1,.1))
+hindo(0.1)
+seq(0,1,.1
+)
+hindo(seq(0,1,.1))
+saaply(seq(0,1,.1),hindo
+)
+sapply(seq(0,1,.1),hindo)
+vv
+vv
+library(TateyamaForest)
+library(TateyamaVegetation)
+vv
+subset(vv,plot=="Arimine")
+subset(flora,plot=="Arimine")
+flora
+flora
+subset(flora,plot=="Arimine")
+subset(flora,plot=="有峰")
+subset(flora,"有峰"!=0)
+subset(flora,有峰!=0)
+subset(flora,有峰!=0| 有峰!="")
+subset(flora,有峰!=0 & 有峰!="")
+subset(vv,plot=="Arimine")
+d<-subset(vv,plot=="Arimine")
+unique(d$sp)
+sp.<-unique(d$sp)
+i<-1
+d$sp==sp.[i]
+i<-d$sp==sp.[i]
+d$dk01[i]
+sym(d$dk01[i])
+sum(d$dk01[i])
+tapply(d$dk01,sp.[j],sum)
+i<-d$sp==sp.[i]
+tapply(d$dk01,"ブナ",sum)
+tapply(d$dk01,d$sp,sum)
+tapply(d$c02,d$sp,sum)
+tapply(d$dk01,d$sp,sum)
+cbind(
+tapply(d$dk01,d$sp,sum),
+tapply(d$c02,d$sp,sum)
+)
+cbind(
+tapply(d$dk01,d$sp,sum),
+tapply(d$c02,d$sp,sum),
+tapply(d$c04,d$sp,sum),
+tapply(d$c04,d$sp,sum)
+)
+data.frame(
+cbind(
+tapply(d$dk01,d$sp,sum),
+tapply(d$c02,d$sp,sum),
+tapply(d$c04,d$sp,sum),
+tapply(d$c04,d$sp,sum))
+)
+data.frame(
+cbind(
+t1=tapply(d$dk01,d$sp,sum),
+tapply(d$c02,d$sp,sum),
+tapply(d$c04,d$sp,sum),
+tapply(d$c04,d$sp,sum))
+)
+data.frame(
+cbind(
+c01=tapply(d$dk01,d$sp,sum),
+c02=tapply(d$c02,d$sp,sum),
+c03=tapply(d$c04,d$sp,sum),
+c04=tapply(d$c04,d$sp,sum))
+)
+PlotSpecies_1to4 ("美松")
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#'
+#' PlotSpecies_1to4 ("美松")
+#'
+#'  PlotSpecies_1to4 ("有峰")
+#'
+PlotSpecies_1to4 <-function(調査地="有峰"){
+d<-subset(vv,plot=="Arimine")
+sp.<-unique(d$sp)
+return(
+data.frame(
+cbind(
+c01=tapply(d$dk01,d$sp,sum),
+c02=tapply(d$c02,d$sp,sum),
+c03=tapply(d$c04,d$sp,sum),
+c04=tapply(d$c04,d$sp,sum))
+)
+)
+}
+PlotSpecies_1to4 ("美松")
+PlotSpecies_1to4 ("有峰")
+( df <-　PlotSpecies_1to4 ("美松"))
+write.table(df, "clipboard", sep = "\t")
+write.csv(df, "data_raw/"PlotSpecies美松.csv")
+write.csv(df, "data_raw/PlotSpecies美松.csv")
+usethis::use_git()
+library(TateyamaVegetation)
+detach("package:TateyamaForest", unload = TRUE)
+library(TateyamaForest)
+detach("package:TateyamaVegetation", unload = TRUE)
+library(TateyamaVegetation)
+head(APG)
+sp.<-c("ブナ","ハイマツ","リュウキュウマツ","イソマツ")
+cat("以下はAPGリストにありません")
+data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+spj <- c("ブナ","コナラ","スギ","アカミノイヌツゲ","イタヤカエデ","アオカラムシ","ミズナラ")
+memo<-c("位山","平井","平井","平井","キャンパス","位山","名古屋","位山")
+filename="flora_list_test.htm"
+(FloraList.<- FloraListMaker(spj,memo))
+#美松調査区の植物目録
+names(vv)
+names(APG)
+spj<-unique(subset(vv,plot=="Mimatsu")$sp)[1:106] #野帳から出現種を抽出
+spj[is.na(match(spj,APG$種名))]
+memo.<-rep("Mimatsu",length(spj))
+(FloraList.<- FloraListMaker(spj,memo=memo.))
+spj
+spj
+memo.<-rep("Mimatsu",length(spj))
+(FloraList.<- FloraListMaker(spj,memo=memo.))
+memo.
+spj
+(FloraList.<- FloraListMaker(spj,memo=memo.))
+spj<-spj[is.na(match(spj,APG$種名))]
+memo<-rep("Mimatsu",length(spj))
+(FloraList.<- FloraListMaker(spj,memo=memo))
+spi<-match(spj,APG$種名)
+sn<-APG$学名[spi]
+spl<-APG[spi,];
+i <- order(spl$ID)
+spl<-spl[i,]
+memo<-memo[i]
+memo
+spj
+(spj<-spj[is.na(match(spj,APG$種名))])
+APG$種名
+which(APG$種名=="ブナ")
+which(APG$種名=="イ")
+(spj<-spj[is.na(match(spj,APG$種名))])
+flora
+which(flora$spj=="コイワカガミ")
+which(flora$spj=="イ")
+which(flora$spj=="ヒロバスゲ")
+head(APG)
+spj[is.na(match(spj,APG$種名))]
+YList<-read.csv("data_raw/20210514YList.csv")
+# 米倉浩司・梶田忠 (2003-) 「BG Plants 和名－学名インデックス」（YList），http://ylist.info」
+names(YList)
+YList$和名
+spj[is.na(match(spj,APG$種名))]   #APGリストには無い
+is.elements("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$和名)
+is.elements(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$和名)
+is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$和名)
+flora
+is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イグサ","コゴメグサ","タテヤマオウギ"),YList$和名)
+is.element(c("コイワカガミ","オオバユキザサ","アキノキリンソウ","イグサ","コゴメグサ","タテヤマオウギ"),YList$和名)
+is.element(c("コイワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","コゴメグサ","タテヤマオウギ"),YList$和名)
+is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$別名)
+which(c("コイワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","コゴメグサ","タテヤマオウギ"),YList$和名)
+match(c("コイワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","コゴメグサ","タテヤマオウギ"),YList$和名)
+is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$別名)
+match(c("コイワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","コゴメグサ","タテヤマオウギ"),YList$^別名)
+match(c("コイワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","コゴメグサ","タテヤマオウギ"),YList$別名)
+YList$和名[match(c("コイワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","コゴメグサ","タテヤマオウギ"),YList$別名)]
+is.element(c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ"),YList$和名)
+is.element(c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ"),YList$和名)
+head(APG)
+sp.<-c("ブナ","ハイマツ","リュウキュウマツ","イソマツ")
+cat("以下はAPGリストにありません")
+data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+APG
+data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+sp.<-c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ")
+cat("以下はAPGリストにありません")
+data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$別名)
+data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+data.frame(sp=sp..[!is.element(sp.,APG$種名)])
+sp..<-c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ")
+cat("以下はAPGリストにありません")
+data.frame(sp=sp.[!is.element(sp.,APG$種名)])
+data.frame(sp=sp..[!is.element(sp.,APG$種名)])
+data.frame(sp=sp..[!is.element(sp.,APG$種名)])
+flora
+write.csv(flora,file="data_raw/flora_old.csv)
+# RData_flora.R
+# これまでの出現種
+unique(vv$sp)
+YList<-read.csv("data_raw/20210514YList.csv")
+(sp0<-unique(vv$sp))
+is.element(sp0,YList$和名)
+sp0[!is.element(sp0,YList$和名)]
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+(sp0<-unique(vv$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+match(sp_na,YList$別名)
+YList$和名[match(sp_na,YList$別名)]
+data.frame(sp_na,sp_na2)
+(sp_na2 <- YList$和名[match(sp_na,YList$別名)])　#同種異名
+data.frame(sp_na,sp_na2)
+sp_exc <- data.frame(sp_na,sp_na2)
+sp_exc$sp_na2
+sp_exc <- data.frame(sp_na,sp_na2)
+sp_exc
+sp_exc$sp_na2[1]<-"ハウチワカエデ"
+sp_exc$sp_na2[4]<-"ヤマトユキザサ"
+sp_exc$sp_na2[6]<-"ネズコ"
+sp_exc$sp_na2[7]<-"ゼンテイカ"
+sp_exc$sp_na2[12]<-"イグサ"
+sp_exc
+# 「水面」と「カヤツリグサ科」【未同定】はそのまま
+sp_exc$sp_na2[8]<-"カヤツリグサ科"
+sp_exc$sp_na2[11]<-"水面"
+sp_exc
+vv$sp
+match(sp.,vv$sp)
+#　種名置換
+vv_new<-vv
+vv_new<-vv
+for(ii in 1:nrow(sp_exc)){
+sp.<-sp_exc$sp_na1[i]
+vv_new$sp[match(sp.,vv$sp)]<-sp_exc$sp_na2[i]
+}
+save(flora,file="data_raw/flora_old.RData")
+sp_exc
+names(YList)
+# これまでの出現種
+(sp0<-unique(vv$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+vv_old<-vv
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+vv_new<-vv
+for(ii in 1:nrow(sp_exc)){
+sp.<-sp_exc$sp_na1[i]
+vv_new$sp[match(sp.,vv$sp)]<-sp_exc$sp_na2[i]
+}
+sp_exc
+sp_exc
+vv_new<-vv
+for(ii in 1:nrow(sp_exc)){
+sp.<-sp_exc$sp_na1[i]
+vv_new$sp[match(sp.,vv$sp)]<-sp_exc$sp_na2[i]
+}
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+vv_new
+vv_new$sp[match(sp.,vv_new$sp)]<-sp_exc$sp_na2[i]
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+sp_exc
+vv_new<-vv
+for(ii in 1:nrow(sp_exc)){
+sp.<-sp_exc$sp_na1[i]
+vv_new$sp[match(sp.,vv_new$sp)]<-sp_exc$sp_na2[i]
+}
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+for(i in 1:nrow(sp_exc)){
+sp.<-sp_exc$sp_na1[i]
+vv_new$sp[match(sp.,vv_new$sp)]<-sp_exc$sp_na2[i]
+}
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+sp_exc$sp_na2[i]
+sp.<-sp_exc$sp_na1[i]
+sp.
+sp.<-sp_exc$sp_na1[i]
+sp.
+sp_exc$sp_na1
+sp_exc
+for(i in 1:nrow(sp_exc)){
+sp.<-sp_exc$sp_na[i]
+vv_new$sp[match(sp.,vv$sp)]<-sp_exc$sp_na2[i]
+}
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+sp.
+match(sp.,vv$sp)
+sp_exc$sp_na2[i]
+vv_new$sp[match(sp.,vv$sp)]<-sp_exc$sp_na2[i]
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+sp_exc
+vv_new<-vv
+for(i in 1:nrow(sp_exc)){
+sp.<-sp_exc$sp_na[i]
+vv_new$sp[match(sp.,vv$sp)]<-sp_exc$sp_na2[i]
+}
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+vv_new<-vv
+for(i in 1:nrow(sp_exc)){
+sp.<-sp_exc$sp_na[i]
+vv_new$sp[match(sp.,vv_new$sp)]<-sp_exc$sp_na2[i]
+}
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+sp_exc
+1:nrow(sp_exc)
+sp.
+match(sp.,vv_new$sp)
+vv_new$sp[match(sp.,vv_new$sp)]
+sp_exc$sp_na2[i]
+for(i in 1:nrow(sp_exc)){
+sp.<-sp_exc$sp_na[i]
+vv_new$sp[match(sp.,vv_new$sp)]<-sp_exc$sp_na2[i]
+}
+(sp0<-unique(vv_new$sp))
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+#　YList$和名にない種
+(sp_na <- sp0[!is.element(sp0,YList$和名)])
+(sp_na2 <- YList$和名[match(sp_na,YList$別名)])
+(sp_exc <- data.frame(sp_na,sp_na2))
+#　種名置換　####
+sp_exc$sp_na2[1]<-"ハウチワカエデ"
+sp_exc$sp_na2[4]<-"ヤマトユキザサ"
+sp_exc$sp_na2[6]<-"ネズコ"
+sp_exc$sp_na2[7]<-"ゼンテイカ"
+sp_exc$sp_na2[12]<-"イグサ"
+(sp_exc <- data.frame(sp_na,sp_na2))
+sp_exc
+matrix(cn=2,
+c(
+"","ハウチワカエデ",
+"","ヤマトユキザサ",
+"","ネズコ",
+"","ゼンテイカ",
+"","イグサ",
+# 「水面」と「カヤツリグサ科」【未同定】はそのまま
+"カヤツリグサ科","カヤツリグサ科",
+"水面","水面"
+)
+)
+matrix(nc=2,
+c(
+"","ハウチワカエデ",
+"","ヤマトユキザサ",
+"","ネズコ",
+"","ゼンテイカ",
+"","イグサ",
+# 「水面」と「カヤツリグサ科」【未同定】はそのまま
+"カヤツリグサ科","カヤツリグサ科",
+"水面","水面"
+)
+)
+setwd("~/8T/Dropbox/00D/00/立山植生モニタリング事業/第05期/2025/TateyamaVegetation/data_raw")
+read.csv("PlotSpecies美松.csv",fileEncodeing="utf-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="utf8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF8")
+read.csv("PlotSpecies美松.csv")
+setwd("~/8T/Dropbox/00D/00/立山植生モニタリング事業/第05期/2025/TateyamaVegetation/data_raw/original/植物目録/Flora")
+read.csv("種名APG.csv",as.is=TRUE,fileEncoding="cp932")
+read.csv("種名APG.csv",as.is=TRUE,fileEncoding="SHIF-JIS")
+read.csv("種名APG.csv",as.is=TRUE,fileEncoding="cp932")
+read.csv("種名APG.csv",as.is=TRUE,fileEncoding="SHIFT-JIS")
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="SHIFT-JIS")
+read.csv("PlotSpecies美松.csv")
+dir()
+setwd("~/8T/Dropbox/00D/00/立山植生モニタリング事業/第05期/2025/TateyamaVegetation/data_raw")
+read.csv("PlotSpecies美松.csv")
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="utf8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="utf-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing=”UTF-8”)
+read.csv("PlotSpecies美松.csv",fileEncodeing=”UTF-8”)
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="UTF-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="SHIFT-JIS")
+read.csv("種名APG.csv",as.is=TRUE,fileEncoding="SHIFT-JIS")
+read.csv("PlotSpecies美松.csv",fileEncodeing="utf-8")
+read.csv("PlotSpecies美松.csv",encodeing="UTF8")
+read.csv("PlotSpecies美松.csv",encodeing="UTF-8")
+read.csv("PlotSpecies美松.csv",encodeing="utf-8")
+read.csv("PlotSpecies美松.csv", fileEncoding = "utf-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing="utf-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing = "utf-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing = "utf-8")
+read.csv("PlotSpecies美松.csv", fileEncoding = "utf-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing = "utf-8")
+read.csv("PlotSpecies美松.csv",fileEncodeing = "utf-8")
+read.csv("PlotSpecies美松.csv", fileEncoding = "utf-8")
+read.csv("PlotSpecies美松.csv",fileEncoding="SHIFT-JIS")
+read.csv("PlotSpecies美松.csv", fileEncoding = "utf-8")
+dir()
+cd data_raw
+setwd("~/Dropbox/00D/00/立山植生モニタリング事業/第05期/2025/TateyamaVegetation/data_raw")
+library(TateyamaVegetation)
+help(package="TateyamaVegetation")
+data(package="TateyamaVegetation")
+d<-subset(vv,plot=="Arimine")
+View(d)
+plt
+load("~/Dropbox/00D/00/立山植生モニタリング事業/第05期/2025/TateyamaVegetation/data/PlotProfile.RData")
+View(PlotProfile)
+load("~/Dropbox/00D/00/立山植生モニタリング事業/第05期/2025/TateyamaVegetation/data/plt.RData")
+View(plt)
+nrow(vv)
+library(TateyamaVegetation)

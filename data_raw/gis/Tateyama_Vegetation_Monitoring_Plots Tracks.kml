@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="Tateyama_Vegetation_Monitoring_Plots_Tracks" id="Tateyama_Vegetation_Monitoring_Plots_Tracks">
+	<SimpleField name="id" type="float"></SimpleField>
+</Schema>
+<Folder><name>Tateyama_Vegetation_Monitoring_Plots_Tracks</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">1</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.467204828294,36.5832802921567 137.466141569632,36.5830565406016 137.466405551093,36.5821909692683 137.46749080821,36.5824088350757 137.467204828294,36.5832861803467</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">2</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.467270823659,36.5791996684443 137.466742860737,36.5783517195686 137.467886780402,36.5779277416385 137.468238755683,36.5788345804867 137.46731482057,36.5791878914404</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">3</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.479853939966,36.5814372665974 137.478842011033,36.5811192960761 137.479208651951,36.5803302524588 137.480220580884,36.5806717797905 137.479853939966,36.5814137132703</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">4</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.506398742432,36.5718975812899 137.505988104604,36.5710259957291 137.507029364811,36.570684425732 137.507366674456,36.5715795714818 137.506398742432,36.5718858031722</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">5</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.554635854814,36.5738924740554 137.55357992897,36.5741633632687 137.553559763719,36.5741147799471 137.554615689563,36.5738438905634 137.554635854814,36.5738895296022</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">6</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.559946648511,36.5709155745591 137.558824727302,36.5710333571348 137.558707402208,36.570562225754 137.559836656236,36.5704562207973 137.559931982875,36.5709155745591</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">7</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.55320045562,36.5620048019278 137.552085867229,36.5620754796477 137.552019871864,36.5616455225185 137.553112461799,36.5615395053243 137.55320045562,36.5620048019278</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">8</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.575692042737,36.5819098037027 137.575655378645,36.5821291423731 137.575371231933,36.5821011730471 137.575422561662,36.5818656414789 137.575693875941,36.5819098037027</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">9</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.605307462891,36.5666561414653 137.605138808069,36.5666635032876 137.605142474478,36.566554548247 137.605314795709,36.5665516035141 137.605307462891,36.5666531967363</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Tateyama_Vegetation_Monitoring_Plots_Tracks">
+		<SimpleData name="id">10</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>137.428436217621,36.4970275966971 137.428744195992,36.4961669565725 137.429712128016,36.4964616974181 137.429360152734,36.4973223342671 137.428450883258,36.4970275966971</coordinates></LineString></MultiGeometry>
+  </Placemark>
+</Folder>
+</Document></kml>

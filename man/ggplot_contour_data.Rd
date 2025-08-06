@@ -21,7 +21,7 @@ Akimaのinterpで出力したコンタデータをggplotのgeom_contour
 plot.name<-"Bunazaka" #"Mimatsu"
 interp_res <-rasXYZ[[which(names(rasXYZ)==plot.name)]]
 interp_df<-ggplot_contour_data(interp_res)
-ggplot() +
-geom_contour(data = interp_df, aes(x = x, y = y, z = z), color = "blue")
+ggplot2::ggplot() +
+ggplot2::geom_contour(data = interp_df, ggplot2::aes(x = x, y = y, z = z), color = "blue")
 
 }

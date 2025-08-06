@@ -2,7 +2,8 @@
 % Please edit documentation in R/TreeMap.R
 \name{treemap_ggplot}
 \alias{treemap_ggplot}
-\title{Title}
+\title{樹木位置図(ggplt2)
+木が混み合っていてもラベルが重ならないように図化}
 \usage{
 treemap_ggplot(df)
 }
@@ -10,7 +11,8 @@ treemap_ggplot(df)
 \item{df}{}
 }
 \description{
-Title
+樹木位置図(ggplt2)
+木が混み合っていてもラベルが重ならないように図化
 }
 \examples{
 

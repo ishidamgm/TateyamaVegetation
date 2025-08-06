@@ -2,12 +2,14 @@
 % Please edit documentation in R/RData.R
 \name{RData_LandMarks}
 \alias{RData_LandMarks}
-\title{data/RData}
+\title{data/RData
+　中島さんのデータ}
 \usage{
 RData_LandMarks()
 }
 \description{
 data/RData
+　中島さんのデータ
 }
 \examples{
 head(LandMarks)

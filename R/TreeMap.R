@@ -1,4 +1,5 @@
-#' Title
+#' 樹木位置図(ggplt2)
+#' 木が混み合っていてもラベルが重ならないように図化
 #'
 #' @param df
 #'
@@ -18,15 +19,15 @@
 #' )
 #' treemap_ggplot(df)
 #' #'
-treemap_ggplot <-function(df){
-  ggplot(df, aes(x, y)) +
-    geom_point(aes(size = dbh), shape = 21, fill = "lightblue", color = "black") +
-    geom_text_repel(aes(label = id), size = 3, nudge_y = 5) +  # IDを上に
-    geom_text(aes(label = species), size = 3, hjust = -0.2, vjust = 0.2) +  # 樹種
-    geom_text(aes(label = vigor), size = 2, hjust = 1.2, vjust = 1.2, color = "gray40") +  # 活力度
-    scale_size(range = c(2, 8)) +
-    theme_minimal() +
-    labs(title = "樹木位置図（ラベル付き）", x = "X", y = "Y")
+treemap_ggplot <- function(df) {
+  ggplot2::ggplot(df, ggplot2::aes(x, y)) +
+    ggplot2::geom_point(ggplot2::aes(size = dbh), shape = 21, fill = "lightblue", color = "black") +
+    ggrepel::geom_text_repel(ggplot2::aes(label = id), size = 3, nudge_y = 5) +
+    ggplot2::geom_text(ggplot2::aes(label = species), size = 3, hjust = -0.2, vjust = 0.2) +
+    ggplot2::geom_text(ggplot2::aes(label = vigor), size = 2, hjust = 1.2, vjust = 1.2, color = "gray40") +
+    ggplot2::scale_size(range = c(2, 8)) +
+    ggplot2::theme_minimal() +
+    ggplot2::labs(title = "樹木位置図（ラベル付き）", x = "X", y = "Y")
 }
 
 #' Title
@@ -48,12 +49,11 @@ treemap_ggplot <-function(df){
 #'
 #' #'
 #' treemap("Mimatsu")
-#'  treemap("Mimatsu")+ ylim(c(45, 105))
+#'  treemap("Mimatsu")+ ggplot2::ylim(c(45, 105))
 #'
-
 #'
 #' treemap("Arimine")
-#'  treemap("Arimine")+ xlim(c(-5, 55))+ ylim(c(-5, 60))
+#'  treemap("Arimine")+ ggplot2::xlim(c(-5, 55))+ ggplot2::ylim(c(-5, 60))
 #'
 #'
 #'
@@ -68,39 +68,39 @@ treemap <-function(plot.name="Mimatsu"){
   df <- subset(ForestTrees,plot==plot.name & !is.na(d06))
 
   #grid
-  .<-plt[plt$na==plot.name,]
-  x_grid<-seq(0,.$px,.$step)
-  y_grid<-seq(0,.$py,.$step)
-  v.grid<- geom_vline(xintercept =  x_grid, linetype = "dashed", color = "red")
-  h.grid<- geom_hline(yintercept =  y_grid, linetype = "dashed", color = "red")
+  .<-plt[plt$plot_name==plot.name,]
+  x_grid<-seq(0,.$plot_width,.$subplot_width)
+  y_grid<-seq(0,.$plot_height,.$subplot_height)
+  v.grid<- ggplot2::geom_vline(xintercept =  x_grid, linetype = "dashed", color = "red")
+  h.grid<- ggplot2::geom_hline(yintercept =  y_grid, linetype = "dashed", color = "red")
 
   # subplot
     .<-subset(subplot_xy,plot==plot.name)
-    subplot<- geom_text(data=.,aes(label = subplot), size = 20, color="orange") #, alpha = 0.5
+    subplot<-  ggplot2::geom_text(data=.,ggplot2::aes(label = subplot), size = 20, color="orange") #, alpha = 0.5
 
   #topo
     walk1 <- NULL; walk2 <- NULL
     stream1 <- NULL; stream2 <- NULL
     .<-topo
     .<-subset(.,plot==plot.name)
-    stream1 <- geom_path(data=subset(.,sp=="stream1"),aes(x = x, y = y), linewidth = 2, color="skyblue")
-    stream2 <- geom_path(data=subset(.,sp=="stream2"),aes(x = x, y = y), linewidth = 2, color="skyblue")
-    walk1   <- geom_path(data=subset(.,sp=="walk1"),aes(x = x, y = y), linewidth = 2, color="red",linetype = "dashed")
-    walk2   <- geom_path(data=subset(.,sp=="walk2"),aes(x = x, y = y), linewidth = 2, color="red",linetype = "dashed")
+    stream1 <-  ggplot2::geom_path(data=subset(.,sp=="stream1"),ggplot2::aes(x = x, y = y), linewidth = 2, color="skyblue")
+    stream2 <-  ggplot2::geom_path(data=subset(.,sp=="stream2"),ggplot2::aes(x = x, y = y), linewidth = 2, color="skyblue")
+    walk1   <-  ggplot2::geom_path(data=subset(.,sp=="walk1"),ggplot2::aes(x = x, y = y), linewidth = 2, color="red",linetype = "dashed")
+    walk2   <-  ggplot2::geom_path(data=subset(.,sp=="walk2"),ggplot2::aes(x = x, y = y), linewidth = 2, color="red",linetype = "dashed")
 
   # ggplot
-  ggplot(df, aes(x, y)) +
-    geom_contour(data = interp_df, aes(x = x, y = y, z = z), color = "gray")+
+    ggplot2::ggplot(df, ggplot2::aes(x, y)) +
+      ggplot2::geom_contour(data = interp_df, ggplot2::aes(x = x, y = y, z = z), color = "gray")+
     v.grid+h.grid+
     subplot+
-    geom_point(aes(size =d06), shape = 21, fill = "lightblue", color = "black") +
-    geom_text_repel(aes(label = lb), size = 3, nudge_y = 5) +  # IDを上に
-    geom_text(aes(label = sp), size = 3, hjust = -0.2, vjust = 0.2) +  # 樹種
-    geom_text(aes(label = f06), size = 2.5, hjust = 1.2, vjust = 1.2, color = "red", fontface = "bold") +  # 活力度
+      ggplot2::geom_point( ggplot2::aes(size =d06), shape = 21, fill = "lightblue", color = "black") +
+      ggrepel::geom_text_repel( ggplot2::aes(label = lb), size = 3, nudge_y = 5) +  # IDを上に
+      ggplot2::geom_text( ggplot2::aes(label = sp), size = 3, hjust = -0.2, vjust = 0.2) +  # 樹種
+      ggplot2::geom_text( ggplot2::aes(label = f06), size = 2.5, hjust = 1.2, vjust = 1.2, color = "red", fontface = "bold") +  # 活力度
     stream1+stream2+ walk1+ walk2 +
-    scale_size(range = c(2, 8)) +
-    theme_classic() +
-    labs(title =plot.name, x = "X (m)", y = "Y (m)")
+      ggplot2::scale_size(range = c(2, 8)) +
+      ggplot2::theme_classic() +
+      ggplot2::labs(title =plot.name, x = "X (m)", y = "Y (m)")
 
 }
 
@@ -139,7 +139,7 @@ subplot_xy_text<-function(plot.name="Mimatsu",...){
 subplot_xy_ggtext<-function(plot.name="Mimatsu"){
   .<-subset(subplot_xy,plot==plot.name)
   #ggplot(., aes(x, y))+
-    geom_text(data=.,aes(label = subplot), size = 20, color="orange", alpha = 0.5)
+  ggplot2::geom_text(data=.,ggplot2::aes(label = subplot), size = 20, color="orange", alpha = 0.5)
 }
 
 #' Title
@@ -166,7 +166,7 @@ topo_gg<-function(plot.name="Mimatsu"){
   walk1   <- geom_path(data=subset(.,sp=="walk1"),aes(x = x, y = y), linewidth = 2, color="red",linetype = "dashed", alpha = 0.5)
   walk2   <- geom_path(data=subset(.,sp=="walk2"),aes(x = x, y = y), linewidth = 2, color="red",linetype = "dashed", alpha = 0.5)
 
-  ggplot() + stream1+stream2+ walk1+ walk2
+  ggplot2::ggplot() + stream1+stream2+ walk1+ walk2
 }
 
 
@@ -185,8 +185,8 @@ topo_gg<-function(plot.name="Mimatsu"){
 #' plot.name<-"Bunazaka" #"Mimatsu"
 #' interp_res <-rasXYZ[[which(names(rasXYZ)==plot.name)]]
 #' interp_df<-ggplot_contour_data(interp_res)
-#' ggplot() +
-#' geom_contour(data = interp_df, aes(x = x, y = y, z = z), color = "blue")
+#' ggplot2::ggplot() +
+#' ggplot2::geom_contour(data = interp_df, ggplot2::aes(x = x, y = y, z = z), color = "blue")
 #'
 ggplot_contour_data <- function(interp_res=interp_res){
   #interp_res <- rasXYZ[[which(names(rasXYZ)==plot.name)]]

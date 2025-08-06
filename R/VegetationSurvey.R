@@ -10,20 +10,28 @@
 #'
 #' Domin_Krajina(26.5)
 #'
-Domin_Krajina<-function(cv){
-		if(cv==100) return(10)
-		if(cv>=75)   return(9)
-		if(cv>=50)   return(8)
-		if(cv>=33)   return(7)
-		if(cv>=20)   return(6)
-		if(cv>=10)   return(5)
-		if(cv>=5)   return(4)
-		if(cv>=3)   return(3)
-		if(cv>=2)   return(2)
-		if(cv>=1)   return(1)
-		if(cv>0)   return(0.5)
-		if(cv==0)   return(0)
-		}
+#' cover<-seq(0,100,1)
+#' plot(cover, Domin_Krajina(cover),type="l")
+#'
+#'
+Domin_Krajina <- function(cv) {
+  ifelse(cv == 100, 10,
+         ifelse(cv >= 75, 9,
+                ifelse(cv >= 50, 8,
+                       ifelse(cv >= 33, 7,
+                              ifelse(cv >= 20, 6,
+                                     ifelse(cv >= 10, 5,
+                                            ifelse(cv >= 5,  4,
+                                                   ifelse(cv >= 3,  3,
+                                                          ifelse(cv >= 2,  2,
+                                                                 ifelse(cv >= 1,  1,
+                                                                        ifelse(cv >  0,  0.5,
+                                                                               0)))))))))))
+}
+
+
+
+
 
 #' Title
 #'

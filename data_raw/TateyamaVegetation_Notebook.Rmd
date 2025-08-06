@@ -1,17 +1,31 @@
 ---
 title: "TateyamaVegetation_Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
+    toc: true
+    toc_float: true
 ---
 
 
 # パッケージTateyamaVegetationのインストール
 
+## GitHubからのインストール
+
+* zipでダウンロードしローカルでインストール
+* もしくは以下のコマンド
+devtools::install_github("ishidamgm/TateyamaVegetation", auth_token = "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")
+
+必要なパケージがある場合は適宜インストールしてください
 
 ```{r}
+
+
+
 library(TateyamaVegetation)
 
+help(package="TateyamaVegetation")
 
-#data(package="TateyamaVegetation")
 ```
 
 
@@ -30,45 +44,174 @@ library(TateyamaVegetation)
 
 # 調査地
 
+![立山植生モニタリング調査(植生・森林調査区)](img/TateyamaVegetationPlots.jpg)
 
-## 立山植生モニタリング調査　植生調査の
+[Tateyama_Alpine_route.kml](gis/Tateyama_Alpine_route.kml)
+
+[Tateyama_Vegetation_Monitoring_Plots Tracks.kml](gis/Tateyama_Vegetation_Monitoring_Plots Tracks.kml)
+
+```{r}
+TateyamaVegetationPlots 
+```
+
+```{r}
+options(dplyr.width = Inf)
+
+tibble::as_tibble(vv)
+
+tibble::as_tibble(flora)
+
+
+
+```
+
+## 調査年
+```{r}
+VegetationSurveyYears 
+VegetationYearsMatrix[1:5,"Arimine"]
+```
+
+
+
+## 立山植生モニタリング調査　植生調査
 
 ## 各調査区の植物目録の作成
 
 ## 野帳の作成
+```{r}
+FieldNote_Arimine2019_raw
+```
 
 ## 野帳の入力支援
 
 * 階層整え
 * 植物目録未登録種の確認(ミスインプットの検出含む))
 * 重複種の合算
+```{r}
+d<-FieldNote_Arimine2019_raw
+head(d)
+SpeciesNameCheck(d$種名)
+```
 
 # 野外調査の準備
+## 野帳の作成　(有峰と美松の事例)
+```{r}
+### エクセル・ファイルの書き込みに必要なパッケージ
+#library(openxlsx2)
+
+### データの読み込み
+Arimine_lbl<-VegetationSurveyYears[plt$plot_name=="Arimine",c("Vegetation001","Vegetation002","Vegetation003","Vegetation004","Vegetation005")]
+Mimatsu_lbl<-VegetationSurveyYears[plt$plot_name=="Mimatsu",c("Vegetation001","Vegetation002","Vegetation003","Vegetation004","Vegetation005")]
+
+df<-vv[vv$plot=="Arimine",]
+names(df)[6:10]<-Arimine_lbl
+
+df2<-vv[vv$plot=="Mimatsu",]
+names(df2)[6:10]<-Mimatsu_lbl
+
+### ワークブックとワークシートの作成
+wb <- openxlsx2::wb_workbook()
+wb$add_worksheet("Arimine")
+wb$add_worksheet("Mimatsu")
+
+### データの書き込み
+wb$add_data("Arimine", df, start_row = 1, start_col = 1)
+wb$add_data("Mimatsu", df2, start_row = 1, start_col = 1)
+
+### サブプロットが変わる位置で改ページ（行番号 + 1）
+subplot_changes <- which(diff(df$subplot) != 0)
+page_breaks <- subplot_changes + 1  # データ行に対して +1
+
+### 改ページの設定（openxlsx2用）
+openxlsx2::wb_add_page_break(wb,  row = page_breaks)
+
+# 保存
+#wb$save("立山植生野帳2025.xlsx", overwrite = TRUE)
+```
+
+
 
 
 
 #　
 # 野帳の入力
-野外調査で植生調査記録ExelやCalcで，スプレッド・シートに植生調査記録したデータを
+野外調査で植生調査記録ExelやCalcで，スプレッド・シートに植生調査記録したデータを入力します
 
 # 植生調査用の樹木位置図の作成
 
 
 
-
-
-
-
-
 ## 2025
-### 美松調査区
+
+### 有峰調査区
+
+```{r, warning=FALSE}
+# treemap("Amimine")
+# treemap("Mimatsu")+ ggplot2::ylim(c(45, 105))
+treemap("Arimine")+ ggplot2::xlim(c(-5, 55))+ ggplot2::ylim(c(-5, 55))
+```
+
+# これまでの結果
+```{r}
+subset(vv,plot=="Arimine")
+```
+## 植生表
+```{r}
+names(VT)
+VT[["Arimine_c04" ]]
+```
+## 植生表
+```{r}
+names(VT)
+VT[["Arimine_c04" ]]
+```
+
+### 被度とDomin-Krajina変換
+
+被度(一般的な被覆率)とDomin-Krajina被度の関係
 
 ```{r}
-treemap(plot.name = "Mimatsu")
+Domin_Krajina
 
- treemap("Mimatsu")+ ylim(c(45, 105))
- 
+cover<-seq(0,100,1)
+plot(cover, Domin_Krajina(cover),type="l")
 ```
+### 総合優占度(Kojima2006)の計算
+
+![](img/Kojima2006.png)
+
+
+総合優占度 = 100 * sqrt(平均被度 * 出現頻度 / sqrt(10)
+
+# 植物目録
+
+[FloraList Arimine](FloraList_Arimine.html)
+
+
+```{r}
+flora[, c("form","spj", "sp")]
+```
+```{r}
+VCrepo
+```
+
+
+```{r, results='asis'}
+# DT::datatable(
+#   tibble::as_tibble(flora)[, c("spj", "sp", "美女", "ブナ坂", "ブナ平", "上の小", 
+#                             "弥陀ヶ原", "美松", "松尾峠", "鏡石", "浄土", "有峰")],
+#   options = list(
+#     pageLength = 10,       # 1ページあたりの行数
+#     scrollX = TRUE         # 横スクロールを有効にする
+#   )
+# )
+```
+![](img/DominanceValues.png)
  
-#　謝辞
+# 謝辞
+
 APG植物目録() 米倉浩司・梶田忠 (2007-) 植物和名ー学名インデックスYList を利用させていただきました。
+
+
+# 引用文献
+

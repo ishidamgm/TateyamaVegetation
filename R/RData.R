@@ -14,7 +14,10 @@ RData_ForestTrees <-function(){
 
 
 #' data/RData
-#'
+#'　中島さんのデータ
+#'　
+#'　
+#'　
 #' @return
 #' @export
 #'
@@ -38,24 +41,6 @@ RData_PlotProfile<-function(){
 }
 
 
-#' data/RData
-#'
-#' @return
-#'
-#' @export
-#'
-#' @examples
-#' .<-subplot_xy
-#' head(.)
-#' table(.$plot)
-#' plot(1:100,type="n")
-#' i<-.$plot=="Bunazaka"
-#' text(.$x[i],.$y[i],.$subplot[i])
-#' RData_subplot_xy()
-#'
-RData_subplot_xy <-function(){
- print("This is data !!")
-}
 
 
 

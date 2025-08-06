@@ -4,7 +4,7 @@
 \alias{FloraListMaker}
 \title{html植物目録の作成}
 \usage{
-FloraListMaker(spj, memo)
+FloraListMaker(spj = sp0, memo = NA)
 }
 \arguments{
 \item{spj}{和名}
@@ -15,26 +15,25 @@ FloraListMaker(spj, memo)
 htmlリスト
 }
 \description{
-html植物目録の作成
+# 米倉浩司・梶田忠 (2003-) 「BG Plants 和名－学名インデックス」（YList），http://ylist.info」
 }
 \examples{
 spj <- c("ブナ","コナラ","スギ","アカミノイヌツゲ","イタヤカエデ","アオカラムシ","ミズナラ")
-memo<-c("位山","平井","平井","平井","キャンパス","位山","名古屋","位山")
-filename="flora_list_test.htm"
+(fl.<-  FloraListMaker(spj))
+memo.<-c("位山","平井","平井","平井","キャンパス","位山","名古屋","位山")
+(fl.<-  FloraListMaker(spj,memo.))
 
-(FloraList.<- FloraListMaker(spj,memo))
+# 植生調査植物目録
+sp0<-unique(vv$sp)#'
+(fl. <- FloraListMaker(sp0))
 
-#美松調査区の植物目録
-names(vv)
-names(APG)
-spj<-unique(subset(vv,plot=="Mimatsu")$sp)[1:106] #野帳から出現種を抽出
+# cat(fl.,file="data_raw/test_FloraList.html")  # html保存
 
-spj[is.na(match(spj,APG$種名))]
+# 植生調査植物目録(美松・有峰)
+sp0<-unique(subset(vv,plot=="Mimatsu")$sp)
+# cat(FloraListMaker(sp0),file="data_raw/FloraList_Mimatsu.html")
 
-memo.<-rep("Mimatsu",length(spj))
-(FloraList.<- FloraListMaker(spj,memo=memo.))
-
-#　htmlに保存　ブラウザ用
-#cat(FloraList., file=filename)
+sp0<-unique(subset(vv,plot=="Arimine")$sp)
+# cat(FloraListMaker(sp0),file="data_raw/FloraList_Arimine.html")
 
 }

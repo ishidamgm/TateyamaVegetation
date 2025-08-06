@@ -24,11 +24,11 @@ treemap("Kagamiishi")
 
 #'
 treemap("Mimatsu")
- treemap("Mimatsu")+ ylim(c(45, 105))
+ treemap("Mimatsu")+ ggplot2::ylim(c(45, 105))
 
 
 treemap("Arimine")
- treemap("Arimine")+ xlim(c(-5, 55))+ ylim(c(-5, 60))
+ treemap("Arimine")+ ggplot2::xlim(c(-5, 55))+ ggplot2::ylim(c(-5, 60))
 
 
 
