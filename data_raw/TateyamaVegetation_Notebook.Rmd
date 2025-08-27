@@ -1,10 +1,12 @@
 ---
-title: "TateyamaVegetation_Notebook"
+title: "富山県立山植生モニタリング調査(TateyamaVegetation_Notebook)"
+author: Ishida M., Nakajima H., Kojima S.
 output:
   html_document:
     df_print: paged
     toc: true
     toc_float: true
+
 ---
 
 
@@ -19,13 +21,9 @@ devtools::install_github("ishidamgm/TateyamaVegetation", auth_token = "ghp_sKyMr
 必要なパケージがある場合は適宜インストールしてください
 
 ```{r}
-
-
-
 library(TateyamaVegetation)
-
-help(package="TateyamaVegetation")
-
+library(ggplot2)
+library(ggrepel)
 ```
 
 
@@ -37,7 +35,7 @@ help(package="TateyamaVegetation")
 
 
 
-# ヘルプ　データの説明もあります
+# ヘルプ　
 ```{r}
  help(package="TateyamaVegetation")
 ```
@@ -51,7 +49,7 @@ help(package="TateyamaVegetation")
 [Tateyama_Vegetation_Monitoring_Plots Tracks.kml](gis/Tateyama_Vegetation_Monitoring_Plots Tracks.kml)
 
 ```{r}
-TateyamaVegetationPlots 
+plt
 ```
 
 ```{r}
@@ -68,7 +66,7 @@ tibble::as_tibble(flora)
 ## 調査年
 ```{r}
 VegetationSurveyYears 
-VegetationYearsMatrix[1:5,"Arimine"]
+VegetationYearsMatrix#[1:5,"Arimine"]
 ```
 
 
@@ -137,13 +135,43 @@ openxlsx2::wb_add_page_break(wb,  row = page_breaks)
 # 野帳の入力
 野外調査で植生調査記録ExelやCalcで，スプレッド・シートに植生調査記録したデータを入力します
 
+![](img/yacho.jpg)
+![](img/yacho2.jpg)
+
+
+
+### 野帳データの整理　(R)
+#### ワーキング・ディレクトリの設定
+
+#### 入力値の異常値が無いか確認
+####　空白埋め
+サブプロットと階層が空白になっているのを埋める
+
 # 植生調査用の樹木位置図の作成
 
+### 被度とDomin-Krajina変換
+
+被度(一般的な被覆率)とDomin-Krajina被度の関係
+
+```{r}
+Domin_Krajina
+
+cover<-seq(0,100,1)
+plot(cover, Domin_Krajina(cover),type="l")
+```
+
+### 総合優占度(Kojima2006)の計算
+
+
+![](img/Kojima2006.png)
+
+
+総合優占度 = 100 * sqrt(平均被度 * 出現頻度 / sqrt(10)
 
 
 ## 2025
 
-### 有峰調査区
+### 美松・有峰
 
 ```{r, warning=FALSE}
 # treemap("Amimine")
@@ -160,40 +188,127 @@ subset(vv,plot=="Arimine")
 names(VT)
 VT[["Arimine_c04" ]]
 ```
+
+
 ## 植生表
 ```{r}
 names(VT)
 VT[["Arimine_c04" ]]
 ```
 
-### 被度とDomin-Krajina変換
 
-被度(一般的な被覆率)とDomin-Krajina被度の関係
-
+# I-V集計表
+## 1. 美女平
 ```{r}
-Domin_Krajina
+plot_name　<-　"Bijodaira"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
 
-cover<-seq(0,100,1)
-plot(cover, Domin_Krajina(cover),type="l")
 ```
-### 総合優占度(Kojima2006)の計算
-
-![](img/Kojima2006.png)
 
 
-総合優占度 = 100 * sqrt(平均被度 * 出現頻度 / sqrt(10)
+## 2. ブナ坂
+```{r}
+plot_name　<-　"Bunazaka"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
+```
+
+## 3. ブナ平
+```{r}
+plot_name　<-　"Bunazaka"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
+```
+
+## 4. 上ノ小平
+```{r}
+plot_name　<-　"Kaminokodaira"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
+```
+
+## 5. 弥陀ヶ原
+```{r}
+plot_name　<-"Midagahara"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
+```
+
+## 6. 美松
+```{r}
+plot_name　<-　"Bunazaka"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
+```
+
+## 7. 松尾峠
+```{r}
+plot_name　<-　"Mimatsu"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
+```
+
+## 8. 鏡石
+```{r}
+plot_name　<-　"Matsuotoge"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
+```
+
+## 9. 浄土山
+```{r}
+plot_name　<-　"Joudosan"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
+```
+
+## 10. 有峰
+```{r}
+plot_name　<-　"Arimine"
+DT_VCrepo(plot_name)
+Fig_FrequencyCoverage(plot_name=plot_name,x="f5",y="c5")
+Fig_FrequencyDominace(plot_name=plot_name,x="f5",y="di5")
+```
+
+# 全体
+## ササの年次変動
+![ササの年次変動](img/sasa_coverage.png)
+
+
 
 # 植物目録
+[植物目録](FloraList_V.html)
+
 
 [FloraList Arimine](FloraList_Arimine.html)
 
 
 ```{r}
-flora[, c("form","spj", "sp")]
+
+DT::datatable(
+  flora[, c("spj", "form", "sp")],
+  options = list(pageLength = 10),
+  caption = "植物目録"
+)
+
+#flora[, c("spj","form", "sp")]
+
+# knitr::kable(
+#   flora[, c("form","spj", "sp")], caption = '植物目録'
+# )
+
 ```
-```{r}
-VCrepo
-```
+
 
 
 ```{r, results='asis'}

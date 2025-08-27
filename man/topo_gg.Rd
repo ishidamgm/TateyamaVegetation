@@ -2,7 +2,8 @@
 % Please edit documentation in R/TreeMap.R
 \name{topo_gg}
 \alias{topo_gg}
-\title{Title}
+\title{樹木位置図(ggplot　ラベル情報なし)
+調査用にはtreemapを利用してください}
 \usage{
 topo_gg(plot.name = "Mimatsu")
 }
@@ -10,7 +11,8 @@ topo_gg(plot.name = "Mimatsu")
 \item{plot.name}{}
 }
 \description{
-Title
+樹木位置図(ggplot　ラベル情報なし)
+調査用にはtreemapを利用してください
 }
 \examples{
 x11()

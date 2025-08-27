@@ -46,13 +46,13 @@ package_docs_with_examples <- function(package_name,
     fun_name <- tools:::.Rd_get_metadata(rd_obj, "name")
 
     # ドキュメントテキスト取得と強調記号除去
-    rd_text <- capture.output(Rd2txt(rd_obj))
+    rd_text <- capture.output(tools::Rd2txt(rd_obj))
     rd_text <- gsub("_[\b]", "", rd_text)  # _ 削除
     rd_text <- gsub("^#+", "", rd_text)    # ###削除
 
     # .Rdのexampleコードを抽出
     ex_file <- tempfile(fileext = ".R")
-    suppressWarnings(Rd2ex(rd_obj, ex_file))
+    suppressWarnings(tools::Rd2ex(rd_obj, ex_file))
     example_code <- if (file.exists(ex_file)) paste(readLines(ex_file), collapse = "\n") else ""
 
     # example() 実行チャンク
@@ -60,7 +60,7 @@ package_docs_with_examples <- function(package_name,
 
     # セクションをまとめる
     c(
-      paste0("## Function: `", fun_name, "`"),
+      paste0("##  `", fun_name, "`"),
       "",
       "**Documentation:**",
       "",

@@ -6,10 +6,112 @@
 library(dplyr)
 
 
+# vc5  VCrepoのデータフレーム化 ####
+d<-VCrepo
+vc5<-c()
+for(i in names(VCrepo)){
+  d.<- d[[i]] |> mutate(plot=i,.before=layer)
+  vc5<-rbind(vc5,d.)
+}
+
+vc5
+
+# usethis::use_data(vc5,overwrite = "TRUE")
+
 # YList読み込み ####
 # 米倉浩司・梶田忠 (2003-) 「BG Plants 和名－学名インデックス」読み込み
 YList<-read.csv("20210514YList.csv") #data_raw/
 names(YList)
+
+# 【【植】 0000-0-0000-0
+# v期ずれも記録されず
+
+sp_rare<-flora2$spj[flora2$vevetation_code=="0000-0-0000-0"]
+sp_rare
+i<-2
+vv5[vv5$sp==sp_rare[i],]
+
+d<-VCrepo$Arimine
+d[d$sp=="アカミノルイヨウショウマ",]
+
+
+
+# flora2 ####
+#flora2<-flora
+flora2$forest_code<-forest_code$forest_code[match(flora$spj, forest_code$sp)]
+flora2$vevetation_code<-vegetation_code$vegetation_code[match(flora$spj, vegetation_code$sp)]
+
+flora2 |> mutate(forest_code=forest_code$forest_code[match(flora2$spj, forest_code$sp)]) |>
+  mutate(vevetation_code=vegetation_code$vegetation_code[match(flora2$spj, vegetation_code$sp)])|>
+    mutate(NonNative_code=NonNativePlants$spc[match(flora2$spj,NonNativePlants$sp)]) ->flora2
+
+d<-flora2
+paste("【森】",d$forest_code,"【植】",d$vevetation_code,"【外】",d$NonNative_code)
+
+# usethis::use_data(flora2,overwrite = "TRUE")
+
+# 外来植物の追加 ####
+
+
+d<-NonNativePlants
+sp<-d$sp
+i<-which(is.na(match(sp,YList$和名)))
+sp[i]
+(sp_omit<-sp[i])
+
+j<-which(is.na(match(sp[i],YList$別名)))
+
+
+
+sp[sp=="イ"]<-"イグサ"
+sp[sp=="アカメヤナギ"]<-"マルバヤナギ"
+sp[sp=="アライドツメクサ"]<-"アライトツメクサ"
+
+which(YList$和名=="アライトツメクサ")
+which(YList$和名=="トヨハラツメクサ")
+which(YList$別名=="トヨハラツメクサ")
+
+NonNativePlants$sp<-sp
+
+# usethis::use_data(NonNativePlants,overwrite=T)
+
+# floraに追加すべき種
+sp_add<-sp[is.na(match(sp,flora$spj))] # floraに無いもの
+sp_add<-sp_add[-match(sp_omit,sp_add)]　　　#除外対象　(未同定)
+sp_add
+
+NonNativePlants_add2025<-sp_add
+# usethis::use_data(NonNativePlants_add2025,overwrite=T)
+
+names(flora)
+#[1] "外来ミミナグサ"       "（カノコソウ）"       "スイバ×タカネスイバ" "セイヨウタンポポ雑種" "ヨシ？"               "ヨモギ雑種"
+
+#' Title
+#'
+#' @param sp
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#'
+#' (d<-flora_new(NonNativePlants_add2025))
+#' d$form[match(c("マルバヤナギ","ドロノキ"),d$spj])<-"bl"
+#' d$form[match(c("ヤマハギ"),d$spj)]<-"bs"
+#' d
+#'
+#' flora2<-rbind(flora,d)
+#'
+#' # usethis::use_data(flora2,overwrite=T)
+#'
+flora_new<-function(sp=c("アイバソウ","マルバヤナギ","アライトツメクサ")){
+  spi<-c(); for (i in sp)spi<-c(spi,which(YList$和名==i)[1])
+  d<-YList[spi,c("LAPG.no.","ステータス","和名","学名.withAuthor","LAPG.科名","LAPG.Family")]
+  names(d)<-names(flora)
+  d$id[which(is.na(d$id))]<-which(is.na(d$id))
+  d$form<-"h"
+  return(d)
+}
 
 
 # ケヤマハンノキのfloraへの追加

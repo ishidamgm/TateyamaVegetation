@@ -2,7 +2,7 @@
 % Please edit documentation in R/TateyamaVegetationAnalysis.R
 \name{VegetationChronologyTable}
 \alias{VegetationChronologyTable}
-\title{Title}
+\title{植生経年変化表　(粗表)}
 \usage{
 VegetationChronologyTable(VT = VT, VTdk = VTdk)
 }
@@ -10,13 +10,13 @@ VegetationChronologyTable(VT = VT, VTdk = VTdk)
 \item{VTdk}{}
 }
 \description{
-Title
+植生経年変化表　(粗表)
 }
 \examples{
 
 VC<-VegetationChronologyTable(VT=VT,VTdk=VTdk)
-# usethis::use_data(VC)
-d$Arimine
+# usethis::use_data(VC,overwrite = TRUE)
+VC$Arimine
 
 
 }

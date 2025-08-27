@@ -1,3 +1,106 @@
+library(tidyverse)
+# 森林調査 ####
+# d<-tibble(dd5)
+# names(d)
+# unique(d$sp)
+# SpeciesNameCheck(d$sp)
+# d$sp[d$sp=="クロベ"]<-"ネズコ"
+# SpeciesNameCheck(d$sp)
+# dd5<-d
+# usethis::use_data(dd5)
+sum(is.na(d$plot))
+
+
+
+
+# 各調査区胸高断面積合計
+# ba_plot <- d %>% group_by(plot) %>% summarise(batotal=sum(ba,na.rm=T))
+# ba_sp <- d %>% group_by(plot,sp) %>% summarise(batotal=sum(ba,na.rm=T))
+
+#' Title
+#'
+#' @param d
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#' ForestFloraMatrix(dd5)
+#'
+ForestFloraMatrix <- function(d=dd5){
+
+  #最終調査の生存木のみ対象
+  d<-d[!is.na(d$f07>0),c("plot","sp","d07")]
+  d$ba<-pi*(d$d07/2)^2
+
+  # Bjodaira....の順番に並ぶように因子化
+  d$plot <- factor(d$plot, levels = unique(d$plot))
+
+  d.<-d %>%
+    group_by(plot, sp) %>%
+    summarise(batotal = sum(ba, na.rm = TRUE),.groups = "drop_last") %>%   #.groups = "drop_last"
+    mutate(share = batotal / sum(batotal) * 100,cls=floor(share/10)+1)
+
+  # matrix_cls ####
+  m<- d. %>%
+    select(plot, sp, cls) %>%
+    pivot_wider(
+      names_from = sp,     # 列見出しにする
+      values_from = cls    # 値にする
+    )
+
+  m[is.na(m)]<-0
+
+  return(m)
+}
+
+
+d
+
+
+#' Title
+#'
+#' @param cod
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#'
+#' ForestFloraCode(cod=m[["オオシラビソ"]])
+#'
+ForestFloraCode<-function(cod=m[["オオシラビソ"]]){
+  cod[cod>9]<-"A"
+  cod<-
+    paste(
+    paste0(cod[1:4],collapse =""),
+    paste0(cod[5:7],collapse =""),
+    paste0(cod[8:8],collapse =""),sep="-")
+  return(cod)
+}
+
+paste0(m[["オオシラビソ"]],collapse ="")
+
+d[which(is.na(d$plot)),]
+
+d <- d |> #%>%
+  dplyr::group_by(サブプロット, 階層, 種名) |> #%>%
+  dplyr::summarise(
+    across(matches("^(被度|DK)"), ~ sum(.x, na.rm = TRUE)),
+    # X = first(X),
+    # no = first(no),
+    # II_ = first(II_),
+    .groups = "drop"
+  )
+
+
+# 植生調査 ####
+unique(vv5$sp)
+
+# 外来植物調査 ####
+
+# 以下オリジナル ####
+
 # RData_flora.R
 flora<-read.csv("data_raw/第5期植物目録.csv")
 # save(flora,file="data/flora.RData")
@@ -74,7 +177,7 @@ spc<-c();for(i in 1:nrow(tab3)){
 ### write.csv(vegetation_sp,file="第Ⅳ期植生調査出現種分布一覧.csv")
 
 #########################
-###### 第Ⅳ期毎木樹木分布
+# 第Ⅳ期毎木樹木分布 #####
 #########################
 
 setwd("./stand")
@@ -115,13 +218,13 @@ spc<-c();for(i in 1:nrow(tab3)){
 
 ### write.csv(forest_sp,file="第Ⅳ期毎木樹木分布.csv")
 
-#########################
-###### 第Ⅳ期外来植物分布
-#########################
+
+# 第Ⅳ期外来植物分布 #####
+
 
 
 dir()
-d<-read.csv("第Ⅳ期外来種調査報告書用全体表.csv",skip=1,as.is=TRUE, header = FALSE)
+d<-read.csv("第Ⅳ期外来種調査報告書用全体表.csv",skip=1,as.is=TRUE, header = FALSE,fileEncoding="cp932")
 d[is.na(d)]<-""
 names(d)
 (sp<-d[5:75,1])
@@ -167,13 +270,14 @@ code1<-function(ii){
 spc<-c();for (i in 1:nrow(d2))spc<-c(spc,paste(code1(i),sep=""));spc
 spc<-substr(spc,2,999)
 (spc<-data.frame(sp,spc))
-
+# '---------------------------- ####
+# NonNativePlants<-spc # usethis::use_data(NonNativePlants) ####
 ### write.csv(spc,file="第Ⅳ期_外来種分布一覧.csv")
 ### write.table(spc,"clipboard")
 ### write.csv(data.frame(site),file="2013外来種分布一覧_site.csv")
 
 
-########### 調査データ結合
+## 調査データ結合 #########
 dir()
 l1<-read.csv("第Ⅳ期毎木樹木分布.csv" ,as.is=TRUE)
 l2<-read.csv("第Ⅳ期植生調査出現種分布一覧.csv",as.is=TRUE)
@@ -198,7 +302,7 @@ edit(sp_dat)
 ### write.csv(sp_dat,file="第Ⅳ期_全調査出現種.csv")
 
 
-#####　Ⅲ期　+　Ⅳ期
+#　Ⅲ期　+　Ⅳ期     ####
 
 d1<-read.csv("第III期全植生調査出現種分布一覧.csv" ,as.is=TRUE)
 d2<-read.csv("第Ⅳ期_全調査出現種.csv",as.is=TRUE)
@@ -234,7 +338,7 @@ mim<-substr(d$植生4,8,8)
 i<-mim!="" & mim!="0" & d$外来4!=""
 d$sp[i]
 
-##################### 以上
+# 以上 ####################
 
 
 #//////////////////////////////////////////////////////
@@ -262,9 +366,9 @@ edit(sp_dat)
 
 }
 
-############################################
 
-##### 2020立山植生モニタリング植物目録作成.R  //Ishiad
+
+# 2020立山植生モニタリング植物目録作成.R  //Ishiad ############################################
 d<-read.csv("第Ⅲ―Ⅳ期_全調査出現種.csv",as.is=TRUE)
 names(d)
 edit(d)
@@ -340,3 +444,6 @@ i.na<-which(is.na(match(unique(vv$sp),APG$種名)))
 cat("以下の種はYListにありません")
 spj.<-unique(vv$sp)[i.na]
 spj.
+
+
+

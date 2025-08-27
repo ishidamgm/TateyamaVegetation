@@ -3,7 +3,7 @@
 \docType{data}
 \name{plt}
 \alias{plt}
-\title{plt}
+\title{data/plt}
 \format{
 An object of class `data.frame`.
 }
@@ -14,7 +14,7 @@ automatically generated skeleton
 data(plt)
 }
 \description{
-plt
+data/plt
 }
 \examples{
 plt

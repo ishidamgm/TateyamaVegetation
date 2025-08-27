@@ -3,7 +3,8 @@
 \docType{data}
 \name{VT}
 \alias{VT}
-\title{VT  Vegtaion cross table for the period V (2020-2025)}
+\title{data/ 植生調査票(2020-2025)
+VT  Vegtaion cross table for the period V (2020-2025)}
 \format{
 An object of class `list` of  `tbl_df`.
 }
@@ -14,6 +15,7 @@ automatically generated skeleton
 data(VT)
 }
 \description{
+data/ 植生調査票(2020-2025)
 VT  Vegtaion cross table for the period V (2020-2025)
 }
 \examples{

@@ -3,20 +3,21 @@
 \docType{data}
 \name{vv5}
 \alias{vv5}
+\alias{dd5}
 \alias{VTdk}
-\alias{VC}
-\title{vv5 for the period I-V (2020-2025)}
+\title{data/ 1-5期調査区サブプロット植生調査生データ
+vv5 for the period I-V (2020-2025)}
 \format{
 An object of class `tbl_df`.
 
-An object of class `tbl_df`.
+An object of class data.frame
 
 An object of class `tbl_df`.
 }
 \source{
 automatically generated skeleton
 
-automatically generated skeleton
+中島・石田　「森林調査」
 
 automatically generated skeleton
 }
@@ -28,40 +29,22 @@ data(vv5)
 data(vv5)
 }
 \description{
+data/ 1-5期調査区サブプロット植生調査生データ
 vv5 for the period I-V (2020-2025)
 
-VTdk Vegetation cross table (Domin-Kradina)
+data/ 1-5期調査区サブプロット森林調査生データ
+dd5 for the period I-V (2020-2025)
 
-Vegetation chronosequence
+data/Domin-Kradina集計表
+ VTdk Vegetation cross table (Domin-Kradina)
 }
 \examples{
 vv5
 
+head(dd5)
+
 names(VT5)
  VT[["Arimine_c04"]]
  VTdk[["Arimine_c04"]]
-VC
-(d<- VC[["Arimine"]])
-nm<-names(d)
- gsub("Mean","m",nm)
- sptype
- d$sp
- d.<-cbind(
- d[,c("sp","Frequencydk01","Frequencyc02","Frequencyc03","Frequencyc04","Frequencyc05")],
- d[,c("FreqCodedk01","FreqCodec02","FreqCodec03","FreqCodec04","FreqCodec05")],
- d[,c("Meandk01","Meanc02","Meanc03","Meanc04","Meanc05")],
- d[,c("DominatIndexdk01dk","DominatIndexc02dk","DominatIndexc03dk","DominatIndexc04dk","DominatIndexc05dk")]
- )
- names(d.)<- c("sp",paste0("f",1:5),paste0("F",1:5),paste0("c",1:5),paste0("di",1:5))
-
- tibble(d.)
-  d. \%>\%
-    mutate()
-
- d \%>\% select(sp, starts_with("Meanc"))
-
-}
-\seealso{
-[VegetationChronologyTable()]
 }
 \keyword{datasets}

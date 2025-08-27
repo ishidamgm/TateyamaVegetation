@@ -2,7 +2,7 @@
 % Please edit documentation in R/TreeMap.R
 \name{treemap}
 \alias{treemap}
-\title{Title}
+\title{植生調査用樹木位置図作成}
 \usage{
 treemap(plot.name = "Mimatsu")
 }
@@ -10,7 +10,7 @@ treemap(plot.name = "Mimatsu")
 \item{df}{}
 }
 \description{
-Title
+植生調査用樹木位置図作成
 }
 \examples{
 

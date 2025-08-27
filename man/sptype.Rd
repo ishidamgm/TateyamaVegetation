@@ -3,17 +3,17 @@
 \docType{data}
 \name{sptype}
 \alias{sptype}
-\title{sptype}
+\title{data/sptype コード、生活型、 階層の略号表}
 \format{
 An object of class `data.frame`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(sptype)
 }
 \description{
+data/sptype コード、生活型、 階層の略号表
+}
+\examples{
 sptype
 }
 \keyword{datasets}

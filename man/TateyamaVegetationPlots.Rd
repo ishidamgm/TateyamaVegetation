@@ -3,17 +3,17 @@
 \docType{data}
 \name{TateyamaVegetationPlots}
 \alias{TateyamaVegetationPlots}
-\title{TateyamaVegetationPlots}
+\title{data/ 立山植生モニタリング調査区一覧表}
 \format{
 An object of class `spec_tbl_df`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(TateyamaVegetationPlots)
 }
 \description{
+data/ 立山植生モニタリング調査区一覧表
+}
+\examples{
 TateyamaVegetationPlots
 }
 \keyword{datasets}

@@ -4,15 +4,13 @@
 \name{VegetationSurveyYears}
 \alias{VegetationSurveyYears}
 \alias{VegetationYearsMatrix}
-\title{VegetationSurveyYears}
+\title{data/ 植生調査年(スプレッドシート列ラベル)}
 \format{
 An object of class `tbl_df`.
 
 An object of class `tbl_df`.
 }
 \source{
-automatically generated skeleton
-
 automatically generated skeleton
 }
 \usage{
@@ -21,11 +19,12 @@ data(VegetationSurveyYears)
 data(VegetationSurveyYears)
 }
 \description{
-VegetationSurveyYears
+data/ 植生調査年(スプレッドシート列ラベル)
 
-VegetationYearsMatrix
+data/ 植生調査年
 }
 \examples{
+VegetationSurveyYears
 VegetationYearsMatrix
 VegetationYearsMatrix[1:5,"Arimine"]
 }

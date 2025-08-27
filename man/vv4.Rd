@@ -3,7 +3,7 @@
 \docType{data}
 \name{vv4}
 \alias{vv4}
-\title{vv4}
+\title{data/ 1-4期調査区サブプロット植生調査生データ}
 \format{
 An object of class `data.frame`.
 }
@@ -14,7 +14,7 @@ automatically generated skeleton
 data(vv4)
 }
 \description{
-vv4
+data/ 1-4期調査区サブプロット植生調査生データ
 }
 \examples{
 vv4

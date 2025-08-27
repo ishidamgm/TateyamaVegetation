@@ -3,17 +3,17 @@
 \docType{data}
 \name{topo}
 \alias{topo}
-\title{topo}
+\title{data/ 各調査区の沢や歩道の座標(中島さん)}
 \format{
 An object of class `data.frame`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(topo)
 }
 \description{
+data/ 各調査区の沢や歩道の座標(中島さん)
+}
+\examples{
 topo
 }
 \keyword{datasets}

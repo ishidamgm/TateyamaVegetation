@@ -3,17 +3,19 @@
 \docType{data}
 \name{APG}
 \alias{APG}
-\title{APG}
+\title{data/APG　植物目録
+米倉浩司・梶田忠 (2007-) 植物和名ー学名インデックスYList を利用させていただきました。}
 \format{
 An object of class `data.frame`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(APG)
 }
 \description{
+data/APG　植物目録
+米倉浩司・梶田忠 (2007-) 植物和名ー学名インデックスYList を利用させていただきました。
+}
+\examples{
 APG
 }
 \keyword{datasets}

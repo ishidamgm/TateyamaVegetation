@@ -1,5 +1,5 @@
 
-#' クロステーブル作成　被度→被度階級
+#' クロステーブル作成用　被度→被度階級(Domin_Krajina)
 #'
 #' @param cv
 #'
@@ -33,7 +33,7 @@ Domin_Krajina <- function(cv) {
 
 
 
-#' Title
+#' 頻度のギリシャ文字変換(小島書式)
 #'
 #' @param r
 #'
@@ -88,7 +88,8 @@ PlotSpecies_1to4 <-function(site="Mimatsu"){
 
 
 
-#' 特定種の野帳記録
+#' 特定種の野帳記録確認
+#' 　これまでの調査でその和名を使っているか確認する
 #'
 #' @param sp.
 #'

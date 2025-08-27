@@ -2,7 +2,7 @@
 % Please edit documentation in R/TateyamaVegetationAnalysis.R
 \name{VegetationChronologyTable_report}
 \alias{VegetationChronologyTable_report}
-\title{Title}
+\title{報告書用植生経年変化表}
 \usage{
 VegetationChronologyTable_report(plot_name = "Arimine")
 }
@@ -10,7 +10,7 @@ VegetationChronologyTable_report(plot_name = "Arimine")
 \item{plot_name}{}
 }
 \description{
-Title
+報告書用植生経年変化表
 }
 \examples{
 

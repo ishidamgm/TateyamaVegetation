@@ -2,7 +2,8 @@
 % Please edit documentation in R/VegetationSurvey.R
 \name{vv_sp_check}
 \alias{vv_sp_check}
-\title{特定種の野帳記録}
+\title{特定種の野帳記録確認
+　これまでの調査でその和名を使っているか確認する}
 \usage{
 vv_sp_check(sp. = "ヒロバスゲ")
 }
@@ -13,7 +14,8 @@ vv_sp_check(sp. = "ヒロバスゲ")
 データフレーム　特定種の野帳記録
 }
 \description{
-特定種の野帳記録
+特定種の野帳記録確認
+　これまでの調査でその和名を使っているか確認する
 }
 \examples{
 vv_sp_check("ヒロバスゲ")

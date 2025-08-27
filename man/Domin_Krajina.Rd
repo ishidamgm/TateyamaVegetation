@@ -2,7 +2,7 @@
 % Please edit documentation in R/VegetationSurvey.R
 \name{Domin_Krajina}
 \alias{Domin_Krajina}
-\title{クロステーブル作成　被度→被度階級}
+\title{クロステーブル作成用　被度→被度階級(Domin_Krajina)}
 \usage{
 Domin_Krajina(cv)
 }
@@ -10,7 +10,7 @@ Domin_Krajina(cv)
 \item{cv}{}
 }
 \description{
-クロステーブル作成　被度→被度階級
+クロステーブル作成用　被度→被度階級(Domin_Krajina)
 }
 \examples{
 

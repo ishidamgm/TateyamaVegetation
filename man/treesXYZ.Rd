@@ -3,17 +3,17 @@
 \docType{data}
 \name{treesXYZ}
 \alias{treesXYZ}
-\title{treesXYZ}
+\title{data/ 各調査区樹木位置座標}
 \format{
 An object of class `data.frame`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(treesXYZ)
 }
 \description{
+data/ 各調査区樹木位置座標
+}
+\examples{
 treesXYZ
 }
 \keyword{datasets}

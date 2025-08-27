@@ -2,17 +2,19 @@
 % Please edit documentation in R/TateyamaVegetationAnalysis.R
 \name{VegetationTableList}
 \alias{VegetationTableList}
-\title{list of vegetation table of all plots and periods}
+\title{報告書用植生表リスト　全調査区1-5期　(被度・ドミン-クラジナ被度　両方対応)
+list of vegetation table of all plots and periods}
 \usage{
 VegetationTableList(DK = FALSE)
 }
 \description{
+報告書用植生表リスト　全調査区1-5期　(被度・ドミン-クラジナ被度　両方対応)
 list of vegetation table of all plots and periods
 }
 \examples{
 
-VT <- VegetationTableList(DK=FALSE)
-VTdk <- VegetationTableList(DK=TRUE)
+(VT <- VegetationTableList(DK=FALSE))
+(VTdk <- VegetationTableList(DK=TRUE))
 
 #usethis::use_data(VT,VTdk,overwrite = TRUE)
 

@@ -3,18 +3,15 @@
 \docType{data}
 \name{ForestTrees}
 \alias{ForestTrees}
-\title{ForestTrees}
+\title{data/ForestTrees}
 \format{
 An object of class `data.frame`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(ForestTrees)
 }
 \description{
-ForestTrees
+data/ForestTrees
 }
 \examples{
 str(ForestTrees)

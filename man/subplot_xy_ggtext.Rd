@@ -2,7 +2,7 @@
 % Please edit documentation in R/TreeMap.R
 \name{subplot_xy_ggtext}
 \alias{subplot_xy_ggtext}
-\title{Title}
+\title{樹木位置図　樹木位置・ラベル・種名・ランドマーク・コンタ・サブプロット・グリッド}
 \usage{
 subplot_xy_ggtext(plot.name = "Mimatsu")
 }
@@ -10,7 +10,7 @@ subplot_xy_ggtext(plot.name = "Mimatsu")
 \item{plot.name}{}
 }
 \description{
-Title
+樹木位置図　樹木位置・ラベル・種名・ランドマーク・コンタ・サブプロット・グリッド
 }
 \examples{
 (p<-treemap(plot.name="Mimatsu"))

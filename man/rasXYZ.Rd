@@ -3,7 +3,7 @@
 \docType{data}
 \name{rasXYZ}
 \alias{rasXYZ}
-\title{rasXYZ}
+\title{data/各調査区等高線用ラスタデータrasXYZ}
 \format{
 An object of class `list`.
 }
@@ -14,7 +14,7 @@ automatically generated skeleton
 data(rasXYZ)
 }
 \description{
-rasXYZ
+data/各調査区等高線用ラスタデータrasXYZ
 }
 \examples{
 par(mfrow=c(3,3))

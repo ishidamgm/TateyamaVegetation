@@ -3,18 +3,15 @@
 \docType{data}
 \name{LandMarks}
 \alias{LandMarks}
-\title{LandMarks　中島さんのデータ}
+\title{data/LandMarks　中島さんのデータ}
 \format{
 An object of class `data.frame`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(LandMarks)
 }
 \description{
-LandMarks　中島さんのデータ
+data/LandMarks　中島さんのデータ
 }
 \examples{
 head(LandMarks)

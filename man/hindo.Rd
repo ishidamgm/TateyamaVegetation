@@ -2,7 +2,7 @@
 % Please edit documentation in R/VegetationSurvey.R
 \name{hindo}
 \alias{hindo}
-\title{Title}
+\title{頻度のギリシャ文字変換(小島書式)}
 \usage{
 hindo(r)
 }
@@ -10,7 +10,7 @@ hindo(r)
 \item{r}{}
 }
 \description{
-Title
+頻度のギリシャ文字変換(小島書式)
 }
 \examples{
 sapply(seq(0,1,.1),hindo)

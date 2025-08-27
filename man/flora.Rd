@@ -3,17 +3,17 @@
 \docType{data}
 \name{flora}
 \alias{flora}
-\title{flora}
+\title{data/flora}
 \format{
 An object of class `spec_tbl_df`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(flora)
 }
 \description{
+data/flora
+}
+\examples{
 flora
 }
 \keyword{datasets}

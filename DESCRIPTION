@@ -1,7 +1,7 @@
 Package: TateyamaVegetation
 Type: Package
 Title: 富山県立山植生モニタリング調査
-Version: 0.1.20250806
+Version: 0.1.202508027
 Authors@R: c(
     person("Megumi", "Ishida", email = "ishidam@sanchikanri.com", role = c("aut", "cre")),
     person("Haruki", "Nakajima", role = "aut"),
@@ -22,6 +22,7 @@ Imports:
     tibble,
     ggplot2,
     ggrepel,
+    magrittr, 
     metR,
     tools
 Suggests:
@@ -33,4 +34,4 @@ VignetteBuilder: knitr
 URL: https://github.com/ishidamgm/TateyamaVegetation
 BugReports: https://github.com/ishidamgm/TateyamaVegetation/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 4.0)

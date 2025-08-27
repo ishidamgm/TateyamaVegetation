@@ -36,4 +36,10 @@ sp0<-unique(subset(vv,plot=="Mimatsu")$sp)
 sp0<-unique(subset(vv,plot=="Arimine")$sp)
 # cat(FloraListMaker(sp0),file="data_raw/FloraList_Arimine.html")
 
+ #期末植物目録
+  d<-flora2
+　memo<-paste("【森】",d$forest_code,"【植】",d$vevetation_code,"【外】",d$NonNative_code)
+　str(memo)
+　#cat(FloraListMaker(flora2$spj,memo=memo),file="FloraList_V.html")
+　
 }

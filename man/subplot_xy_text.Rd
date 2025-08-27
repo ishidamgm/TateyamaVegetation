@@ -2,7 +2,8 @@
 % Please edit documentation in R/TreeMap.R
 \name{subplot_xy_text}
 \alias{subplot_xy_text}
-\title{Title}
+\title{各調査区におけるサブプロット位置
+plotで描画したキャンバスにtextで上書きするコマンド}
 \usage{
 subplot_xy_text(plot.name = "Mimatsu", ...)
 }
@@ -10,7 +11,8 @@ subplot_xy_text(plot.name = "Mimatsu", ...)
 \item{plot.name}{}
 }
 \description{
-Title
+各調査区におけるサブプロット位置
+plotで描画したキャンバスにtextで上書きするコマンド
 }
 \examples{
 plot(1:100,type="n")

@@ -1,59 +1,64 @@
 # allXYZ ####
-#' allXYZ
+#' data/allXYZ　調査区ランドマーク座標　(Nakajima)
 #'
 #' @docType data
 #' @name allXYZ
 #' @usage data(allXYZ)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' allXYZ
+#'
 "allXYZ"
 
 # APG ####
-#' APG
+#'  data/APG　植物目録
+#' 米倉浩司・梶田忠 (2007-) 植物和名ー学名インデックスYList を利用させていただきました。
 #'
 #' @docType data
 #' @name APG
 #' @usage data(APG)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' APG
 "APG"
 
 # FieldNote_Arimine2019_raw ####
-#' FieldNote_Arimine2019_raw
+#' data/整理前の野帳生データ(サンプル)　FieldNote_Arimine2019_raw
 #'
 #' @docType data
 #' @name FieldNote_Arimine2019_raw
 #' @usage data(FieldNote_Arimine2019_raw)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' FieldNote_Arimine2019_raw
 "FieldNote_Arimine2019_raw"
 
 
 # flora ####
-#' flora
+#' data/flora
 #'
 #' @docType data
 #' @name flora
 #' @usage data(flora)
 #' @format An object of class `spec_tbl_df`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' flora
 "flora"
 
 
 
 # ForestTrees ####
-#' ForestTrees
+#' data/ForestTrees
 #'
 #' @docType data
 #' @name ForestTrees
 #' @usage data(ForestTrees)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @examples
 #' str(ForestTrees)
 #' head(ForestTrees)
@@ -63,14 +68,13 @@
 
 
 # LandMarks ####
-#' LandMarks　中島さんのデータ
+#' data/LandMarks　中島さんのデータ
 #'
 #' @docType data
 #' @name LandMarks
 #' @usage data(LandMarks)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @examples
 #' head(LandMarks)
 "LandMarks"
@@ -78,7 +82,7 @@
 
 
 # leg ####
-#' leg
+#' data/leg　図凡例
 #'
 #' @docType data
 #' @name leg
@@ -86,6 +90,8 @@
 #' @format An object of class `data.frame`.
 #' @keywords datasets
 #' @source automatically generated skeleton
+#' @examples
+#' leg
 "leg"
 
 
@@ -93,7 +99,7 @@
 
 
 # plt ####
-#' plt
+#' data/plt
 #'
 #' @docType data
 #' @name plt
@@ -108,7 +114,7 @@
 
 
 # rasXYZ ####
-#' rasXYZ
+#' data/各調査区等高線用ラスタデータrasXYZ
 #'
 #' @docType data
 #' @name rasXYZ
@@ -129,96 +135,104 @@
 
 
 # sp_exc ####
-#' sp_exc
+#' data/sp_exc　同種異名(シノニム)の変換表です
+#' sp_naからsp_na2に統一しました
 #'
 #' @docType data
 #' @name sp_exc
 #' @usage data(sp_exc)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' sp_exc
 "sp_exc"
 
 
 
 # sptype ####
-#' sptype
+#' data/sptype コード、生活型、 階層の略号表
 #'
 #' @docType data
 #' @name sptype
 #' @usage data(sptype)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' sptype
 "sptype"
 
 
 
 # subplot_xy ####
-#' subplot_xy
+#' data/ 各調査地におけるサブプロットの位置座標
 #'
 #' @docType data
 #' @name subplot_xy
 #' @usage data(subplot_xy)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' subplot_xy
 "subplot_xy"
 
 
 
 # TateyamaVegetationPlots ####
-#' TateyamaVegetationPlots
+#' data/ 立山植生モニタリング調査区一覧表
 #'
 #' @docType data
 #' @name TateyamaVegetationPlots
 #' @usage data(TateyamaVegetationPlots)
 #' @format An object of class `spec_tbl_df`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' TateyamaVegetationPlots
 "TateyamaVegetationPlots"
 
 
 
 # topo ####
-#' topo
+#' data/ 各調査区の沢や歩道の座標(中島さん)
 #'
 #' @docType data
 #' @name topo
 #' @usage data(topo)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' topo
 "topo"
 
 
 
 # treesXYZ ####
-#' treesXYZ
+#' data/ 各調査区樹木位置座標
 #'
 #' @docType data
 #' @name treesXYZ
 #' @usage data(treesXYZ)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' treesXYZ
 "treesXYZ"
 
 
 
 # VegetationSurveyYears ####
-#' VegetationSurveyYears
+#' data/ 植生調査年(スプレッドシート列ラベル)
 #'
 #' @docType data
 #' @name VegetationSurveyYears
 #' @usage data(VegetationSurveyYears)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
-#' @source automatically generated skeleton
+#' @examples
+#' VegetationSurveyYears
 "VegetationSurveyYears"
 
 # VegetationYearsMatrix ####
-#' VegetationYearsMatrix
+#' data/ 植生調査年
 #'
 #' @docType data
 #' @name VegetationSurveyYears
@@ -234,14 +248,13 @@
 
 
 # vv ####
-#' vv
+#' data/ 1-5期調査区サブプロット植生調査生データ
 #'
 #' @docType data
 #' @name vv
 #' @usage data(vv)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @examples
 #' vv
 "vv"
@@ -249,7 +262,7 @@
 
 
 # vv4 ####
-#' vv4
+#' data/ 1-4期調査区サブプロット植生調査生データ
 #'
 #' @docType data
 #' @name vv4
@@ -264,6 +277,7 @@
 
 
 # vv5 ####
+#' data/ 1-5期調査区サブプロット植生調査生データ
 #' vv5 for the period I-V (2020-2025)
 #'
 #' @docType data
@@ -277,9 +291,24 @@
 #'
 "vv5"
 
+# dd5 ####
+#' data/ 1-5期調査区サブプロット森林調査生データ
+#' dd5 for the period I-V (2020-2025)
+#'
+#' @docType data
+#' @name vv5
+#' @usage data(vv5)
+#' @format An object of class data.frame
+#' @keywords datasets
+#' @source 中島・石田　「森林調査」
+#' @examples
+#' head(dd5)
+#'
+"dd5"
 
 
 # VT ####
+#' data/ 植生調査票(2020-2025)
 #' VT  Vegtaion cross table for the period V (2020-2025)
 #'
 #' @docType data
@@ -297,7 +326,8 @@
 
 
 # VTdk ####
-#' VTdk Vegetation cross table (Domin-Kradina)
+#' data/Domin-Kradina集計表
+#'  VTdk Vegetation cross table (Domin-Kradina)
 #'
 #' @docType data
 #' @name vv5
@@ -313,10 +343,10 @@
 
 
 # VC ####
-#' Vegetation chronosequence
+#' data/ Vegetation chronosequence
 #'
 #' @docType data
-#' @name vv5
+#' @name VC
 #' @usage data(vv5)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
@@ -344,3 +374,81 @@
 #'  d %>% select(sp, starts_with("Meanc"))
 #'
 "VC"
+
+# VCrepo ####
+#' data/ Vegetation chronosequence summary
+#'
+#' @docType data
+#' @name VCrepo
+#' @usage data(VCrepo)
+#' @format A list of the objects of class `tbl_df`.
+#' @keywords datasets
+#' @seealso [VegetationChronologyTable()]
+#' @examples
+#' VCrepo
+"VCrepo"
+
+
+# vc5 ####
+#' data/ Vegetation chronosequence summary (data frame)
+#'
+#' @docType data
+#' @name VCrepo
+#' @usage data(vc5)
+#' @format A  `tbl_df`.
+#' @keywords datasets
+#' @source VCrepo
+#' @examples
+#' VCrepo
+#' vc5
+"vc5"
+
+
+# vegetation_code ####
+#' data/ 植物目録各調査区頻度分布コード
+#' 植生モニタリング調査(小島覚・石田仁)
+#'
+#' @docType data
+#' @name vegetation_code
+#' @usage data(vv5)
+#' @format An object of class `tbl_df`.
+#' @keywords datasets
+#' @source
+#' @examples
+#'
+#' vegetation_code
+#'  SpeciesNameCheck(vegetation_code$sp)
+#'
+"vegetation_code"
+
+# forest_code ####
+#' data/ 植生モニタリング調査(石田仁・中島春樹)
+#'
+#' @docType data
+#' @name forest_code
+#' @usage data(vv5)
+#' @format An object of class `tbl_df`.
+#' @keywords datasets
+#' @source
+#'  @examples
+#' forest_code
+#'  SpeciesNameCheck(forest_code$sp)
+"forest_code"
+
+
+# NonNativePlants ####
+#' data/ 立山外来植物調査(大田道人・山下寿之・吉田めぐみ)
+#'
+#' @docType data
+#' @name NonNativePlants
+#' @usage data(vv5)
+#' @format An object of class `tbl_df`.
+#' @keywords datasets
+#' @source "第Ⅳ期外来種調査報告書用全体表.csv",
+#'  @examples
+#' NonNativePlants
+#'  NonNativePlants$sp
+#'  SpeciesNameCheck(NonNativePlants$sp)
+"NonNativePlants"
+
+

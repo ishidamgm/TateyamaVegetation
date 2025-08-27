@@ -2,30 +2,23 @@
 % Please edit documentation in R/TateyamaVegetationAnalysis.R
 \name{FieldNote_CheckCorrect}
 \alias{FieldNote_CheckCorrect}
-\title{Title}
+\title{野帳の整理をします。
+生野帳データの階層クラスの確認、修正、未入力データの補完をします
+　サブプロット、階層、種名の順でソートします。
+　サブプロットに同一種が複数ある場合は被度を合算し統一します}
 \usage{
 FieldNote_CheckCorrect(d = FieldNote)
 }
 \arguments{
-\item{DK}{Domin-Krajina conversion of coverages}
-
 \item{KAISO_colnm}{}
 }
 \description{
-Title
-}
-\examples{
-d <- subset(vv,plot=="Arimine")
-head(VegetationTable(d,period="c04"))
-head(VegetationTable(d,period="c04",DK=TRUE))
-
-
-
-
+野帳の整理をします。
 生野帳データの階層クラスの確認、修正、未入力データの補完をします
 　サブプロット、階層、種名の順でソートします。
 　サブプロットに同一種が複数ある場合は被度を合算し統一します
-
+}
+\examples{
 d<-FieldNote_Arimine2019_raw
 FieldNote_CheckCorrect(d)
 

@@ -3,17 +3,17 @@
 \docType{data}
 \name{subplot_xy}
 \alias{subplot_xy}
-\title{subplot_xy}
+\title{data/ 各調査地におけるサブプロットの位置座標}
 \format{
 An object of class `data.frame`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(subplot_xy)
 }
 \description{
+data/ 各調査地におけるサブプロットの位置座標
+}
+\examples{
 subplot_xy
 }
 \keyword{datasets}

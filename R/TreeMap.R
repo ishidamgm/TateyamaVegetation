@@ -30,7 +30,7 @@ treemap_ggplot <- function(df) {
     ggplot2::labs(title = "樹木位置図（ラベル付き）", x = "X", y = "Y")
 }
 
-#' Title
+#' 植生調査用樹木位置図作成
 #'
 #' @param df
 #'
@@ -106,7 +106,8 @@ treemap <-function(plot.name="Mimatsu"){
 
 
 
-#' Title
+#' 各調査区におけるサブプロット位置
+#' plotで描画したキャンバスにtextで上書きするコマンド
 #'
 #' @param plot.name
 #'
@@ -125,7 +126,7 @@ subplot_xy_text<-function(plot.name="Mimatsu",...){
   text(.$x[i],.$y[i],.$subplot[i],...)
 }
 
-#' Title
+#' 樹木位置図　樹木位置・ラベル・種名・ランドマーク・コンタ・サブプロット・グリッド
 #'
 #' @param plot.name
 #'
@@ -142,7 +143,8 @@ subplot_xy_ggtext<-function(plot.name="Mimatsu"){
   ggplot2::geom_text(data=.,ggplot2::aes(label = subplot), size = 20, color="orange", alpha = 0.5)
 }
 
-#' Title
+#' 樹木位置図(ggplot　ラベル情報なし)
+#' 調査用にはtreemapを利用してください
 #'
 #' @param plot.name
 #'

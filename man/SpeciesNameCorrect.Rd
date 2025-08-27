@@ -2,7 +2,9 @@
 % Please edit documentation in R/TateyamaVegetationAnalysis.R
 \name{SpeciesNameCorrect}
 \alias{SpeciesNameCorrect}
-\title{Title}
+\title{和名の置換
+本調査の種和名はYList(米倉浩司・梶田忠 2007-)の第一和名に基づきます。
+同種異名は本コマンドで置換表sp_excに基づき修正できます。}
 \usage{
 SpeciesNameCorrect(spj)
 }
@@ -10,7 +12,9 @@ SpeciesNameCorrect(spj)
 \item{spj}{}
 }
 \description{
-Title
+和名の置換
+本調査の種和名はYList(米倉浩司・梶田忠 2007-)の第一和名に基づきます。
+同種異名は本コマンドで置換表sp_excに基づき修正できます。
 }
 \examples{
 d<-FieldNote_Arimine2019_raw

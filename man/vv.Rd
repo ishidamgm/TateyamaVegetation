@@ -3,18 +3,15 @@
 \docType{data}
 \name{vv}
 \alias{vv}
-\title{vv}
+\title{data/ 1-5期調査区サブプロット植生調査生データ}
 \format{
 An object of class `tbl_df`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(vv)
 }
 \description{
-vv
+data/ 1-5期調査区サブプロット植生調査生データ
 }
 \examples{
 vv

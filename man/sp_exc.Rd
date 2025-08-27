@@ -3,17 +3,19 @@
 \docType{data}
 \name{sp_exc}
 \alias{sp_exc}
-\title{sp_exc}
+\title{data/sp_exc　同種異名(シノニム)の変換表です
+sp_naからsp_na2に統一しました}
 \format{
 An object of class `data.frame`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(sp_exc)
 }
 \description{
+data/sp_exc　同種異名(シノニム)の変換表です
+sp_naからsp_na2に統一しました
+}
+\examples{
 sp_exc
 }
 \keyword{datasets}

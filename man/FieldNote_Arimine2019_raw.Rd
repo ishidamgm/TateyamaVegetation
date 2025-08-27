@@ -3,17 +3,17 @@
 \docType{data}
 \name{FieldNote_Arimine2019_raw}
 \alias{FieldNote_Arimine2019_raw}
-\title{FieldNote_Arimine2019_raw}
+\title{data/整理前の野帳生データ(サンプル)　FieldNote_Arimine2019_raw}
 \format{
 An object of class `tbl_df`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(FieldNote_Arimine2019_raw)
 }
 \description{
+data/整理前の野帳生データ(サンプル)　FieldNote_Arimine2019_raw
+}
+\examples{
 FieldNote_Arimine2019_raw
 }
 \keyword{datasets}

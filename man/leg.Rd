@@ -3,7 +3,7 @@
 \docType{data}
 \name{leg}
 \alias{leg}
-\title{leg}
+\title{data/leg　図凡例}
 \format{
 An object of class `data.frame`.
 }
@@ -14,6 +14,9 @@ automatically generated skeleton
 data(leg)
 }
 \description{
+data/leg　図凡例
+}
+\examples{
 leg
 }
 \keyword{datasets}

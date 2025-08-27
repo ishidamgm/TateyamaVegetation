@@ -92,6 +92,12 @@ html_family_label <- function(species_list){
 #' sp0<-unique(subset(vv,plot=="Arimine")$sp)
 #' # cat(FloraListMaker(sp0),file="data_raw/FloraList_Arimine.html")
 #'
+#'  #期末植物目録
+#'   d<-flora2
+#'　memo<-paste("【森】",d$forest_code,"【植】",d$vevetation_code,"【外】",d$NonNative_code)
+#'　str(memo)
+#'　#cat(FloraListMaker(flora2$spj,memo=memo),file="FloraList_V.html")
+#'　
 FloraListMaker<-function(spj=sp0,memo=NA){
   spi<-match(spj,APG$種名)
   if(anyNA(spi))cat(spj[is.na(spi)],"はリストにありません")
@@ -200,6 +206,170 @@ RData_flora<-function(){
 #'
 RData_APG<-function(){
 
+}
+
+
+#' 森林調査での各調査区-出現全種の行列表
+#'
+#' @param d
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#' m<-ForestFloraMatrix(dd5)
+#' head(m)
+#' sp<-names(m)[-1]
+#' df <- data.frame(sp,code_forest=)
+#'
+#' ForestFloraCode(cod=m[[c("オオシラビソ")]])
+#'
+#' fc<-c(); for( i in sp)fc<-c(fc,ForestFloraCode(cod=m[[i]]))
+#'  forest_code<-data.frame(sp,forest_code=fc)
+#'  # usethis::use_data(forest_code)
+#'
+ForestFloraMatrix <- function(d=dd5){
+
+  #最終調査の生存木のみ対象
+  d<-d[!is.na(d$f07>0),c("plot","sp","d07")]
+  d$ba<-pi*(d$d07/2)^2
+
+  # Bjodaira....の順番に並ぶように因子化
+  d$plot <- factor(d$plot, levels = unique(d$plot))
+
+  d.<-d %>%
+    group_by(plot, sp) %>%
+    summarise(batotal = sum(ba, na.rm = TRUE),.groups = "drop_last") %>%   #.groups = "drop_last"
+    mutate(share = batotal / sum(batotal) * 100,cls=floor(share/10)+1)
+
+  # matrix_cls ####
+  m<- d. %>%
+    select(plot, sp, cls) %>%
+    pivot_wider(
+      names_from = sp,     # 列見出しにする
+      values_from = cls    # 値にする
+    )
+
+  m[is.na(m)]<-0
+
+  return(m)
+}
+
+#' 森林調査での植物目録の各調査区における胸高断面積割合コードの作成
+#' 9-10はAに変換
+#'
+#' @param cod
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#'
+#' ForestFloraCode(1:10)
+#'
+ForestFloraCode<-function(cod=m[["オオシラビソ"]]){
+  cod[cod>9]<-"A"
+  cod<-
+    paste(
+      paste0(cod[1:4],collapse =""),
+      paste0(cod[5:7],collapse =""),
+      paste0(cod[8:8],collapse =""),sep="-")
+  return(cod)
+}
+
+#' 植生調査　調査区-出現種　出現頻度行列の作成
+#' VCrepoより集計　10はAに変換
+#'
+#' @param d
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#'
+#' m<-VegetationFloraMatrix(VCrepo)
+#' head(m)
+#' sp<-names(m)[-1]
+#' vc<-c(); for( i in sp)vc<-c(vc,VegetationFloraCode(cod=m[[i]]))
+#'  vegetation_code<-data.frame(sp,vegetation_code=vc)
+#'  # usethis::use_data(vegetation_code)
+
+VegetationFloraMatrix <- function(d=VCrepo){
+
+  nm<-names(d)
+  df<-c() ;  for(i in nm)df<-rbind(df,tibble(plot=i,VCrepo[[i]][,c("sp","f5")]))
+  freq<-round(df$f5*10) ; freq[freq==10]<-"A"
+  df<-tibble(df,freq)
+
+  # Bjodaira....の順番に並ぶように因子化
+  df$plot <- factor(df$plot, levels = unique(df$plot))
+
+  # matrix_cls ####
+  m<- df %>%
+    select(plot, sp, freq) %>%
+    pivot_wider(
+      names_from = sp,     # 列見出しにする
+      values_from = freq    # 値にする
+    )
+
+  m[is.na(m)]<-"0"
+
+
+  return(m)
+}
+
+
+
+
+#' 植物目録の各調査区における植生被度分布コードの作成
+#'
+#' @param cod
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#'
+#' VegetationFloraCode(1:10)
+#'
+VegetationFloraCode<-function(cod=1:10){
+  cod[cod>9]<-"A"
+  cod<-
+    paste(
+      paste0(cod[1:4],collapse =""),
+      paste0(cod[5:5],collapse =""),
+      paste0(cod[6:9],collapse =""),
+      paste0(cod[10:10],collapse =""),sep="-")
+  return(cod)
+}
+
+
+#' 植物目録floraの更新
+#' flora　→　flora2　外来種追加の事例
+#'
+#' @param sp
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#'
+#' (d<-flora_new(NonNativePlants_add2025))
+#' d$form[match(c("マルバヤナギ","ドロノキ"),d$spj])<-"bl"
+#' d$form[match(c("ヤマハギ"),d$spj)]<-"bs"
+#' d
+#'
+#' flora2<-rbind(flora,d)
+#'
+#' # usethis::use_data(flora2,overwrite=T)
+#'
+flora_new<-function(sp=c("アイバソウ","マルバヤナギ","アライトツメクサ")){
+  spi<-c(); for (i in sp)spi<-c(spi,which(YList$和名==i)[1])
+  d<-YList[spi,c("LAPG.no.","ステータス","和名","学名.withAuthor","LAPG.科名","LAPG.Family")]
+  names(d)<-names(flora)
+  d$id[which(is.na(d$id))]<-which(is.na(d$id))
+  d$form<-"h"
+  return(d)
 }
 
 

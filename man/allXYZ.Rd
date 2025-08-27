@@ -3,17 +3,18 @@
 \docType{data}
 \name{allXYZ}
 \alias{allXYZ}
-\title{allXYZ}
+\title{data/allXYZ　調査区ランドマーク座標　(Nakajima)}
 \format{
 An object of class `data.frame`.
-}
-\source{
-automatically generated skeleton
 }
 \usage{
 data(allXYZ)
 }
 \description{
+data/allXYZ　調査区ランドマーク座標　(Nakajima)
+}
+\examples{
 allXYZ
+
 }
 \keyword{datasets}
