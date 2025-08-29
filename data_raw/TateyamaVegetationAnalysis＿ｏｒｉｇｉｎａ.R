@@ -2,13 +2,13 @@
 
 
 
-#' csvƒtƒ@ƒCƒ‹‚ÌƒGƒ“ƒR[ƒfƒBƒ“ƒO•ÏŠ·
+#' csvãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°å¤‰æ›
 #'
-#' ã‘‚«‚µ‚Ü‚·B•K—v‚É‰‚¶‚Ä–‘O‚ÉƒoƒbƒNƒAƒbƒv‚µ‚Ä‚¨‚¢‚Ä‚­‚¾‚³‚¢B
+#' ä¸Šæ›¸ãã—ã¾ã™ã€‚å¿…è¦ã«å¿œã˜ã¦äº‹å‰ã«ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã—ã¦ãŠã„ã¦ãã ã•ã„ã€‚
 #'
 #' @param filename
-#' @param en_old@@original fileEncoding@defaulut@"cp932"
-#' @param en_new        new  fileEncoding  defaulut@"utf-8"
+#' @param en_oldã€€ã€€original fileEncodingã€€defaulutã€€"cp932"
+#' @param en_new        new  fileEncoding  defaulutã€€"utf-8"
 #'
 #' @returns
 #'
@@ -16,13 +16,13 @@
 #'
 #' @examples
 #'
-#' #EncodingExchange(filename="H30A¶’²¸–ì’ _”ü¼.csv",en_old="cp932",en_new="utf-8")
+#' #EncodingExchange(filename="H30æ¤ç”Ÿèª¿æŸ»é‡å¸³_ç¾æ¾.csv",en_old="cp932",en_new="utf-8")
 #'
-#'@#EncodingExchange(filename="H31A¶’²¸–ì’ _—L•ô.csv",en_old="cp932",en_new="utf-8")
-#'@
-#'@
-#'@
-EncodingExchange<-function(filename="H30A¶’²¸–ì’ _”ü¼.csv",en_old="cp932",en_new="utf-8"){
+#'ã€€#EncodingExchange(filename="H31æ¤ç”Ÿèª¿æŸ»é‡å¸³_æœ‰å³°.csv",en_old="cp932",en_new="utf-8")
+#'ã€€
+#'ã€€
+#'ã€€
+EncodingExchange<-function(filename="H30æ¤ç”Ÿèª¿æŸ»é‡å¸³_ç¾æ¾.csv",en_old="cp932",en_new="utf-8"){
   d.<-read.csv(filename,fileEncoding=en_old)
   write.csv(d.,file=filename,fileEncoding=en_new,row.names = FALSE)
 }
@@ -30,18 +30,18 @@ EncodingExchange<-function(filename="H30A¶’²¸–ì’ _”ü¼.csv",en_old="cp932",en
 
 # analysis000_FieldNoteInput ####
 
-#' csv‚Æ‚µ‚Ä“ü—Í‚³‚ê‚½A¶–ì’ ‚ğ®‚¦‚Ü‚·
-#' 1.@ƒXƒvƒŒƒbƒhƒV[ƒg‚Å“ü—Í‚³‚ê‚½–ì’ ‚Ìcsvƒf[ƒ^(utf-8)‚Ì“Ç‚İ‚İ
-#' 2.@í–¼‚Ìƒ`ƒFƒbƒN@
-#' 3.@ŠK‘w‚Ì©“®“ü—Í(V‹K‹L“ü•ª‚ÍŠK‘w‚ª‹L“ü‚³‚ê‚Ä‚¢‚È‚¢‚½‚ß©“®“ü—Í)
-#' 4.@d•¡‚µ‚Ä‹LÚ‚³‚ê‚½ğ‚ğ‡Z‚µ‚Ä“ˆê
-#' 5.@‹ó”’s‚Ìœ‹
-#' 6.@‰ğÍ—p‚É®‚¦‚ç‚ê‚½csv‚Ì•Û‘¶
+#' csvã¨ã—ã¦å…¥åŠ›ã•ã‚ŒãŸæ¤ç”Ÿé‡å¸³ã‚’æ•´ãˆã¾ã™
+#' 1.ã€€ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰ã‚·ãƒ¼ãƒˆã§å…¥åŠ›ã•ã‚ŒãŸé‡å¸³ã®csvãƒ‡ãƒ¼ã‚¿(utf-8)ã®èª­ã¿è¾¼ã¿
+#' 2.ã€€ç¨®åã®ãƒã‚§ãƒƒã‚¯ã€€
+#' 3.ã€€éšå±¤ã®è‡ªå‹•å…¥åŠ›(æ–°è¦è¨˜å…¥åˆ†ã¯éšå±¤ãŒè¨˜å…¥ã•ã‚Œã¦ã„ãªã„ãŸã‚è‡ªå‹•å…¥åŠ›)
+#' 4.ã€€é‡è¤‡ã—ã¦è¨˜è¼‰ã•ã‚ŒãŸé…’ã‚’åˆç®—ã—ã¦çµ±ä¸€
+#' 5.ã€€ç©ºç™½è¡Œã®é™¤å»
+#' 6.ã€€è§£æç”¨ã«æ•´ãˆã‚‰ã‚ŒãŸcsvã®ä¿å­˜
 #'
 #'
 #'
-#' @param InputFileName @@–ì’ “ü—Íƒf[ƒ^‚Ìƒtƒ@ƒCƒ‹–¼@(utf-8 ‚Ìcsvƒtƒ@ƒCƒ‹‚Å•Û‘¶‚µ‚Ä‚­‚¾‚³‚¢)
-#' @param OutputFileName @ ‰ğÍ—p‚É®‚¦‚ç‚ê‚½–ì’ ƒf[ƒ^‚Ì•Û‘¶@csvƒtƒ@ƒCƒ‹–¼
+#' @param InputFileName ã€€ã€€é‡å¸³å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ã®ãƒ•ã‚¡ã‚¤ãƒ«åã€€(utf-8 ã®csvãƒ•ã‚¡ã‚¤ãƒ«ã§ä¿å­˜ã—ã¦ãã ã•ã„)
+#' @param OutputFileName ã€€ è§£æç”¨ã«æ•´ãˆã‚‰ã‚ŒãŸé‡å¸³ãƒ‡ãƒ¼ã‚¿ã®ä¿å­˜ã€€csvãƒ•ã‚¡ã‚¤ãƒ«å
 #' @param
 #'
 #' @returns
@@ -51,89 +51,89 @@ EncodingExchange<-function(filename="H30A¶’²¸–ì’ _”ü¼.csv",en_old="cp932",en
 #' @importFrom dplyr group_by summarise across starts_with mutate
 #'
 #' @examples
-#' #@ƒ[ƒLƒ“ƒOEƒfƒBƒŒƒNƒgƒŠ‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢
-#' # setwd("2025/”ü¼")
+#' #ã€€ãƒ¯ãƒ¼ã‚­ãƒ³ã‚°ãƒ»ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„
+#' # setwd("2025/ç¾æ¾")
 #' dir()
 #'
 #'
 #'
 #'
-analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",OutputFileName="06”ü¼-A¶–ì’ 2018.csv"){
+analysis000_FieldNoteInput <- function(InputFileName="H31æ¤ç”Ÿèª¿æŸ»é‡å¸³_æœ‰å³°.csv",OutputFileName="06ç¾æ¾-æ¤ç”Ÿé‡å¸³2018.csv"){
   # species name check ####
 
   library(TateyamaVegetation)
   library(dplyr)
   library(tidyr)
-  InputFileName="H31A¶’²¸–ì’ _—L•ô.csv"
-  setwd("~/8T/Dropbox/00D/00/—§RA¶ƒ‚ƒjƒ^ƒŠƒ“ƒO–‹Æ/‘æ05Šú/2025/TateyamaVegetation/data_raw/2025/—L•ô")
+  InputFileName="H31æ¤ç”Ÿèª¿æŸ»é‡å¸³_æœ‰å³°.csv"
+  setwd("â€¾/8T/Dropbox/00D/00/ç«‹å±±æ¤ç”Ÿãƒ¢ãƒ‹ã‚¿ãƒªãƒ³ã‚°äº‹æ¥­/ç¬¬05æœŸ/2025/TateyamaVegetation/data_raw/2025/æœ‰å³°")
 
-  d <- readr::read_csv("H31A¶’²¸–ì’ _—L•ô.csv")
+  d <- readr::read_csv("H31æ¤ç”Ÿèª¿æŸ»é‡å¸³_æœ‰å³°.csv")
   # FieldNote_Arimine2019_raw<-d
   # save(FieldNote_Arimine2019_raw,file="FieldNote_Arimine2019_raw.RData")
 
-  spj<-d$í–¼
+  spj<-d$ç¨®å
   SpeciesNameCheck<-function(spj){
     fl.i<-match(spj,  flora$spj)
     if(anyNA(fl.i)){
-      cat(spj[is.na(fl.i)], "‚ÍƒŠƒXƒg‚É‚ ‚è‚Ü‚¹‚ñB\ní–¼‚ğC³‚·‚é‚©Aflora‚ÉV‚½‚Èí‚ğ’Ç‰Á‚µ‚Ä‚­‚¾‚³‚¢B\n")
-    } else {    cat("“ü—Í‚³‚ê‚Ä‚¢‚éí–¼‚Í‚·‚×‚Ä–Ú˜^‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B\n")}
+      cat(spj[is.na(fl.i)], "ã¯ãƒªã‚¹ãƒˆã«ã‚ã‚Šã¾ã›ã‚“ã€‚Â¥nç¨®åã‚’ä¿®æ­£ã™ã‚‹ã‹ã€floraã«æ–°ãŸãªç¨®ã‚’è¿½åŠ ã—ã¦ãã ã•ã„ã€‚Â¥n")
+    } else {    cat("å…¥åŠ›ã•ã‚Œã¦ã„ã‚‹ç¨®åã¯ã™ã¹ã¦ç›®éŒ²ã«å«ã¾ã‚Œã¦ã„ã¾ã™ã€‚Â¥n")}
 
   }
 
 
-  SpeciesNameCheck(d$í–¼)
+  SpeciesNameCheck(d$ç¨®å)
 
 
   # class check ####
-    d$ŠK‘w<-sptype$ŠK‘w[match(flora$form[fl.i],sptype$ƒR[ƒh)]
-    d<-d[order(d$ƒTƒuƒvƒƒbƒg,d$ƒTƒuƒvƒƒbƒg,d$ŠK‘w,d$í–¼),]
+    d$éšå±¤<-sptype$éšå±¤[match(flora$form[fl.i],sptype$ã‚³ãƒ¼ãƒ‰)]
+    d<-d[order(d$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ,d$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ,d$éšå±¤,d$ç¨®å),]
 
 
 
     # union and combine coverage data of duplicated species in a subplot#
 
     d <- d %>%
-      mutate(across(matches("^(”í“x|DK)"), ~ as.numeric(trimws(.))))
+      mutate(across(matches("^(è¢«åº¦|DK)"), â€¾ as.numeric(trimws(.))))
 
-    #@ƒTƒuƒvƒƒbƒgEŒ‡—‚Ì•âŠ®
-    i.na<-which(is.na(d$ƒTƒuƒvƒƒbƒg))
-@@for(i in i.na)d$ƒTƒuƒvƒƒbƒg[i]<-d$ƒTƒuƒvƒƒbƒg[i-1]
+    #ã€€ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆãƒ»æ¬ è½ã®è£œå®Œ
+    i.na<-which(is.na(d$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ))
+ã€€ã€€for(i in i.na)d$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ[i]<-d$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ[i-1]
 
     dd <- d %>%
-      group_by(ƒTƒuƒvƒƒbƒg, ŠK‘w, í–¼) %>%
+      group_by(ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ, éšå±¤, ç¨®å) %>%
       summarise(
-        across(matches("^(”í“x|DK)"), ~ sum(.x, na.rm = TRUE)),
+        across(matches("^(è¢«åº¦|DK)"), â€¾ sum(.x, na.rm = TRUE)),
         X = first(X),
         no = first(no),
         II_ = first(II_),
         .groups = "drop"
       )
 
-# ‘g¬•\@vt:VegetationTable ####
+# çµ„æˆè¡¨ã€€vt:VegetationTable ####
      vt <- dd %>%
-      select(ƒTƒuƒvƒƒbƒg, í–¼, ”í“x2019) %>%
+      select(ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ, ç¨®å, è¢«åº¦2019) %>%
       tidyr::pivot_wider(
-        names_from = ƒTƒuƒvƒƒbƒg,
-        values_from = ”í“x2019,
-        values_fill = 0  # Œ‡‘¹‚ğ0‚É‚·‚éi‡Œv•\‚È‚Ç‚É•Ö—˜j
+        names_from = ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ,
+        values_from = è¢«åº¦2019,
+        values_fill = 0  # æ¬ æã‚’0ã«ã™ã‚‹ï¼ˆåˆè¨ˆè¡¨ãªã©ã«ä¾¿åˆ©ï¼‰
       )
 
-# ‘g¬•\@Domin_Krajina•ÏŠ·@VegetationTable ####
+# çµ„æˆè¡¨ã€€Domin_Krajinaå¤‰æ›ã€€VegetationTable ####
 
 
     VegetationTable<- vt %>%
-      mutate(across(-í–¼,~ Domin_Krajina(.)))
+      mutate(across(-ç¨®å,â€¾ Domin_Krajina(.)))
 
     VegetationTable
 
-    # •p“x@VegetationTable ####
+    # é »åº¦ã€€VegetationTable ####
     VegetationTable <- VegetationTable %>%
       rowwise() %>%
       mutate(
-        •½‹Ï”í“x = mean(c_across(-í–¼), na.rm = TRUE),
-        oŒ»•p“x = mean(c_across(-í–¼) > 0, na.rm = TRUE),
-        •p“x =hindo(oŒ»•p“x ),
-        ‘‡—Dè“x = 100 * sqrt(•½‹Ï”í“x * oŒ»•p“x) / sqrt(10)
+        å¹³å‡è¢«åº¦ = mean(c_across(-ç¨®å), na.rm = TRUE),
+        å‡ºç¾é »åº¦ = mean(c_across(-ç¨®å) > 0, na.rm = TRUE),
+        é »åº¦ =hindo(å‡ºç¾é »åº¦ ),
+        ç·åˆå„ªå åº¦ = 100 * sqrt(å¹³å‡è¢«åº¦ * å‡ºç¾é »åº¦) / sqrt(10)
       ) %>%
       ungroup()
 
@@ -142,29 +142,29 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #yr<-VegetationSurveyYears
 #yr$plot_name
 
-## ”í“xƒf[ƒ^‚Ì”’l‰» ####
-  # col<-c(4,5,6,7,8)   				#### I, II, III,VI Šú‚Ìƒf[ƒ^‚ÌƒRƒ‰ƒ€
+## è¢«åº¦ãƒ‡ãƒ¼ã‚¿ã®æ•°å€¤åŒ– ####
+  # col<-c(4,5,6,7,8)   				#### I, II, III,VI æœŸã®ãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ©ãƒ 
   # names(d)[col]
   # nn<-d[,col]
   # nn[nn==""]<-0
   # for (i in 1:ncol(nn))nn[,i]<-as.numeric(nn[,i])
   # which(is.na(nn),arr.ind = TRUE)
-  # nn[is.na(nn)]<-0					###@ƒsƒŠƒIƒh‚âƒXƒy[ƒX‚É‚È‚Á‚Ä‚¢‚é‚Æ‚±‚ë‚ğC³
+  # nn[is.na(nn)]<-0					###ã€€ãƒ”ãƒªã‚ªãƒ‰ã‚„ã‚¹ãƒšãƒ¼ã‚¹ã«ãªã£ã¦ã„ã‚‹ã¨ã“ã‚ã‚’ä¿®æ­£
   # str(nn)
   # d[,col]<-nn
-  # head(d)							### Šm”F
+  # head(d)							### ç¢ºèª
   #
-  # ### d‚É–ì’ ‚ÌƒIƒŠƒWƒiƒ‹’Ê‚µ”Ô†‚ğid_note‚Æ‚µ‚Ä’Ç‰Á
+  # ### dã«é‡å¸³ã®ã‚ªãƒªã‚¸ãƒŠãƒ«é€šã—ç•ªå·ã‚’id_noteã¨ã—ã¦è¿½åŠ 
   # d<-data.frame(d,id_note=1:nrow(d))
-  # d$ŠK‘w
-  # ##@
-  # ####@ŠK‘wŒÀ’è V‚½‚È–ì’ ƒf[ƒ^‚ğ@dd@‚Æ‚·‚é
-  # (dd<-subset(d, ŠK‘w!="A1" &  ŠK‘w!="A2" &  ŠK‘w!="B1" & ŠK‘w!="L"))
+  # d$éšå±¤
+  # ##ã€€
+  # ####ã€€éšå±¤é™å®š æ–°ãŸãªé‡å¸³ãƒ‡ãƒ¼ã‚¿ã‚’ã€€ddã€€ã¨ã™ã‚‹
+  # (dd<-subset(d, éšå±¤!="A1" &  éšå±¤!="A2" &  éšå±¤!="B1" & éšå±¤!="L"))
   # names(dd)
   #
-  # ####@ƒNƒ}ƒCƒUƒT@¨@ƒ`ƒVƒ}ƒUƒT‚É“‡ !!!!!!!!!!! ã‚Ì¬•½‚Ì‚İ
-  # sp<-dd$í–¼
-  # #dd$í–¼[sp=="ƒNƒ}ƒCƒUƒT"]<-"ƒ`ƒVƒ}ƒUƒT"
+  # ####ã€€ã‚¯ãƒã‚¤ã‚¶ã‚µã€€â†’ã€€ãƒã‚·ãƒã‚¶ã‚µã«çµ±åˆ !!!!!!!!!!! ä¸Šã®å°å¹³ã®ã¿
+  # sp<-dd$ç¨®å
+  # #dd$ç¨®å[sp=="ã‚¯ãƒã‚¤ã‚¶ã‚µ"]<-"ãƒã‚·ãƒã‚¶ã‚µ"
   #
 
 # }
@@ -178,150 +178,150 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 
 
 #
-# # cA¶ƒ‚ƒjƒ^
+# # ç¸¦æ¤ç”Ÿãƒ¢ãƒ‹ã‚¿
 #
-# #  01_–ì’ ƒfƒoƒbƒO.r ####
+# #  01_é‡å¸³ãƒ‡ãƒãƒƒã‚°.r ####
 #
-# #  y–Ú“Iz‰ğÍ—pEŸ‰ñ–ì’ ƒf[ƒ^‚Ìì¬ ####
-# ###@	í–¼“ü—Íƒ~ƒX‚ÌŠm”F@####
-# ###@	ŠK‘w®—@          ####
-# ###  	d•¡í“‡          ####
-# ###	@ƒtƒ@ƒCƒ‹•Û‘¶
+# #  ã€ç›®çš„ã€‘è§£æç”¨ãƒ»æ¬¡å›é‡å¸³ãƒ‡ãƒ¼ã‚¿ã®ä½œæˆ ####
+# ###ã€€	ç¨®åå…¥åŠ›ãƒŸã‚¹ã®ç¢ºèªã€€####
+# ###ã€€	éšå±¤æ•´ç†ã€€          ####
+# ###  	é‡è¤‡ç¨®çµ±åˆ          ####
+# ###	ã€€ãƒ•ã‚¡ã‚¤ãƒ«ä¿å­˜
 #
 #
-# #yİ’èz@##################
+# #ã€è¨­å®šã€‘ã€€##################
 #
-# ## ƒ[ƒLƒ“ƒOEƒfƒBƒŒƒNƒgƒŠ ####
-# #wd<-"m:/00D/00/—§RA¶ƒ‚ƒjƒ^ƒŠƒ“ƒO–‹Æ/‘æ04Šú/•½¬30”N“x/A¶’²¸/R/”ü¼"
+# ## ãƒ¯ãƒ¼ã‚­ãƒ³ã‚°ãƒ»ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª ####
+# #wd<-"m:/00D/00/ç«‹å±±æ¤ç”Ÿãƒ¢ãƒ‹ã‚¿ãƒªãƒ³ã‚°äº‹æ¥­/ç¬¬04æœŸ/å¹³æˆ30å¹´åº¦/æ¤ç”Ÿèª¿æŸ»/R/ç¾æ¾"
 # #setwd(wd)
 #
 # dir()
 #
-# ##@–ì’ ƒf[ƒ^ ####
-# #yachou<-"2021A¶’²¸–ì’ _–í‘Éƒ–Œ´.csv"   #### ƒfƒoƒbƒN‘O
-# #yachou2<-"05–í‘Éƒ–Œ´2021.csv" @#### ƒfƒoƒbƒNŒã
+# ##ã€€é‡å¸³ãƒ‡ãƒ¼ã‚¿ ####
+# #yachou<-"2021æ¤ç”Ÿèª¿æŸ»é‡å¸³_å¼¥é™€ãƒ¶åŸ.csv"   #### ãƒ‡ãƒãƒƒã‚¯å‰
+# #yachou2<-"05å¼¥é™€ãƒ¶åŸ2021.csv" ã€€#### ãƒ‡ãƒãƒƒã‚¯å¾Œ
 #
-# #yachou<-"2021A¶’²¸–ì’ _”ü—•½.csv"   #### ƒfƒoƒbƒN‘O
-# #yachou2<-"01”ü—•½2021.csv" @#### ƒfƒoƒbƒNŒã
+# #yachou<-"2021æ¤ç”Ÿèª¿æŸ»é‡å¸³_ç¾å¥³å¹³.csv"   #### ãƒ‡ãƒãƒƒã‚¯å‰
+# #yachou2<-"01ç¾å¥³å¹³2021.csv" ã€€#### ãƒ‡ãƒãƒƒã‚¯å¾Œ
 #
-# #yachou<-"R04A¶’²¸–ì’ _ƒuƒi•½.csv"   #### ƒfƒoƒbƒN‘O
-# #yachou2<-"04ƒuƒi•½2023.csv" @#### ƒfƒoƒbƒNŒã
-#
-#
-#
-# # yachou<-"09ò“y-A¶–ì’ 2024.csv"   #### ƒfƒoƒbƒN‘O
-# # yachou2<-"09ò“y2024.csv" @#### ƒfƒoƒbƒNŒã
-#
-# yachou<-"—§RA¶(04)A¶-ãƒm¬•½-2024.csv"   #### ƒfƒoƒbƒN‘O
-# yachou2<-"04ãƒm¬•½2024.csv" @#### ƒfƒoƒbƒNŒã
+# #yachou<-"R04æ¤ç”Ÿèª¿æŸ»é‡å¸³_ãƒ–ãƒŠå¹³.csv"   #### ãƒ‡ãƒãƒƒã‚¯å‰
+# #yachou2<-"04ãƒ–ãƒŠå¹³2023.csv" ã€€#### ãƒ‡ãƒãƒƒã‚¯å¾Œ
 #
 #
-# ## –ì’ ƒf[ƒ^ƒtƒ@ƒCƒ‹“Ç‚İ‚İ ####
+#
+# # yachou<-"09æµ„åœŸ-æ¤ç”Ÿé‡å¸³2024.csv"   #### ãƒ‡ãƒãƒƒã‚¯å‰
+# # yachou2<-"09æµ„åœŸ2024.csv" ã€€#### ãƒ‡ãƒãƒƒã‚¯å¾Œ
+#
+# yachou<-"ç«‹å±±æ¤ç”Ÿ(04)æ¤ç”Ÿ-ä¸Šãƒå°å¹³-2024.csv"   #### ãƒ‡ãƒãƒƒã‚¯å‰
+# yachou2<-"04ä¸Šãƒå°å¹³2024.csv" ã€€#### ãƒ‡ãƒãƒƒã‚¯å¾Œ
+#
+#
+# ## é‡å¸³ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ ####
 # (d<-read.csv(yachou,as.is=TRUE,fileEncoding="utf8"))
 # #(d<-read.csv(yachou,as.is=TRUE)) #utf-8
 # #edit(d)
 # d[is.na(d)]<-""
 # data.frame(names(d))
 #
-# ## ”í“xƒf[ƒ^‚Ì”’l‰» ####
-# col<-c(4,5,6,7,8)   				#### I, II, III,VI Šú‚Ìƒf[ƒ^‚ÌƒRƒ‰ƒ€
+# ## è¢«åº¦ãƒ‡ãƒ¼ã‚¿ã®æ•°å€¤åŒ– ####
+# col<-c(4,5,6,7,8)   				#### I, II, III,VI æœŸã®ãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ©ãƒ 
 # names(d)[col]
 # nn<-d[,col]
 # nn[nn==""]<-0
 # for (i in 1:ncol(nn))nn[,i]<-as.numeric(nn[,i])
 # which(is.na(nn),arr.ind = TRUE)
-# nn[is.na(nn)]<-0					###@ƒsƒŠƒIƒh‚âƒXƒy[ƒX‚É‚È‚Á‚Ä‚¢‚é‚Æ‚±‚ë‚ğC³
+# nn[is.na(nn)]<-0					###ã€€ãƒ”ãƒªã‚ªãƒ‰ã‚„ã‚¹ãƒšãƒ¼ã‚¹ã«ãªã£ã¦ã„ã‚‹ã¨ã“ã‚ã‚’ä¿®æ­£
 # str(nn)
 # d[,col]<-nn
-# head(d)							### Šm”F
+# head(d)							### ç¢ºèª
 #
-# ### d‚É–ì’ ‚ÌƒIƒŠƒWƒiƒ‹’Ê‚µ”Ô†‚ğid_note‚Æ‚µ‚Ä’Ç‰Á
+# ### dã«é‡å¸³ã®ã‚ªãƒªã‚¸ãƒŠãƒ«é€šã—ç•ªå·ã‚’id_noteã¨ã—ã¦è¿½åŠ 
 # d<-data.frame(d,id_note=1:nrow(d))
-# d$ŠK‘w
-# ##@
-# ####@ŠK‘wŒÀ’è V‚½‚È–ì’ ƒf[ƒ^‚ğ@dd@‚Æ‚·‚é
-# (dd<-subset(d, ŠK‘w!="A1" &  ŠK‘w!="A2" &  ŠK‘w!="B1" & ŠK‘w!="L"))
+# d$éšå±¤
+# ##ã€€
+# ####ã€€éšå±¤é™å®š æ–°ãŸãªé‡å¸³ãƒ‡ãƒ¼ã‚¿ã‚’ã€€ddã€€ã¨ã™ã‚‹
+# (dd<-subset(d, éšå±¤!="A1" &  éšå±¤!="A2" &  éšå±¤!="B1" & éšå±¤!="L"))
 # names(dd)
 #
-# ####@ƒNƒ}ƒCƒUƒT@¨@ƒ`ƒVƒ}ƒUƒT‚É“‡ !!!!!!!!!!! ã‚Ì¬•½‚Ì‚İ
-# sp<-dd$í–¼
-# #dd$í–¼[sp=="ƒNƒ}ƒCƒUƒT"]<-"ƒ`ƒVƒ}ƒUƒT"
+# ####ã€€ã‚¯ãƒã‚¤ã‚¶ã‚µã€€â†’ã€€ãƒã‚·ãƒã‚¶ã‚µã«çµ±åˆ !!!!!!!!!!! ä¸Šã®å°å¹³ã®ã¿
+# sp<-dd$ç¨®å
+# #dd$ç¨®å[sp=="ã‚¯ãƒã‚¤ã‚¶ã‚µ"]<-"ãƒã‚·ãƒã‚¶ã‚µ"
 #
 #
 #
-# ###—§RA•¨–Ú˜^‚Æ–ì’ ‚Ìí–¼Šm”F  ####@
-# #flora<-read.csv( "../‘æ5ŠúA•¨–Ú˜^.csv",as.is=TRUE)
+# ###ç«‹å±±æ¤ç‰©ç›®éŒ²ã¨é‡å¸³ã®ç¨®åç¢ºèª  ####ã€€
+# #flora<-read.csv( "../ç¬¬5æœŸæ¤ç‰©ç›®éŒ².csv",as.is=TRUE)
 # names(flora)
-# spl<-data.frame(table(dd$í–¼))
+# spl<-data.frame(table(dd$ç¨®å))
 # spl<-data.frame(spl,spl=flora$sp[match(spl[,1],flora$spj)])
-# (spna<-spl[is.na(spl$spl),]) ### ’·‚³0‚Å‚ ‚ê‚Î‚·‚×‚Ä–Ú˜^‚É‚ ‚é‚±‚Æ‚ğ¦‚·
-# ## write.table(spna,"clipboad")@
+# (spna<-spl[is.na(spl$spl),]) ### é•·ã•0ã§ã‚ã‚Œã°ã™ã¹ã¦ç›®éŒ²ã«ã‚ã‚‹ã“ã¨ã‚’ç¤ºã™
+# ## write.table(spna,"clipboad")ã€€
 # (undit_sp <- as.vector(spna$Var1) )
-# dd<-dd[!is.element(sp,undit_sp ),] ###ƒŠƒXƒg‚É‚È‚¢í‚ÍœŠO
-# sp<-dd$í–¼
+# dd<-dd[!is.element(sp,undit_sp ),] ###ãƒªã‚¹ãƒˆã«ãªã„ç¨®ã¯é™¤å¤–
+# sp<-dd$ç¨®å
 #
 #
 #
-# ###@í‚Ì¶ŠˆŒ^‚Ì“ü—Í
-# i<-match(dd$í–¼,flora$spj)
+# ###ã€€ç¨®ã®ç”Ÿæ´»å‹ã®å…¥åŠ›
+# i<-match(dd$ç¨®å,flora$spj)
 # (spfm<-flora$form[i])
 # names(table(flora$form))
 # sptype<-data.frame(
-#   ƒR[ƒh=c("bl","bs","cds","cl","cs","ds","f","h","l","sasa","w"),
-#   ¶ŠˆŒ^=c("L—t÷‚–Ø","L—t÷’á–Ø","ƒnƒCƒ}ƒc","j—t÷‚–Ø","j—t÷’á–Ø","áâ«’á–Ø","ƒVƒ_","‘–{","– ","ƒTƒT","…–Ê"),
-#   ŠK‘w=c("B2","B2","B2","B2","B2","C","C","C","L","S","w"))
-# dd$í–¼[which(is.na(match(spfm,sptype$ƒR[ƒh)))] ###  character(0)@‚Æ‚È‚é‚Ü‚ÅC³
-# (cls2<-sptype$ŠK‘w[match(spfm,sptype$ƒR[ƒh)])
-# (dd$ŠK‘w<-cls2)
+#   ã‚³ãƒ¼ãƒ‰=c("bl","bs","cds","cl","cs","ds","f","h","l","sasa","w"),
+#   ç”Ÿæ´»å‹=c("åºƒè‘‰æ¨¹é«˜æœ¨","åºƒè‘‰æ¨¹ä½æœ¨","ãƒã‚¤ãƒãƒ„","é‡è‘‰æ¨¹é«˜æœ¨","é‡è‘‰æ¨¹ä½æœ¨","çŸ®æ€§ä½æœ¨","ã‚·ãƒ€","è‰æœ¬","è”“","ã‚µã‚µ","æ°´é¢"),
+#   éšå±¤=c("B2","B2","B2","B2","B2","C","C","C","L","S","w"))
+# dd$ç¨®å[which(is.na(match(spfm,sptype$ã‚³ãƒ¼ãƒ‰)))] ###  character(0)ã€€ã¨ãªã‚‹ã¾ã§ä¿®æ­£
+# (cls2<-sptype$éšå±¤[match(spfm,sptype$ã‚³ãƒ¼ãƒ‰)])
+# (dd$éšå±¤<-cls2)
 # table(cls2)
 #
 #
 #
-# ####@ƒTƒuƒvƒƒbƒg 	NA“ü—Í
-# (subp<-dd$ƒTƒuƒvƒƒbƒg)
+# ####ã€€ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ 	NAå…¥åŠ›
+# (subp<-dd$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ)
 # for (i in 1:length(subp)){if(subp[i]==""){subp[i]<-subp[i-1]}}
-# (dd$ƒTƒuƒvƒƒbƒg<-subp)
+# (dd$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ<-subp)
 # names(dd)
 #
-# ## •À‚×‘Ö‚¦
-# (dd<-dd[order(as.numeric(dd$ƒTƒuƒvƒƒbƒg),dd$ŠK‘w,dd$í–¼),])
+# ## ä¸¦ã¹æ›¿ãˆ
+# (dd<-dd[order(as.numeric(dd$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ),dd$éšå±¤,dd$ç¨®å),])
 #
-# ##@ŠK‘w"L"í‚ÌœŠO@Œ³–ì’ ‚Å"L"‚Æ‚È‚Á‚Ä‚¨‚ç‚¸subset‚ÌƒtƒBƒ‹ƒ^ƒŠƒ“ƒO‚Å‚à‚ê‚½‚à‚Ì
-# (dd<-dd[dd$ŠK‘w!="L",])
+# ##ã€€éšå±¤"L"ç¨®ã®é™¤å¤–ã€€å…ƒé‡å¸³ã§"L"ã¨ãªã£ã¦ãŠã‚‰ãšsubsetã®ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°ã§ã‚‚ã‚ŒãŸã‚‚ã®
+# (dd<-dd[dd$éšå±¤!="L",])
 #
 #
 #
-# ###@“¯ˆêƒTƒuƒvƒƒbƒg“àd•¡‹LÚí‚Ì“‡
-# ###@Šî‘b•Ï”æ‚è‚İ
+# ###ã€€åŒä¸€ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆå†…é‡è¤‡è¨˜è¼‰ç¨®ã®çµ±åˆ
+# ###ã€€åŸºç¤å¤‰æ•°å–ã‚Šè¾¼ã¿
 #
-# (subp<-dd$ƒTƒuƒvƒƒbƒg)
-# (sp<-dd$í–¼)
+# (subp<-dd$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ)
+# (sp<-dd$ç¨®å)
 # (subp_<-unique(subp))
 #
 # for (ii in 1:length(subp_)){### ii<-25 length(subp_)
 #   (spsubp_tab<-table(sp[subp_[ii]==subp]))
-#   (spdupl<-names(spsubp_tab[spsubp_tab>1])) #### ˆê‚Â‚ÌƒTƒuƒvƒƒbƒg‚Éd•¡‚Ì‚ ‚éí
+#   (spdupl<-names(spsubp_tab[spsubp_tab>1])) #### ä¸€ã¤ã®ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆã«é‡è¤‡ã®ã‚ã‚‹ç¨®
 #   i<-1
 #   while (i<=length(spdupl)){## i<-2
 #     spdupl[i]
-#     (j<-which(subp==subp_[ii] & sp==spdupl[i]))	####@dd’Ê‚µ‚Å‚Ìd•¡í‚Ì”Ô†
+#     (j<-which(subp==subp_[ii] & sp==spdupl[i]))	####ã€€ddé€šã—ã§ã®é‡è¤‡ç¨®ã®ç•ªå·
 #     goukei<-colSums(dd[subp==subp_[ii] & spdupl[i]==sp,col])
-#     dd[j[1],col]<-goukei				### d•¡ƒf[ƒ^æ“ªsj[1]‚É“‡
+#     dd[j[1],col]<-goukei				### é‡è¤‡ãƒ‡ãƒ¼ã‚¿å…ˆé ­è¡Œj[1]ã«çµ±åˆ
 #     dd$id_note[j[1]]<-paste(dd$id_note[j],collapse="_")
-#     dd$”õl[j[1]]<-paste(dd$”õl[j],collapse="_")
-#     dd<-dd[-j[-1],] 				### d•¡ƒf[ƒ^æ“ªsj[-1]ˆÈŠO‚Ìd•¡s‚Ìíœ
-#     subp<-dd$ƒTƒuƒvƒƒbƒg
-#     sp<-dd$í–¼
+#     dd$å‚™è€ƒ[j[1]]<-paste(dd$å‚™è€ƒ[j],collapse="_")
+#     dd<-dd[-j[-1],] 				### é‡è¤‡ãƒ‡ãƒ¼ã‚¿å…ˆé ­è¡Œj[-1]ä»¥å¤–ã®é‡è¤‡è¡Œã®å‰Šé™¤
+#     subp<-dd$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ
+#     sp<-dd$ç¨®å
 #     i<-i+1
 #   }
 # }
 #
-# ## •À‚×‘Ö‚¦
-# (dd<-dd[order(as.numeric(dd$ƒTƒuƒvƒƒbƒg),dd$ŠK‘w,dd$í–¼),])
+# ## ä¸¦ã¹æ›¿ãˆ
+# (dd<-dd[order(as.numeric(dd$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ),dd$éšå±¤,dd$ç¨®å),])
 #
 # ##edit(dd)
 #
-# ####@write.csv(dd,yachou2,row.names = FALSE)
+# ####ã€€write.csv(dd,yachou2,row.names = FALSE)
 #
 # ####  edit(read.csv(yachou2))
 #
@@ -329,29 +329,29 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #
 #
 #
-# # 02_A¶’²¸WŒv.R ######
-# ## –ì’ ƒfƒoƒbƒO¨WŒv@@@#############
+# # 02_æ¤ç”Ÿèª¿æŸ»é›†è¨ˆ.R ######
+# ## é‡å¸³ãƒ‡ãƒãƒƒã‚°â†’é›†è¨ˆã€€ã€€ã€€#############
 #
-# ## ‰Šú‰»@####
+# ## åˆæœŸåŒ–ã€€####
 # rm(list=ls())
 # ls()
-# ##yİ’è #################
+# ##ã€è¨­å®š #################
 #
-# ### ƒ[ƒLƒ“ƒOEƒfƒBƒŒƒNƒgƒŠ‚Ìİ’è@####
-# #wd<-"m:/00D/00/—§RA¶ƒ‚ƒjƒ^ƒŠƒ“ƒO–‹Æ/‘æ04Šú/•½¬30”N“x/A¶’²¸/R/”ü¼"
+# ### ãƒ¯ãƒ¼ã‚­ãƒ³ã‚°ãƒ»ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®è¨­å®šã€€####
+# #wd<-"m:/00D/00/ç«‹å±±æ¤ç”Ÿãƒ¢ãƒ‹ã‚¿ãƒªãƒ³ã‚°äº‹æ¥­/ç¬¬04æœŸ/å¹³æˆ30å¹´åº¦/æ¤ç”Ÿèª¿æŸ»/R/ç¾æ¾"
 # #setwd(wd)
 # dir()
 #
-# ###@–ì’ ƒf[ƒ^ ####
-# #yachou_<-"09ò“y2024.csv" @#### ƒfƒoƒbƒNŒã
+# ###ã€€é‡å¸³ãƒ‡ãƒ¼ã‚¿ ####
+# #yachou_<-"09æµ„åœŸ2024.csv" ã€€#### ãƒ‡ãƒãƒƒã‚¯å¾Œ
 #
-# yachou_<-"04ãƒm¬•½2024.csv" @#### ƒfƒoƒbƒNŒã
+# yachou_<-"04ä¸Šãƒå°å¹³2024.csv" ã€€#### ãƒ‡ãƒãƒƒã‚¯å¾Œ
 #
-# ## ŠÖ˜AŠÖ”“Ç‚İ‚İ@Domin_Krajina‘¼ ####
-# source("../—§RA¶source.R") #,encoding="SHIFT-JIS")
+# ## é–¢é€£é–¢æ•°èª­ã¿è¾¼ã¿ã€€Domin_Krajinaä»– ####
+# source("../ç«‹å±±æ¤ç”Ÿsource.R") #,encoding="SHIFT-JIS")
 #
 #
-# ##ƒf[ƒ^ƒtƒ@ƒCƒ‹“Ç‚İ‚İ ####  (•¡”ƒtƒ@ƒCƒ‹‚ğWŒv‚·‚éƒR[ƒh‚ğŠî‚É‚µ‚Ä‚¢‚é‚Ì‚Åç’·)
+# ##ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ ####  (è¤‡æ•°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é›†è¨ˆã™ã‚‹ã‚³ãƒ¼ãƒ‰ã‚’åŸºã«ã—ã¦ã„ã‚‹ã®ã§å†—é•·)
 # f<-c(yachou_)
 # (site_code<-gsub(".csv","",f))
 #
@@ -364,28 +364,28 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 # names(d)
 #
 #
-# #@—§R–Ú˜^‚Ì’Ç‰Á‚Æí‚Ì¶ŠˆŒ^ ####
-# flora<-read.csv( "../‘æ5ŠúA•¨–Ú˜^.csv",as.is=TRUE)
+# #ã€€ç«‹å±±ç›®éŒ²ã®è¿½åŠ ã¨ç¨®ã®ç”Ÿæ´»å‹ ####
+# flora<-read.csv( "../ç¬¬5æœŸæ¤ç‰©ç›®éŒ².csv",as.is=TRUE)
 # names(flora)
-# i<-match(d$í–¼,flora$spj)
-# (qq<-d$í–¼[is.na(i)])@#### write.csv(qq,"—§R–Ú˜^‚É‚È‚¢í.csv")@<<<@‰ğÍ‚É“ü‚é‘O‚É‚È‚­‚·
+# i<-match(d$ç¨®å,flora$spj)
+# (qq<-d$ç¨®å[is.na(i)])ã€€#### write.csv(qq,"ç«‹å±±ç›®éŒ²ã«ãªã„ç¨®.csv")ã€€<<<ã€€è§£æã«å…¥ã‚‹å‰ã«ãªãã™
 # flora$form[i]
 #
 #
 #
-# ## Šî‘b•Ï”æ‚è‚İ ####
-# 	col<-c(4,5,6,7,8)   				#### I, II, III,VI ,???Šú‚Ìƒf[ƒ^‚ÌƒRƒ‰ƒ€
+# ## åŸºç¤å¤‰æ•°å–ã‚Šè¾¼ã¿ ####
+# 	col<-c(4,5,6,7,8)   				#### I, II, III,VI ,???æœŸã®ãƒ‡ãƒ¼ã‚¿ã®ã‚³ãƒ©ãƒ 
 # 	coln<-length(col)
 #
-# 	(yr<-substr(names(d)[col],3,999))@	##@
+# 	(yr<-substr(names(d)[col],3,999))ã€€	##ã€€
 # 	##str(d)
-# 	sp<-d$í–¼;cls<-d$ŠK‘w;plt<-d$ƒTƒuƒvƒƒbƒg
+# 	sp<-d$ç¨®å;cls<-d$éšå±¤;plt<-d$ã‚µãƒ–ãƒ—ãƒ­ãƒƒãƒˆ
 #
 # (sp_cls_tab<-table((factor(sp)),(factor(cls))))
 #
 #
 #
-# ##@“ü—Í—pƒ}ƒgƒŠƒNƒX@m@‚Ìì¬@####
+# ##ã€€å…¥åŠ›ç”¨ãƒãƒˆãƒªã‚¯ã‚¹ã€€mã€€ã®ä½œæˆã€€####
 #
 # 	sp_<-levels(factor(sp)); sp_<-sp_[sp_!=""]
 # 	cls_<-levels(factor(cls)); cls_<-cls_[cls_!=""]
@@ -400,16 +400,16 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #
 # 	cn<-length(plt_)
 # 	rn<-nrow(cls_sp_all)
-# 	nm<-c(c("ŠK‘w","í–¼"),plt_)
+# 	nm<-c(c("éšå±¤","ç¨®å"),plt_)
 #
 #
 #
-# 	###   ƒf[ƒ^Ši”[‚Æƒtƒ@ƒCƒ‹o—Í ####
+# 	###   ãƒ‡ãƒ¼ã‚¿æ ¼ç´ã¨ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ› ####
 #
 # 	lab<-names(d)[col]
 #
 #
-# 	###@‘æˆêŠú‚Í”í“x‚Ìƒf[ƒ^‚È‚­Domin_Krajina ####
+# 	###ã€€ç¬¬ä¸€æœŸã¯è¢«åº¦ã®ãƒ‡ãƒ¼ã‚¿ãªãDomin_Krajina ####
 #
 # 	ML<-list()
 #
@@ -420,7 +420,7 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 # 		cv<-as.numeric(d[,col[ii]]);cv[is.na(cv)]<-0
 # 		m<-data.frame(cls_sp_all,matrix(0,rn,cn));names(m)<-nm
 # 			for (i in 1:rn){
-# 				r<-which(d$ŠK‘w==m$ŠK‘w[i] & d$í–¼==m$í–¼[i])
+# 				r<-which(d$éšå±¤==m$éšå±¤[i] & d$ç¨®å==m$ç¨®å[i])
 # 			for (j in 1:length(r)) m[i,nm==plt[r][j]]<-m[i,nm==plt[r][j]]+cv[r][j]
 # 						}
 # 			m[is.na(m)]<-0
@@ -430,30 +430,30 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #
 # 	names(ML)<-lab
 #
-# #   •p“x_•½‹Ï”í“x  #####
+# #   é »åº¦_å¹³å‡è¢«åº¦  #####
 # t_<-ML[[1]]
-# form_<-flora$form[match(t_$í–¼,flora$spj)]
-# (t_1<-data.frame(í–¼=t_$í–¼,ŠK‘w=t_$ŠK‘w,form=form_))
+# form_<-flora$form[match(t_$ç¨®å,flora$spj)]
+# (t_1<-data.frame(ç¨®å=t_$ç¨®å,éšå±¤=t_$éšå±¤,form=form_))
 #
-# ## •p“x‚Æ•½‹Ï”í“x‚ÌŒvZ
+# ## é »åº¦ã¨å¹³å‡è¢«åº¦ã®è¨ˆç®—
 # freq<-function(v)100*sum(v!=0)/length(v)
 # for (ii in 1:length(yr)){
 # 	m<-as.matrix(ML[[ii]][,c(-1,-2)])
-# 	t_1<-data.frame(t_1,•½‹Ï”í“x=apply(m,1,mean),•p“x=apply(m,1,freq))
+# 	t_1<-data.frame(t_1,å¹³å‡è¢«åº¦=apply(m,1,mean),é »åº¦=apply(m,1,freq))
 # 	names(t_1)[2*ii+2]<-paste("V",yr[ii],sep="")
 # 	names(t_1)[2*ii+3]<-paste("F",yr[ii],sep="")
 # 				}
 #
-# ##@‰ğÍ‘ÎÛ ####
-# i<-t_1$ŠK‘w=="B2" | t_1$ŠK‘w=="C" | t_1$ŠK‘w=="L" | t_1$ŠK‘w=="S"
-# j<-rowSums(t_1==0)==0 #### ???`??? WŠú‘±‚¯‚Ä‹L˜^‚ª‚ ‚éí
-# (‰ğÍ‘ÎÛ<-ifelse(i & j,1,0)) ###
+# ##ã€€è§£æå¯¾è±¡ ####
+# i<-t_1$éšå±¤=="B2" | t_1$éšå±¤=="C" | t_1$éšå±¤=="L" | t_1$éšå±¤=="S"
+# j<-rowSums(t_1==0)==0 #### ???ã€œ??? WæœŸç¶šã‘ã¦è¨˜éŒ²ãŒã‚ã‚‹ç¨®
+# (è§£æå¯¾è±¡<-ifelse(i & j,1,0)) ###
 #
-# •p“x_•½‹Ï”í“x<-data.frame(t_1,‰ğÍ‘ÎÛ)
+# é »åº¦_å¹³å‡è¢«åº¦<-data.frame(t_1,è§£æå¯¾è±¡)
 #
 #
 #
-# ##@Domin_Krajina@”í“xŠK‹‰•\‚Ìì¬ ####
+# ##ã€€Domin_Krajinaã€€è¢«åº¦éšç´šè¡¨ã®ä½œæˆ ####
 #
 # 	DKL<-ML
 #
@@ -468,117 +468,117 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 # 				}
 #
 #
-# ##@Domin_Krajina@”í“xŠK‹‰•\‚ÌWŒv’Ç‰Á ####
+# ##ã€€Domin_Krajinaã€€è¢«åº¦éšç´šè¡¨ã®é›†è¨ˆè¿½åŠ  ####
 #
 # 	DKL2<-DKL
 # 	for(ii in 1:coln){
 # 		m_DK<-DKL2[[ii]]
 # 		j<-3:length(nm)
-# 		•p“x<-rep(0,rn)
-# 		for (i in 1:rn)•p“x[i]<-length(which(m_DK[i,j]!=0))/cn
-# 		‘‡—Dè“x<-rep(0,rn)
-# 		for (i in 1:rn)‘‡—Dè“x[i]<-sqrt(mean(as.numeric(m_DK[i,j]))*•p“x[i])/sqrt(10)*100
-# 		m_DK2<-data.frame(m_DK,•p“x=unlist(lapply(•p“x,hindo)) ,‘‡—Dè“x)
+# 		é »åº¦<-rep(0,rn)
+# 		for (i in 1:rn)é »åº¦[i]<-length(which(m_DK[i,j]!=0))/cn
+# 		ç·åˆå„ªå åº¦<-rep(0,rn)
+# 		for (i in 1:rn)ç·åˆå„ªå åº¦[i]<-sqrt(mean(as.numeric(m_DK[i,j]))*é »åº¦[i])/sqrt(10)*100
+# 		m_DK2<-data.frame(m_DK,é »åº¦=unlist(lapply(é »åº¦,hindo)) ,ç·åˆå„ªå åº¦)
 # 		DKL2[[ii]]<-m_DK2
 # 				}
 #
 #
-# ## ‘‡—Dè“x‚Ì•Ï‰» #####
+# ## ç·åˆå„ªå åº¦ã®å¤‰åŒ– #####
 #
-# 	total<-data.frame(ŠK‘w=DKL2[[1]]$ŠK‘w,í–¼=DKL2[[1]]$í–¼,
-# 	•p“x=DKL2[[1]]$•p“x,‘‡—Dè“x=DKL2[[1]]$‘‡—Dè“x)
+# 	total<-data.frame(éšå±¤=DKL2[[1]]$éšå±¤,ç¨®å=DKL2[[1]]$ç¨®å,
+# 	é »åº¦=DKL2[[1]]$é »åº¦,ç·åˆå„ªå åº¦=DKL2[[1]]$ç·åˆå„ªå åº¦)
 #
 # 	for(ii in 2:coln){
-# 		total<-data.frame(total,•p“x=DKL2[[ii]]$•p“x,‘‡—Dè“x=DKL2[[ii]]$‘‡—Dè“x)
+# 		total<-data.frame(total,é »åº¦=DKL2[[ii]]$é »åº¦,ç·åˆå„ªå åº¦=DKL2[[ii]]$ç·åˆå„ªå åº¦)
 # 			}
 #
 #
-# 	##names(total)[seq(3,2+coln*2,2)]<-paste("•p“x",yr,"”N",sep="")
-# 	##names(total)[seq(4,3+coln*2,2)]<-paste("‘‡—Dè“x",yr,"”N",sep="")
+# 	##names(total)[seq(3,2+coln*2,2)]<-paste("é »åº¦",yr,"å¹´",sep="")
+# 	##names(total)[seq(4,3+coln*2,2)]<-paste("ç·åˆå„ªå åº¦",yr,"å¹´",sep="")
 #
 # 	names(total)[seq(3,2+coln*2,2)]<-paste("f",yr,sep="")
 # 	names(total)[seq(4,3+coln*2,2)]<-paste("v",yr,sep="")
 #
 #
-# ## total<-total[order(total$ŠK‘w,- total[,ncol(total)]),]
+# ## total<-total[order(total$éšå±¤,- total[,ncol(total)]),]
 #
-# ## •Û‘¶@#####
-# ### ”í“x•\‚Ì•Û‘¶ #####
+# ## ä¿å­˜ã€€#####
+# ### è¢«åº¦è¡¨ã®ä¿å­˜ #####
 # 	for(ii in 1:coln){
-# @		(fn<-paste("”í“x•\-",site_code[iii],"-",names(ML)[ii],".csv",sep=""))
+# ã€€		(fn<-paste("è¢«åº¦è¡¨-",site_code[iii],"-",names(ML)[ii],".csv",sep=""))
 # 	 	write.csv(ML[[ii]],fn)
 # 				}
 #
-# ### ”í“xŠK‹‰•\‚Ì•Û‘¶ #####
+# ### è¢«åº¦éšç´šè¡¨ã®ä¿å­˜ #####
 #
 # 	for(ii in 1:coln){
-# @		(fn<-paste("”í“xŠK‹‰•\-",site_code[iii],"-",names(DKL2)[ii],".csv",sep=""))
+# ã€€		(fn<-paste("è¢«åº¦éšç´šè¡¨-",site_code[iii],"-",names(DKL2)[ii],".csv",sep=""))
 # 	 	write.csv(DKL2[[ii]],fn)
 # 			}
 #
-# 	##### ‘‡—Dè“x‚Ì•Û‘¶
-# 	write.csv(total,paste("‘‡—Dè“x-",site_code[iii],".csv",sep=""))
+# 	##### ç·åˆå„ªå åº¦ã®ä¿å­˜
+# 	write.csv(total,paste("ç·åˆå„ªå åº¦-",site_code[iii],".csv",sep=""))
 #
-# 	##### ‘‡—Dè“x_•p“x_•½‹Ï”í“x ‚Ì•Û‘¶
-# 	total2<-data.frame(total,•p“x_•½‹Ï”í“x)
-# 	write.csv(total2,paste("‘‡—Dè“x_•p“x_•½‹Ï”í“x-",site_code[iii],".csv",sep=""))
+# 	##### ç·åˆå„ªå åº¦_é »åº¦_å¹³å‡è¢«åº¦ ã®ä¿å­˜
+# 	total2<-data.frame(total,é »åº¦_å¹³å‡è¢«åº¦)
+# 	write.csv(total2,paste("ç·åˆå„ªå åº¦_é »åº¦_å¹³å‡è¢«åº¦-",site_code[iii],".csv",sep=""))
 #
 # #<<<<<<<<<<<<<<<<<<
-# #<<<<<<<<<<<<<<<<<<  ŒvZƒ‹[ƒvI—¹
+# #<<<<<<<<<<<<<<<<<<  è¨ˆç®—ãƒ«ãƒ¼ãƒ—çµ‚äº†
 # #<<<<<<<<<<<<<<<<<<
 #
 # dir()
 #
 #
-# #@03_‘‡—Dè“x-•p“x-•½‹Ï”í“x}.R ####
+# #ã€€03_ç·åˆå„ªå åº¦-é »åº¦-å¹³å‡è¢«åº¦å›³.R ####
 #
-# #ƒ[ƒLƒ“ƒOEƒfƒBƒŒƒNƒgƒŠ‚Ìİ’è   Ë@‚È‚µ
-# #@R ver.4 ˆÈ~@utf-8@ƒfƒtƒHƒ‹ƒg‚Æ‚È‚è@RStudio ‚ğƒƒCƒ“‚Æ‚·‚é
-# #@wd“à‚ÌƒvƒƒWƒFƒNƒg.Rpoj@‹N“®‚Åwd‚ªƒJƒŒƒ“ƒg‚É‚È‚é‚Ì‚Åsetwd(wd)@•K—v‚È‚­‚È‚é
+# #ãƒ¯ãƒ¼ã‚­ãƒ³ã‚°ãƒ»ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®è¨­å®š   â‡’ã€€ãªã—
+# #ã€€R ver.4 ä»¥é™ã€€utf-8ã€€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¨ãªã‚Šã€€RStudio ã‚’ãƒ¡ã‚¤ãƒ³ã¨ã™ã‚‹
+# #ã€€wdå†…ã®ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ.Rpojã€€èµ·å‹•ã§wdãŒã‚«ãƒ¬ãƒ³ãƒˆã«ãªã‚‹ã®ã§setwd(wd)ã€€å¿…è¦ãªããªã‚‹
 #
 #
-# ## ‘‡—Dè“x_•p“x_•½‹Ï”í“x ‚Ì“Ç‚İ‚İ@##################
+# ## ç·åˆå„ªå åº¦_é »åº¦_å¹³å‡è¢«åº¦ ã®èª­ã¿è¾¼ã¿ã€€##################
 #
-# (d<-read.csv(dir(".",pattern="‘‡—Dè“x_•p“x_•½‹Ï”í“x*"),as.is=TRUE))
+# (d<-read.csv(dir(".",pattern="ç·åˆå„ªå åº¦_é »åº¦_å¹³å‡è¢«åº¦*"),as.is=TRUE))
 # #
-# # (d<-read.csv("‘‡—Dè“x_•p“x_•½‹Ï”í“x-09ò“yR2024.csv",as.is=TRUE))
-# (t1<-table(d$ŠK‘w))
-# paste(names(t1),"‘w",t1,"í",collapse =",",sep="")
+# # (d<-read.csv("ç·åˆå„ªå åº¦_é »åº¦_å¹³å‡è¢«åº¦-09æµ„åœŸå±±2024.csv",as.is=TRUE))
+# (t1<-table(d$éšå±¤))
+# paste(names(t1),"å±¤",t1,"ç¨®",collapse =",",sep="")
 #
-# ## •ñ‘—pì•\ ####
-# #(d<-read.csv(dir(".",pattern="‘‡—Dè“x_•p“x_•½‹Ï”í“x*"),as.is=TRUE))
-# (WŒv<-ifelse(d$‰ğÍ‘ÎÛ==1 & !is.na(d$‰ğÍ‘ÎÛ),"*",""))
+# ## å ±å‘Šæ›¸ç”¨ä½œè¡¨ ####
+# #(d<-read.csv(dir(".",pattern="ç·åˆå„ªå åº¦_é »åº¦_å¹³å‡è¢«åº¦*"),as.is=TRUE))
+# (é›†è¨ˆ<-ifelse(d$è§£æå¯¾è±¡==1 & !is.na(d$è§£æå¯¾è±¡),"*",""))
 # options(digits=2)
 # data.frame(names(d))
-# ## ŠK‘w	í–¼	¶ŠˆŒ^	oŒ»•p“x@(“) 1-5 •p“xŠK‹‰	1-5	•½‹Ï”í“x@(“) 1-5	‘‡—Dè“x1-5	  ####
+# ## éšå±¤	ç¨®å	ç”Ÿæ´»å‹	å‡ºç¾é »åº¦ã€€(ï¼…) 1-5 é »åº¦éšç´š	1-5	å¹³å‡è¢«åº¦ã€€(ï¼…) 1-5	ç·åˆå„ªå åº¦1-5	  ####
 #
 # j<-c(2,3,16,18,20,22,24,26,4,6,8,10,12,17,19,21,23,25,5,7,9,11,13)
 # #j<-c(2,3,8,10,12,14,16)##, 14,16,18,20,22,4,6,8,10,15,17,19,21,5,7,9,11,13)
 # names(d)[j]
-# (dtab<-data.frame(d[,j],WŒv))
-# ## WŒv ####
+# (dtab<-data.frame(d[,j],é›†è¨ˆ))
+# ## é›†è¨ˆ ####
 # names(dtab)
-# # i ¡”N“x‹L˜^‚ ‚è@TRUE
-# i<-dtab[,(ncol(dtab)-1)]!=0; table(dtab[i,]$ŠK‘w)
-# # @¡”N“x‹L˜^‚È‚µ
-# data.frame(dtab$í–¼[!i],dtab$ŠK‘w[!i])
+# # i ä»Šå¹´åº¦è¨˜éŒ²ã‚ã‚Šã€€TRUE
+# i<-dtab[,(ncol(dtab)-1)]!=0; table(dtab[i,]$éšå±¤)
+# # ã€€ä»Šå¹´åº¦è¨˜éŒ²ãªã—
+# data.frame(dtab$ç¨®å[!i],dtab$éšå±¤[!i])
 #
-# ## write "•ñ‘—p-•p“x_”í“x_—Dè“x•\.csv" ########
-# write.csv(dtab,"•ñ‘—p-•p“x_”í“x_—Dè“x•\.csv")
+# ## write "å ±å‘Šæ›¸ç”¨-é »åº¦_è¢«åº¦_å„ªå åº¦è¡¨.csv" ########
+# write.csv(dtab,"å ±å‘Šæ›¸ç”¨-é »åº¦_è¢«åº¦_å„ªå åº¦è¡¨.csv")
 #
-# ## ‰ğÍ@####
+# ## è§£æã€€####
 # # d0<-d
-# d<-d[d$‰ğÍ‘ÎÛ==1 & !is.na(d$‰ğÍ‘ÎÛ),]
+# d<-d[d$è§£æå¯¾è±¡==1 & !is.na(d$è§£æå¯¾è±¡),]
 # t1 ## paste(names(t1),t1)
-# (t2<-table(d$ŠK‘w)) ## paste(names(t2),t2)
+# (t2<-table(d$éšå±¤)) ## paste(names(t2),t2)
 #
 # col<-c(5,7,9,11,13)
 # typ<-c("B2","C","L","S")
 # typc<-c("skyblue","darkgreen","purple","green")
 #
-# cls<-d$ŠK‘w;cls_<-levels(factor(cls))
+# cls<-d$éšå±¤;cls_<-levels(factor(cls))
 # yr<-substr(names(d)[col],2,5)
-# dm<-c();for (i in col) dm<-cbind(dm,tapply(d[,i],d$ŠK‘w,sum))
+# dm<-c();for (i in col) dm<-cbind(dm,tapply(d[,i],d$éšå±¤,sum))
 # dm<-dm[c("B2","C","S"),]
 #
 # colnames(dm)<-yr
@@ -589,20 +589,20 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #
 # w<-0.9;s<-.2
 # par(mfrow=c(1,1))
-# barplot(dm,legend=rownames(dm),ylab="‘‡—Dè“x",width =w,space=s,
+# barplot(dm,legend=rownames(dm),ylab="ç·åˆå„ªå åº¦",width =w,space=s,
 #         col=clsc,xlim=c(0,coln+3))
 #
 #
 # par(mfrow=c(1,3))
-# main.txt <- c("’á–Ø‘w@(B2)","‘–{‘w@(C)","ƒTƒT@(S)")
-# for (i in 1:nrow(dm))barplot(dm[i,],main=main.txt[i],ylab="‘‡—Dè“x@(“)")		#rownames(dm)[i]
+# main.txt <- c("ä½æœ¨å±¤ã€€(B2)","è‰æœ¬å±¤ã€€(C)","ã‚µã‚µã€€(S)")
+# for (i in 1:nrow(dm))barplot(dm[i,],main=main.txt[i],ylab="ç·åˆå„ªå åº¦ã€€(ï¼…)")		#rownames(dm)[i]
 #
 #
-# # 04_WŒv.R ####
+# # 04_é›†è¨ˆ.R ####
 #
-# # plot_name <- "¼”ö“»"
-# # plot_name <- "ò“yR"
-# plot_name <- "ãƒm¬•½"
+# # plot_name <- "æ¾å°¾å³ "
+# # plot_name <- "æµ„åœŸå±±"
+# plot_name <- "ä¸Šãƒå°å¹³"
 #
 # # OS <- "win" #"win"
 # OS <- "linux" #"win"
@@ -612,46 +612,46 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #
 #
 #
-# ### ”N“x‚ğ’²¸”N“x‚É•ÏŠ·‚·‚é‚±‚Æ@—á@2017¨2018 !!!!
+# ### å¹´åº¦ã‚’èª¿æŸ»å¹´åº¦ã«å¤‰æ›ã™ã‚‹ã“ã¨ã€€ä¾‹ã€€2017â†’2018 !!!!
 #
-# ### ƒ[ƒLƒ“ƒOEƒfƒBƒŒƒNƒgƒŠ‚Ìİ’è
-# #@wd<-"m:/00D/00/—§RA¶ƒ‚ƒjƒ^ƒŠƒ“ƒO–‹Æ/‘æ04Šú/•½¬30”N“x/A¶’²¸/R/”ü¼"
+# ### ãƒ¯ãƒ¼ã‚­ãƒ³ã‚°ãƒ»ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®è¨­å®š
+# #ã€€wd<-"m:/00D/00/ç«‹å±±æ¤ç”Ÿãƒ¢ãƒ‹ã‚¿ãƒªãƒ³ã‚°äº‹æ¥­/ç¬¬04æœŸ/å¹³æˆ30å¹´åº¦/æ¤ç”Ÿèª¿æŸ»/R/ç¾æ¾"
 # # setwd(wd)
 # dir()
 # ####
 # # ifelse(OS=="wim",
-# #   d0<-read.csv("•ñ‘—p-•p“x_”í“x_—Dè“x•\.csv",as.is=TRUE),
-# #   d0<-read.csv("•ñ‘—p-•p“x_”í“x_—Dè“x•\.csv",as.is=TRUE,fileEncoding="CP932")  #,fileEncoding="SHIFT-JIS"
+# #   d0<-read.csv("å ±å‘Šæ›¸ç”¨-é »åº¦_è¢«åº¦_å„ªå åº¦è¡¨.csv",as.is=TRUE),
+# #   d0<-read.csv("å ±å‘Šæ›¸ç”¨-é »åº¦_è¢«åº¦_å„ªå åº¦è¡¨.csv",as.is=TRUE,fileEncoding="CP932")  #,fileEncoding="SHIFT-JIS"
 # # )
 #
-# d0<-read.csv("•ñ‘—p-•p“x_”í“x_—Dè“x•\.csv",as.is=TRUE)
+# d0<-read.csv("å ±å‘Šæ›¸ç”¨-é »åº¦_è¢«åº¦_å„ªå åº¦è¡¨.csv",as.is=TRUE)
 #
-# d0<-d0[,-1] 		### write.csv‚Å©“®“I‚É¶¬‚³‚ê‚½1—ñ–Ú‚ğíœ  # edit(d0)
+# d0<-d0[,-1] 		### write.csvã§è‡ªå‹•çš„ã«ç”Ÿæˆã•ã‚ŒãŸ1åˆ—ç›®ã‚’å‰Šé™¤  # edit(d0)
 # (nm<-names(d0))	#edit(dd) ; data.frame(nm)
 #
-# ### ŠK‘wœŠO
+# ### éšå±¤é™¤å¤–
 #
-# i<-d0$ŠK‘w=="A1" | d0$ŠK‘w=="A2" | d0$ŠK‘w=="B1" | d0$ŠK‘w=="L" | is.na(d0$form)
+# i<-d0$éšå±¤=="A1" | d0$éšå±¤=="A2" | d0$éšå±¤=="B1" | d0$éšå±¤=="L" | is.na(d0$form)
 #
 # d0<-d0[!i,]
 #
-# ##### ‚Ç‚ñ‚Èí‚ª‘½‚¢‚Ì‚©?
-# ####•½‹Ï—Dè“x
-# (typc<-levels(factor(d0$ŠK‘w)))
+# ##### ã©ã‚“ãªç¨®ãŒå¤šã„ã®ã‹?
+# ####å¹³å‡å„ªå åº¦
+# (typc<-levels(factor(d0$éšå±¤)))
 # (typf<-levels(factor(d0$form)))
 # Fc <- grep("F",nm) ; Vc<-grep("V",nm) ; vc<-grep("v",nm)
 # mF<-apply(d0[,Fc],1,mean)		#
 # mv<-apply(d0[,vc],1,mean)
-# (mFv<-data.frame(mF,mv,sp=d0$í–¼))
-# d0$í–¼[order(mv)] ##### ‘‡—Dè“x‚Ì‡ˆÊ
+# (mFv<-data.frame(mF,mv,sp=d0$ç¨®å))
+# d0$ç¨®å[order(mv)] ##### ç·åˆå„ªå åº¦ã®é †ä½
 #
-# #####@II`VŠú•½‹Ï
+# #####ã€€IIã€œVæœŸå¹³å‡
 # x12 <- range(mFv$mF);y12 <- range(mFv$mv)
 # g<-ggplot(mFv, aes(x = mF, y = mv, label = sp )) +xlim(x12[1]-15,x12[2])+ylim(y12[1]-7,y12[2])+
 #   #+xlim(-20,100)+ylim(-20,100)+
 #   #theme(panel.border = element_blank(), axis.line = element_line())+
-#   xlab("II - V Šú•½‹ÏoŒ»•p“x (%)")+
-#   ylab("II - V Šú•½‹Ï‘‡—Dè“x ")+
+#   xlab("II - V æœŸå¹³å‡å‡ºç¾é »åº¦ (%)")+
+#   ylab("II - V æœŸå¹³å‡ç·åˆå„ªå åº¦ ")+
 #   #scale_x_continuous(breaks=seq(40,100,20),labels=1:4)+scale_y_continuous(breaks=c(-40,20,80,120))+
 #   geom_point(col="red") +
 #   geom_text_repel(size=3,fontface="bold",max.overlaps=1000)#)
@@ -670,18 +670,18 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #
 #
 #
-# #####@ÅVŠúWŒv
+# #####ã€€æœ€æ–°æœŸé›†è¨ˆ
 # (Fc_last <- rev(Fc)[1])
 # (Vc_last <- rev(Vc)[1])
 # (vc_last <- rev(vc)[1])
 #
 #
-# d@<-@d0[d0[,tail(Fc,1)]!=0,  ] #¡‹G’²¸‚Å‹L˜^‚Ì‚ ‚Á‚½‚à‚Ì
+# dã€€<-ã€€d0[d0[,tail(Fc,1)]!=0,  ] #ä»Šå­£èª¿æŸ»ã§è¨˜éŒ²ã®ã‚ã£ãŸã‚‚ã®
 #
 #
-# #### í”WŒv
-# (t2<-table(d$ŠK‘w));
-# paste(names(t2),"‘w",t2,"í",collapse =",",sep="")
+# #### ç¨®æ•°é›†è¨ˆ
+# (t2<-table(d$éšå±¤));
+# paste(names(t2),"å±¤",t2,"ç¨®",collapse =",",sep="")
 # (t1<-table(d$form));
 #
 # fm<-d$form
@@ -689,81 +689,81 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 # (tfm<-table(fm))
 #
 # ##
-# ffm<-data.frame(form=c("j—t÷‚–Ø","L—t÷‚–Ø","j—t÷’á–Ø","L—t÷’á–Ø","áâ«’á–Ø","‘–{","“¡–{","ƒVƒ_—Ş","ƒTƒT—Ş"),
+# ffm<-data.frame(form=c("é‡è‘‰æ¨¹é«˜æœ¨","åºƒè‘‰æ¨¹é«˜æœ¨","é‡è‘‰æ¨¹ä½æœ¨","åºƒè‘‰æ¨¹ä½æœ¨","çŸ®æ€§ä½æœ¨","è‰æœ¬","è—¤æœ¬","ã‚·ãƒ€é¡","ã‚µã‚µé¡"),
 #                 code=c("cl","bl","cs","bs","ds","h","l","f","sasa"))
 # ffm
-# #### í‚²‚Æ‚ÉWŒv‚·‚é
+# #### ç¨®ã”ã¨ã«é›†è¨ˆã™ã‚‹
 #
 #
 # (tfm2<-data.frame(form=ffm$form[match(names(t1),ffm$code)],t1))
-# (tfm3<-paste(tfm2[,1],tfm2[,3],"í",collapse =",",sep=""))
-# (tfm3_<-paste0(tfm2[,1],tfm2[,3],"í (#)"))
+# (tfm3<-paste(tfm2[,1],tfm2[,3],"ç¨®",collapse =",",sep=""))
+# (tfm3_<-paste0(tfm2[,1],tfm2[,3],"ç¨® (#)"))
 #
 #
 #
-# ### \¬í
+# ### æ§‹æˆç¨®
 # txt<-c()
 # for(i in 1:nrow(tfm2)){#i=1
 #   #print(as.vector(ffm$form[i]))
-#   txt_<-paste(d$í–¼[d$form==tfm2[i,2]],collapse =",",sep="")
+#   txt_<-paste(d$ç¨®å[d$form==tfm2[i,2]],collapse =",",sep="")
 #   txt_<-gsub("#",txt_,tfm3_[i])
 #   txt<-c(txt,txt_)
 # }
 #
-# paste(txt,collapse =", ")@@@####@•ñ‘“\‚è•t‚¯—p
+# paste(txt,collapse =", ")ã€€ã€€ã€€####ã€€å ±å‘Šæ›¸è²¼ã‚Šä»˜ã‘ç”¨
 #
 #
-# ####@‰ß‹‚É‹L˜^‚µC¡‰ñ‹L˜^‚³‚ê‚È‚©‚Á‚½í
+# ####ã€€éå»ã«è¨˜éŒ²ã—ï¼Œä»Šå›è¨˜éŒ²ã•ã‚Œãªã‹ã£ãŸç¨®
 #
-# ( d_na@<-@d0[d0[,tail(Fc,1)]==0,] )
-# table(d_na$ŠK‘w)
+# ( d_naã€€<-ã€€d0[d0[,tail(Fc,1)]==0,] )
+# table(d_na$éšå±¤)
 #
 # d_na[,c(1,2, grep("F",nm))]
 # nm
-# paste(d_na$í–¼,d_na$ŠK‘w,collapse =",",sep="")
+# paste(d_na$ç¨®å,d_na$éšå±¤,collapse =",",sep="")
 #
 #
-# #### ‘‡—Dè“x ####
+# #### ç·åˆå„ªå åº¦ ####
 # dd<-d
 # data.frame(names(dd))
 # i<-order(dd[,3],dd[,vc_last],decreasing=TRUE)
 # data.frame(dd[i,c(1,2,3,vc_last)])
 #
-# #### •p“x@å—v÷í ####
+# #### é »åº¦ã€€ä¸»è¦æ¨¹ç¨® ####
 # i<-order(dd[,Fc_last],decreasing=TRUE)
 # j<-Fc
 # z<-dd[i,c(1:3,Fc_last)]
-# paste(head(z$í–¼,10),z[1:10,ncol(z)],collapse =",")
-# paste(head(z$í–¼,10),"(",sprintf("%.1f",head(z[,ncol(z)],10)),"%",")",collapse =",",sep="")
+# paste(head(z$ç¨®å,10),z[1:10,ncol(z)],collapse =",")
+# paste(head(z$ç¨®å,10),"(",sprintf("%.1f",head(z[,ncol(z)],10)),"%",")",collapse =",",sep="")
 #
 #
 #
-# #### ”í“x
-# V_last<-dd[,Vc_last]@# data.frame(names(dd))
+# #### è¢«åº¦
+# V_last<-dd[,Vc_last]ã€€# data.frame(names(dd))
 # i<-order(V_last,decreasing=TRUE)
 # z<-dd[i,c(1:3,Vc_last)]
-# (Vtotal<-sum(V_last)) ### ‘SoŒ»í‚Ì•½‹Ï”í“x‡Œv‚Í99.0“‚Å‚ ‚Á‚½
+# (Vtotal<-sum(V_last)) ### å…¨å‡ºç¾ç¨®ã®å¹³å‡è¢«åº¦åˆè¨ˆã¯99.0ï¼…ã§ã‚ã£ãŸ
 # (V<-cumsum(V_last))
-# dd$í–¼[i]
+# dd$ç¨®å[i]
 # plot(V/Vtotal)
-# sp10<-z$í–¼[1:10]
+# sp10<-z$ç¨®å[1:10]
 # hido10<-z[,ncol(z)][1:10]
-# paste(head(z$í–¼,10),"(",head(sprintf("%.1f",z[,ncol(z)],10)),"%",")",collapse =",",sep="")
+# paste(head(z$ç¨®å,10),"(",head(sprintf("%.1f",z[,ncol(z)],10)),"%",")",collapse =",",sep="")
 #
 #
-# #### ƒTƒT ####
+# #### ã‚µã‚µ ####
 # dd[dd$form=="sasa",c(1:3,Fc)]
 #
 #
-# #### •p“x-”í“x-‘‡—Dè“x ####
+# #### é »åº¦-è¢«åº¦-ç·åˆå„ªå åº¦ ####
 # fmn<-match(dd$form,ffm$code)
 #
-# ####    "oŒ»•p“x(“)" - "•½‹Ï”í“x(“) #######
+# ####    "å‡ºç¾é »åº¦(ï¼…)" - "å¹³å‡è¢«åº¦(ï¼…) #######
 #
-# d_ <- data.frame(x=d[,Fc_last], y=d[,Vc_last], sp=d$í–¼)
+# d_ <- data.frame(x=d[,Fc_last], y=d[,Vc_last], sp=d$ç¨®å)
 # x12 <- range(d_$x);y12 <- range(d_$y)
 # g<-ggplot(d_, aes(x, y , label = sp )) +xlim(x12[1]-15,x12[2])+ylim(y12[1]-7,y12[2])+
-#   xlab("oŒ»•p“x(“)")+  ylab("•½‹Ï”í“x(“)")+
+#   xlab("å‡ºç¾é »åº¦(ï¼…)")+  ylab("å¹³å‡è¢«åº¦(ï¼…)")+
 #   geom_point(col="red") +
 #   geom_text_repel(size=3,fontface="bold",max.overlaps=100)+
 #   geom_hline(yintercept=0,linetype="dashed",colour="blue") +
@@ -772,12 +772,12 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #
 # g
 #
-# ####   "oŒ»•p“x(“)" - "‘‡—Dè“x"   #######
+# ####   "å‡ºç¾é »åº¦(ï¼…)" - "ç·åˆå„ªå åº¦"   #######
 #
-# d_ <- data.frame(x=d[,Fc_last], y=d[,vc_last], sp=d$í–¼)
+# d_ <- data.frame(x=d[,Fc_last], y=d[,vc_last], sp=d$ç¨®å)
 # x12 <- range(d_$x);y12 <- range(d_$y)
 # g<-ggplot(d_, aes(x, y , label = sp )) +xlim(x12[1]-15,x12[2])+ylim(y12[1]-7,y12[2])+
-#   xlab("oŒ»•p“x(“)")+  ylab("‘‡—Dè“x")+
+#   xlab("å‡ºç¾é »åº¦(ï¼…)")+  ylab("ç·åˆå„ªå åº¦")+
 #   geom_point(col="red") +
 #   geom_text_repel(size=3,fontface="bold",max.overlaps=100)+
 #   geom_hline(yintercept=0,linetype="dashed",colour="blue") +
@@ -786,12 +786,12 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #
 # g
 #
-# ###########   "•½‹Ï”í“x(“)",ylab="‘‡—Dè“x"
+# ###########   "å¹³å‡è¢«åº¦(ï¼…)",ylab="ç·åˆå„ªå åº¦"
 #
-# d_ <- data.frame(x=d[,Vc_last], y=d[,vc_last], sp=d$í–¼)
+# d_ <- data.frame(x=d[,Vc_last], y=d[,vc_last], sp=d$ç¨®å)
 # x12 <- range(d_$x);y12 <- range(d_$y)
 # g<-ggplot(d_, aes(x, y , label = sp )) +xlim(x12[1]-15,x12[2])+ylim(y12[1]-7,y12[2])+
-#   xlab("•½‹Ï”í“x(“)")+  ylab("‘‡—Dè“x")+
+#   xlab("å¹³å‡è¢«åº¦(ï¼…)")+  ylab("ç·åˆå„ªå åº¦")+
 #   geom_point(col="red") +
 #   geom_text_repel(size=3,fontface="bold",max.overlaps=100)+
 #   geom_hline(yintercept=0,linetype="dashed",colour="blue") +
@@ -800,14 +800,14 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #
 # g
 #
-# ## ƒTƒT‚Ì”í“x‚ÌŒo”N•Ï‰»@####
+# ## ã‚µã‚µã®è¢«åº¦ã®çµŒå¹´å¤‰åŒ–ã€€####
 #
 # sasa_df <- data.frame(Year=c(2003,2009,2015,2024),Coverage=as.numeric(dd[dd$form=="sasa",15:18]))
 #
 #
 # ggplot(sasa_df,aes(x = Year, y = Coverage ))      +
 #   geom_line()+geom_point(col="red",size=3)  +
-#   xlab("¼—ï”N") + ylab("ƒTƒT‚Ì•½‹Ï”í“x (%)") +
+#   xlab("è¥¿æš¦å¹´") + ylab("ã‚µã‚µã®å¹³å‡è¢«åº¦ (%)") +
 #   scale_x_continuous(expand = expansion(mult = c(0.05, 0.1))) +
 #
 #   theme(axis.title.x  = element_text(size = 15),
@@ -816,7 +816,7 @@ analysis000_FieldNoteInput <- function(InputFileName="H31A¶’²¸–ì’ _—L•ô.csv",
 #         axis.text.y = element_text(size = 12))
 #
 #
-# # ˆÈã@####
+# # ä»¥ä¸Šã€€####
 #
 #
 #

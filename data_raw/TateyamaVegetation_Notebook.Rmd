@@ -10,35 +10,37 @@ output:
 ---
 
 
-# パッケージTateyamaVegetationのインストール
+# Rパッケージのインストール
+
+これまでの調査データと報告書用の集計・作図のスクリプトをまとめています。
 
 ## GitHubからのインストール
+[TateyamaVegetation](https://github.com/ishidamgm/TateyamaVegetation)
 
 * zipでダウンロードしローカルでインストール
-* もしくは以下のコマンド
+
+* もしくは以下のコマンドでインストールとしてください
+
 devtools::install_github("ishidamgm/TateyamaVegetation", auth_token = "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")
 
 必要なパケージがある場合は適宜インストールしてください
 
 ```{r}
-library(TateyamaVegetation)
+#関連パッケージ
 library(ggplot2)
 library(ggrepel)
 ```
 
 
 
-# データ一覧
+# ヘルプ・データ一覧
 ```{r}
+library(TateyamaVegetation)
+ help(package="TateyamaVegetation")
  data(package="TateyamaVegetation")
 ```
 
 
-
-# ヘルプ　
-```{r}
- help(package="TateyamaVegetation")
-```
 
 # 調査地
 
@@ -71,11 +73,10 @@ VegetationYearsMatrix#[1:5,"Arimine"]
 
 
 
-## 立山植生モニタリング調査　植生調査
-
-## 各調査区の植物目録の作成
+## 植物目録の作成
 
 ## 野帳の作成
+
 ```{r}
 FieldNote_Arimine2019_raw
 ```
@@ -92,7 +93,9 @@ SpeciesNameCheck(d$種名)
 ```
 
 # 野外調査の準備
-## 野帳の作成　(有峰と美松の事例)
+
+## 植生調査野帳の作成　(有峰と美松の事例)
+
 ```{r}
 ### エクセル・ファイルの書き込みに必要なパッケージ
 #library(openxlsx2)
@@ -127,27 +130,41 @@ openxlsx2::wb_add_page_break(wb,  row = page_breaks)
 #wb$save("立山植生野帳2025.xlsx", overwrite = TRUE)
 ```
 
+## 植生調査用の樹木位置図の作成
+
+```{r warning=FALSE}
+
+treemap("Arimine")
+ treemap("Arimine")+ ggplot2::xlim(c(-5, 55))+ ggplot2::ylim(c(-5, 60))
+ 
+```
 
 
+# 野帳入力と集計
 
+## 入力
 
-#　
-# 野帳の入力
 野外調査で植生調査記録ExelやCalcで，スプレッド・シートに植生調査記録したデータを入力します
 
 ![](img/yacho.jpg)
+
+
 ![](img/yacho2.jpg)
 
 
 
-### 野帳データの整理　(R)
-#### ワーキング・ディレクトリの設定
+## 野帳データの整理　(R)
 
-#### 入力値の異常値が無いか確認
-####　空白埋め
+### ワーキング・ディレクトリの設定
+
+### 入力値の異常値が無いか確認
+
+###　空白埋め
+
 サブプロットと階層が空白になっているのを埋める
 
-# 植生調査用の樹木位置図の作成
+
+## 集計・作図作業
 
 ### 被度とDomin-Krajina変換
 
@@ -169,7 +186,9 @@ plot(cover, Domin_Krajina(cover),type="l")
 総合優占度 = 100 * sqrt(平均被度 * 出現頻度 / sqrt(10)
 
 
-## 2025
+## 2025年度の事例
+
+
 
 ### 美松・有峰
 

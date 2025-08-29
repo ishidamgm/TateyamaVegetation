@@ -13,3 +13,17 @@ names(df)
 
 plt$plot_name
 expand.grid(plot = plt$plot_name, period= c("dk01","c02","c03","c04","c05"))
+
+
+plt$no[]
+
+VegetationSurveyYears$plot_name_jp<-plt$plot_name_jp
+VegetationSurveyYears<- VegetationSurveyYears %>%
+  relocate(plot_name_jp, .after = plot_name)
+VegetationSurveyYears
+
+VegetationSurveyYears %>%
+  mutate(no=substr(101:110,2,3)) %>%
+  relocate(no, .before = plot_name) ->VegetationSurveyYears
+
+#usethis::use_data(VegetationSurveyYears,overwrite = TRUE)
