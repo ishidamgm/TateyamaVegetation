@@ -10,7 +10,7 @@ output:
 ---
 
 
-# Rパッケージのインストール
+# RパッケージTateyamaVegetationのインストール
 
 これまでの調査データと報告書用の集計・作図のスクリプトをまとめています。
 
@@ -21,7 +21,9 @@ output:
 
 * もしくは以下のコマンドでインストールとしてください
 
-devtools::install_github("ishidamgm/TateyamaVegetation", auth_token = "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")
+# パッケージのインストール
+install.packages("devtools")   # 未導入なら
+devtools::install_github("ishidamgm/TateyamaVegetation")
 
 必要なパケージがある場合は適宜インストールしてください
 
