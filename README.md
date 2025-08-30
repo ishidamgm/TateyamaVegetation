@@ -1,4 +1,9 @@
-📖 [パッケージサイト (pkgdown)](https://ishidamgm.github.io/TateyamaVegetation/)
+このリポジトリには R パッケージ **TateyamaVegetation** が含まれています。  
+以下のリンクから、パッケージの説明・関数の使い方・解析事例などをまとめた  
+**オンラインドキュメント**を閲覧できます。  
+
+📖 [TateyamaVegetation オンラインドキュメント](https://ishidamgm.github.io/TateyamaVegetation/)
+
 
 **富山県立山植生モニタリング調査**
 
