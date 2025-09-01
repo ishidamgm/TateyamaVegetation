@@ -3,30 +3,18 @@
 \docType{data}
 \name{VCrepo}
 \alias{VCrepo}
-\alias{vc5}
 \title{data/ Vegetation chronosequence summary}
 \format{
 A list of the objects of class `tbl_df`.
-
-A  `tbl_df`.
-}
-\source{
-VCrepo
 }
 \usage{
 data(VCrepo)
-
-data(vc5)
 }
 \description{
 data/ Vegetation chronosequence summary
-
-data/ Vegetation chronosequence summary (data frame)
 }
 \examples{
 VCrepo
-VCrepo
-vc5
 }
 \seealso{
 [VegetationChronologyTable()]

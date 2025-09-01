@@ -1,5 +1,6 @@
 library(devtools)
-
+# gitHub ####
+# https://github.com/ishidamgm/TateyamaVegetation
 
 devtools::install_github(ishidamgm/TateyamaVegetation)
 

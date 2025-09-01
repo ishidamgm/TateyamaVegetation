@@ -930,7 +930,7 @@ Description:
 
 Usage:
 
-     data(NonNativePlants)
+     data(vv5)
      
 Format:
 
@@ -1491,7 +1491,6 @@ Examples:
 ### ** Examples
 
 TateyamaVegetationPlots
-
 
 
 
@@ -2312,7 +2311,7 @@ Description:
 
 Usage:
 
-     data(forest_code)
+     data(vv5)
      
 Format:
 
@@ -3476,7 +3475,7 @@ Description:
 
 Usage:
 
-     data(vegetation_code)
+     data(vv5)
      
 Format:
 

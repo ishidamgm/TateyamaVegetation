@@ -12,7 +12,7 @@ An object of class `tbl_df`.
 automatically generated skeleton
 }
 \usage{
-data(vv5)
+data(VV5)
 }
 \description{
 data/ 1-5期調査区サブプロット植生調査生データ(リスト版)

@@ -401,11 +401,11 @@
 #' data/ Vegetation chronosequence summary (data frame)
 #'
 #' @docType data
-#' @name VCrepo
+#' @name vc5
 #' @usage data(vc5)
 #' @format A  `tbl_df`.
 #' @keywords datasets
-#' @source VCrepo
+#' @source
 #' @examples
 #' VCrepo
 #' vc5

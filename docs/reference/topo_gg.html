@@ -66,13 +66,14 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/x11.html" class="external-link">x11</a></span><span class="op">(</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#x11()</span></span></span>
 <span class="r-in"><span><span class="va">pn</span><span class="op">&lt;-</span><span class="st">"Mimatsu"</span></span></span>
 <span class="r-in"><span> <span class="va">pn</span><span class="op">&lt;-</span><span class="st">"Bijodaira"</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">p</span><span class="op">&lt;-</span><span class="fu"><a href="treemap.html">treemap</a></span><span class="op">(</span>plot.name<span class="op">=</span><span class="va">pn</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 141 rows containing non-finite outside the scale range</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> (`stat_contour()`).</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>ggrepel: 9 unlabeled data points (too many overlaps). Consider increasing max.overlaps</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>ggrepel: 24 unlabeled data points (too many overlaps). Consider increasing max.overlaps</span>
+<span class="r-plt img"><img src="topo_gg-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="va">p</span><span class="op">+</span><span class="fu">topo_gg</span><span class="op">(</span><span class="va">pn</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in ggplot_add(object, p, objectname):</span> Can't add `topo_gg(pn)` to a <span style="color: #0000BB;">&lt;ggplot&gt;</span> object.</span>
 <span class="r-in"><span><span class="va">p</span><span class="op">+</span><span class="va">stream1</span></span></span>

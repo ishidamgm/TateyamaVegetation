@@ -3,7 +3,6 @@
 <url><loc>/LICENSE-text.html</loc></url>
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
-<url><loc>/reference/APG.html</loc></url>
 <url><loc>/reference/CalculationInfo.html</loc></url>
 <url><loc>/reference/DT_VCrepo.html</loc></url>
 <url><loc>/reference/Domin_Krajina.html</loc></url>
@@ -21,7 +20,6 @@
 <url><loc>/reference/LandMarks.html</loc></url>
 <url><loc>/reference/NonNativePlants.html</loc></url>
 <url><loc>/reference/PlotSpecies_1to4.html</loc></url>
-<url><loc>/reference/RData_APG.html</loc></url>
 <url><loc>/reference/RData_ForestTrees.html</loc></url>
 <url><loc>/reference/RData_LandMarks.html</loc></url>
 <url><loc>/reference/RData_PlotProfile.html</loc></url>
@@ -68,6 +66,7 @@
 <url><loc>/reference/treemap.html</loc></url>
 <url><loc>/reference/treemap_ggplot.html</loc></url>
 <url><loc>/reference/treesXYZ.html</loc></url>
+<url><loc>/reference/vc5.html</loc></url>
 <url><loc>/reference/vegetation_code.html</loc></url>
 <url><loc>/reference/vv.html</loc></url>
 <url><loc>/reference/vv4.html</loc></url>

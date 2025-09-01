@@ -8,7 +8,7 @@
 An object of class `tbl_df`.
 }
 \usage{
-data(vv5)
+data(VC)
 }
 \description{
 data/ Vegetation chronosequence

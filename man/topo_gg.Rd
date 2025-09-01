@@ -15,7 +15,7 @@ topo_gg(plot.name = "Mimatsu")
 調査用にはtreemapを利用してください
 }
 \examples{
-x11()
+#x11()
 pn<-"Mimatsu"
  pn<-"Bijodaira"
 (p<-treemap(plot.name=pn))
