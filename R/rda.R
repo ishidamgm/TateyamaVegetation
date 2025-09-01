@@ -289,7 +289,7 @@
 #'
 #' @docType data
 #' @name VV5
-#' @usage data(vv5)
+#' @usage data(VV5)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
 #' @source automatically generated skeleton
@@ -356,7 +356,7 @@
 #'
 #' @docType data
 #' @name VC
-#' @usage data(vv5)
+#' @usage data(VC)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
 #' @seealso [VegetationChronologyTable()]

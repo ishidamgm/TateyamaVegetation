@@ -152,7 +152,7 @@ subplot_xy_ggtext<-function(plot.name="Mimatsu"){
 #' @export
 #'
 #' @examples
-#' x11()
+#' #x11()
 #' pn<-"Mimatsu"
 #'  pn<-"Bijodaira"
 #' (p<-treemap(plot.name=pn))
