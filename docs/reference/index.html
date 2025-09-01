@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">TateyamaVegetation</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.202508030</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.20250901</span>
       </span>
     </div>
 
@@ -48,9 +48,9 @@
           <p class="section-desc"></p>
         </th>
       </tr></tbody><tbody><tr><td>
-          <p><code><a href="APG.html">APG</a></code> </p>
+          <p><code><a href="CalculationInfo.html">CalculationInfo()</a></code> </p>
         </td>
-        <td><p>data/APG 植物目録 米倉浩司・梶田忠 (2007-) 植物和名ー学名インデックスYList を利用させていただきました。</p></td>
+        <td><p>集計計算に用いるファイル名・スプレッドシートの列名 調査年と調査区名から返します VegetationSurveyYearsに基づきます 各調査期の列名が正しく入力されていることを確認してください。</p></td>
       </tr><tr><td>
           <p><code><a href="DT_VCrepo.html">DT_VCrepo()</a></code> </p>
         </td>
@@ -71,6 +71,10 @@
           <p><code><a href="FieldNote_CheckCorrect.html">FieldNote_CheckCorrect()</a></code> </p>
         </td>
         <td><p>野帳の整理をします。 生野帳データの階層クラスの確認、修正、未入力データの補完をします サブプロット、階層、種名の順でソートします。 サブプロットに同一種が複数ある場合は被度を合算し統一します</p></td>
+      </tr><tr><td>
+          <p><code><a href="FieldNote_FormatArange.html">FieldNote_FormatArange()</a></code> </p>
+        </td>
+        <td><p>スプレッドシートで入力した野帳データ・フレーム(tibble)を 列名の変更、項目追加し計算用に構成します</p></td>
       </tr><tr><td>
           <p><code><a href="Fig_DominanceValue.html">Fig_DominanceValue()</a></code> </p>
         </td>
@@ -111,10 +115,6 @@
           <p><code><a href="PlotSpecies_1to4.html">PlotSpecies_1to4()</a></code> </p>
         </td>
         <td><p>各調査区の1〜4期の出現種と各期被度合計 ※ 1期については Domin_Krajina</p></td>
-      </tr><tr><td>
-          <p><code><a href="RData_APG.html">RData_APG()</a></code> </p>
-        </td>
-        <td><p>APG植物目録() 米倉浩司・梶田忠 (2007-) 植物和名ー学名インデックスYList を利用させていただきました</p></td>
       </tr><tr><td>
           <p><code><a href="RData_ForestTrees.html">RData_ForestTrees()</a></code> </p>
         </td>
@@ -167,6 +167,10 @@
           <p><code><a href="VT.html">VT</a></code> </p>
         </td>
         <td><p>data/ 植生調査票(2020-2025) VT Vegtaion cross table for the period V (2020-2025)</p></td>
+      </tr><tr><td>
+          <p><code><a href="VV5.html">vv5</a></code> </p>
+        </td>
+        <td><p>data/ 1-5期調査区サブプロット植生調査生データ(リスト版) VV5 for the period I-V (2020-2025)</p></td>
       </tr><tr><td>
           <p><code><a href="VegetationChronologyTable.html">VegetationChronologyTable()</a></code> </p>
         </td>
@@ -267,6 +271,10 @@
           <p><code><a href="subplot_xy_text.html">subplot_xy_text()</a></code> </p>
         </td>
         <td><p>各調査区におけるサブプロット位置 plotで描画したキャンバスにtextで上書きするコマンド</p></td>
+      </tr><tr><td>
+          <p><code><a href="text_species.html">text_species()</a></code> </p>
+        </td>
+        <td><p>各調査地の各調査期における出現種</p></td>
       </tr><tr><td>
           <p><code><a href="topo.html">topo</a></code> </p>
         </td>

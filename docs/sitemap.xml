@@ -4,11 +4,13 @@
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
 <url><loc>/reference/APG.html</loc></url>
+<url><loc>/reference/CalculationInfo.html</loc></url>
 <url><loc>/reference/DT_VCrepo.html</loc></url>
 <url><loc>/reference/Domin_Krajina.html</loc></url>
 <url><loc>/reference/EncodingExchange.html</loc></url>
 <url><loc>/reference/FieldNote_Arimine2019_raw.html</loc></url>
 <url><loc>/reference/FieldNote_CheckCorrect.html</loc></url>
+<url><loc>/reference/FieldNote_FormatArange.html</loc></url>
 <url><loc>/reference/Fig_DominanceValue.html</loc></url>
 <url><loc>/reference/Fig_FrequencyCoverage.html</loc></url>
 <url><loc>/reference/Fig_FrequencyDominace.html</loc></url>
@@ -33,6 +35,7 @@
 <url><loc>/reference/VC.html</loc></url>
 <url><loc>/reference/VCrepo.html</loc></url>
 <url><loc>/reference/VT.html</loc></url>
+<url><loc>/reference/VV5.html</loc></url>
 <url><loc>/reference/VegetationChronologyTable.html</loc></url>
 <url><loc>/reference/VegetationChronologyTable_report.html</loc></url>
 <url><loc>/reference/VegetationFloraCode.html</loc></url>
@@ -59,6 +62,7 @@
 <url><loc>/reference/subplot_xy.html</loc></url>
 <url><loc>/reference/subplot_xy_ggtext.html</loc></url>
 <url><loc>/reference/subplot_xy_text.html</loc></url>
+<url><loc>/reference/text_species.html</loc></url>
 <url><loc>/reference/topo.html</loc></url>
 <url><loc>/reference/topo_gg.html</loc></url>
 <url><loc>/reference/treemap.html</loc></url>

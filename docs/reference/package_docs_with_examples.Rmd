@@ -11,52 +11,82 @@ output:
 knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE, message = TRUE)
 ```
 
-##  `APG`
+##  `CalculationInfo`
 
 **Documentation:**
 
 ```
-data/APG　植物目録 米倉浩司・梶田忠 (2007-)
-植物和名ー学名インデックスYList を利用させていただきました。
+集計計算に用いるファイル名・スプレッドシートの列名　調査年と調査区名から返します
+VegetationSurveyYearsに基づきます
+各調査期の列名が正しく入力されていることを確認してください。
 
 Description:
 
-     data/APG　植物目録 米倉浩司・梶田忠 (2007-)
-     植物和名ー学名インデックスYList を利用させていただきました。
+     集計計算に用いるファイル名・スプレッドシートの列名　調査年と調査区名から返します
+     VegetationSurveyYearsに基づきます
+     各調査期の列名が正しく入力されていることを確認してください。
 
 Usage:
 
-     data(APG)
+     CalculationInfo(year = 2025, plot_name_jp = "有峰")
      
-Format:
+Arguments:
 
-     An object of class `data.frame`.
+plot_name_jp:
+
+See Also:
+
+     'SpeciesNameCheck', 'SpeciesNameCorrect', 'FieldNote_CheckCorrect'
 
 Examples:
 
-     APG
+     VegetationSurveyYears
+     #各調査期の列名が正しく入力されていることを確認してください!!!
+     
+     CalculationInfo(2025,"有峰")
+     
+     #yachou  :エクセル等で入力したオリジナルの野帳ファイル名です
+     #         保存する際はこの名前と同じにしてください【.xlsxがこのルールで命名されています。
+      .csvとして保存すると自動的にこの名前で保存されます】
+     #yachou2 :オリジナルを整理した野帳ファイル名です
+     #yachou :植生被度の列名となります
+     
+     # 計算用データ・フレーム行列名対応表　yachou_calc.colnames
      
 ```
 
 **Examples (from .Rd):**
 ```r
-### Name: APG
-### Title: data/APG　植物目録 米倉浩司・梶田忠 (2007-)
-###   植物和名ー学名インデックスYList を利用させていただきました。
-### Aliases: APG
-### Keywords: datasets
+### Name: CalculationInfo
+### Title:
+###   集計計算に用いるファイル名・スプレッドシートの列名　調査年と調査区名から返します
+###   VegetationSurveyYearsに基づきます
+###   各調査期の列名が正しく入力されていることを確認してください。
+### Aliases: CalculationInfo
 
 ### ** Examples
 
-APG
+VegetationSurveyYears
+#各調査期の列名が正しく入力されていることを確認してください!!!
+
+CalculationInfo(2025,"有峰")
+
+#yachou  :エクセル等で入力したオリジナルの野帳ファイル名です
+#         保存する際はこの名前と同じにしてください【.xlsxがこのルールで命名されています。
+ .csvとして保存すると自動的にこの名前で保存されます】
+#yachou2 :オリジナルを整理した野帳ファイル名です
+#yachou :植生被度の列名となります
+
+# 計算用データ・フレーム行列名対応表　yachou_calc.colnames
+
 
 
 
 ```
 
 **Executed Example:**
-```{r APG_example, eval=TRUE, error=TRUE}
-try(example('APG', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
+```{r CalculationInfo_example, eval=TRUE, error=TRUE}
+try(example('CalculationInfo', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
 ```
 
 ##  `DT_VCrepo`
@@ -321,6 +351,59 @@ FieldNote_CheckCorrect(d)
 try(example('FieldNote_CheckCorrect', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
 ```
 
+##  `FieldNote_FormatArange`
+
+**Documentation:**
+
+```
+スプレッドシートで入力した野帳データ・フレーム(tibble)を
+　列名の変更、項目追加し計算用に構成します
+
+Description:
+
+     スプレッドシートで入力した野帳データ・フレーム(tibble)を
+     　列名の変更、項目追加し計算用に構成します
+
+Usage:
+
+     FieldNote_FormatArange(d = d, calc = CalculationInfo(2025, "有峰"))
+     
+Arguments:
+
+       d: 野帳データ修正版(tibble)
+
+Examples:
+
+     #d                                                              #元の野帳データ
+     #FieldNote_FormatArange(d,calc= CalculationInfo(2025,"有峰"))   #計算用データ
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: FieldNote_FormatArange
+### Title: スプレッドシートで入力した野帳データ・フレーム(tibble)を
+###   　列名の変更、項目追加し計算用に構成します
+### Aliases: FieldNote_FormatArange
+
+### ** Examples
+
+
+
+#d                                                              #元の野帳データ
+#FieldNote_FormatArange(d,calc= CalculationInfo(2025,"有峰"))   #計算用データ
+
+
+
+
+
+```
+
+**Executed Example:**
+```{r FieldNote_FormatArange_example, eval=TRUE, error=TRUE}
+try(example('FieldNote_FormatArange', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
 ##  `Fig_DominanceValue`
 
 **Documentation:**
@@ -336,7 +419,7 @@ Description:
 
 Usage:
 
-     Fig_DominanceValue(plot_name = "Joudosan")
+     Fig_DominanceValue(plot_name = "Joudosan", vc_repo = VCrepo)
      
 Arguments:
 
@@ -357,6 +440,9 @@ Examples:
      for(i in plt$plot_name)Fig_DominanceValue(i)
      
      par(mfrow=c(1,1))
+     
+     # 単年度版
+     Fig_DominanceValue(plot_name="Arimine",vc_repo=VCrepo)
      
 ```
 
@@ -383,6 +469,9 @@ for(i in plt$plot_name)Fig_DominanceValue(i)
 
 par(mfrow=c(1,1))
 
+# 単年度版
+Fig_DominanceValue(plot_name="Arimine",vc_repo=VCrepo)
+
 
 
 
@@ -407,16 +496,14 @@ Description:
 Usage:
 
      Fig_FrequencyCoverage(
-       d = VCrepo,
        plot_name = "Arimine",
        x = "f5",
        y = "c5",
-       sp = "sp"
+       sp = "sp",
+       data = VCrepo
      )
      
 Arguments:
-
-       d: data frame of tibble VCrepo
 
        x: column name of frequency
 
@@ -424,12 +511,14 @@ Arguments:
 
       sp: column name of species
 
+       d: data frame of tibble VCrepo
+
 Examples:
 
      library(ggplot2)
      Fig_FrequencyCoverage(plot_name="Mimatsu")
      Fig_FrequencyCoverage(plot_name="Arimine")
-     Fig_FrequencyCoverage(plot_name="Arimine",x="f3",y="c3")
+     Fig_FrequencyCoverage(plot_name="Arimine",x="f5",y="c5")
      
 ```
 
@@ -444,7 +533,9 @@ Examples:
 library(ggplot2)
 Fig_FrequencyCoverage(plot_name="Mimatsu")
 Fig_FrequencyCoverage(plot_name="Arimine")
-Fig_FrequencyCoverage(plot_name="Arimine",x="f3",y="c3")
+Fig_FrequencyCoverage(plot_name="Arimine",x="f5",y="c5")
+
+
 
 
 
@@ -470,20 +561,20 @@ Description:
 Usage:
 
      Fig_FrequencyDominace(
-       d = VCrepo,
        plot_name = "Arimine",
        x = "f5",
        y = "di5",
+       data = VCrepo,
        sp = "sp"
      )
      
 Arguments:
 
-       d: data frame of tibble VCrepo
-
        x: column name of frequency
 
        y: column name of coverage
+
+    data: list of data frame (tibble) default : VCrepo
 
       sp: column name of species
 
@@ -494,7 +585,8 @@ Examples:
      　
      Fig_FrequencyDominace(plot_name="Mimatsu")
      Fig_FrequencyDominace(plot_name="Arimine")
-     Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="c3")
+     Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="di3")
+     Fig_FrequencyDominace(plot_name="Arimine",x="f5",y="di5")
      
 ```
 
@@ -511,7 +603,8 @@ Examples:
 　
 Fig_FrequencyDominace(plot_name="Mimatsu")
 Fig_FrequencyDominace(plot_name="Arimine")
-Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="c3")
+Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="di3")
+Fig_FrequencyDominace(plot_name="Arimine",x="f5",y="di5")
 
 
 
@@ -917,67 +1010,6 @@ Examples:
 try(example('PlotSpecies_1to4', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
 ```
 
-##  `RData_APG`
-
-**Documentation:**
-
-```
-APG植物目録() 米倉浩司・梶田忠 (2007-) 植物和名ー学名インデックスYList
-を利用させていただきました
-
-Description:
-
-     APG植物目録() 米倉浩司・梶田忠 (2007-)
-     植物和名ー学名インデックスYList を利用させていただきました
-
-Usage:
-
-     RData_APG()
-     
-Examples:
-
-     head(APG)
-     sp.<-c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ")
-     sp..<-c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ")
-     cat("以下はAPGリストにありません")
-     data.frame(sp=sp.[!is.element(sp.,APG$種名)])
-     data.frame(sp=sp..[!is.element(sp.,APG$種名)])
-     is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$別名)
-     is.element(c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ"),YList$和名)
-     
-```
-
-**Examples (from .Rd):**
-```r
-### Name: RData_APG
-### Title: APG植物目録() 米倉浩司・梶田忠 (2007-)
-###   植物和名ー学名インデックスYList を利用させていただきました
-### Aliases: RData_APG
-
-### ** Examples
-
-head(APG)
-sp.<-c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ")
-sp..<-c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ")
-cat("以下はAPGリストにありません")
-data.frame(sp=sp.[!is.element(sp.,APG$種名)])
-data.frame(sp=sp..[!is.element(sp.,APG$種名)])
-is.element(c("コイワカガミ","オオバユキザサ","コガネギク","イ","コゴメグサ","タテヤマオウギ"),YList$別名)
-is.element(c("イワカガミ","ヤマトユキザサ","アキノキリンソウ","イグサ","イブキコゴメグサ","イワオウギ"),YList$和名)
-
-
-
-
-
-
-
-```
-
-**Executed Example:**
-```{r RData_APG_example, eval=TRUE, error=TRUE}
-try(example('RData_APG', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
-```
-
 ##  `RData_ForestTrees`
 
 **Documentation:**
@@ -1247,6 +1279,7 @@ sptype
 
 
 
+
 ```
 
 **Executed Example:**
@@ -1487,10 +1520,6 @@ Format:
 
      An object of class `tbl_df`.
 
-Source:
-
-     automatically generated skeleton
-
 See Also:
 
      [VegetationChronologyTable()]
@@ -1681,6 +1710,63 @@ names(VT)
 try(example('VT', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
 ```
 
+##  `VV5`
+
+**Documentation:**
+
+```
+data/ 1-5期調査区サブプロット植生調査生データ(リスト版) VV5 for the
+period I-V (2020-2025)
+
+Description:
+
+     data/ 1-5期調査区サブプロット植生調査生データ(リスト版) VV5 for
+     the period I-V (2020-2025)
+
+Usage:
+
+     data(vv5)
+     
+Format:
+
+     An object of class `tbl_df`.
+
+Source:
+
+     automatically generated skeleton
+
+Examples:
+
+     VV5
+     #tibbleに結合
+     bind_rows(VV5,.id="plot")
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: VV5
+### Title: data/ 1-5期調査区サブプロット植生調査生データ(リスト版) VV5 for
+###   the period I-V (2020-2025)
+### Aliases: VV5
+### Keywords: datasets
+
+### ** Examples
+
+VV5
+#tibbleに結合
+bind_rows(VV5,.id="plot")
+
+
+
+
+```
+
+**Executed Example:**
+```{r VV5_example, eval=TRUE, error=TRUE}
+try(example('VV5', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
 ##  `VegetationChronologyTable`
 
 **Documentation:**
@@ -1694,17 +1780,26 @@ Description:
 
 Usage:
 
-     VegetationChronologyTable(VT = VT, VTdk = VTdk)
+     VegetationChronologyTable(
+       plot_name = plt$plot_name,
+       vt = VT,
+       vtDK = VTdk,
+       period = c("dk01", "c02", "c03", "c04", "c05")
+     )
      
 Arguments:
 
-    VTdk:
+plot_name: vector of a plot name or plots names
+
+      vt: a tibble (or data.frame) of vegetation table
+
+    vtdk: a tibble (or data.frame) of vegetation table
 
 Examples:
 
-     VC<-VegetationChronologyTable(VT=VT,VTdk=VTdk)
-     # usethis::use_data(VC,overwrite = TRUE)
-     VC$Arimine
+     VegetationChronologyTable()
+     
+     VegetationChronologyTable(plot_name="Arimine")
      
 ```
 
@@ -1717,9 +1812,11 @@ Examples:
 ### ** Examples
 
 
-VC<-VegetationChronologyTable(VT=VT,VTdk=VTdk)
-# usethis::use_data(VC,overwrite = TRUE)
-VC$Arimine
+VegetationChronologyTable()
+
+VegetationChronologyTable(plot_name="Arimine")
+
+
 
 
 
@@ -1745,7 +1842,7 @@ Description:
 
 Usage:
 
-     VegetationChronologyTable_report(plot_name = "Arimine")
+     VegetationChronologyTable_report(plot_name = "Arimine", vc = VC)
      
 Arguments:
 
@@ -1779,6 +1876,7 @@ names(VCrepo)<-plt$plot_name
 VCrepo[["Kagamiishi"]]
 
 # usethis::use_data(VCrepo,overwrite = TRUE)
+
 
 
 
@@ -3017,6 +3115,53 @@ subplot_xy_text(plot.name="Kaminokodaira",col="Magenta",cex=2)
 try(example('subplot_xy_text', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
 ```
 
+##  `text_species`
+
+**Documentation:**
+
+```
+各調査地の各調査期における出現種
+
+Description:
+
+     各調査地の各調査期における出現種
+
+Usage:
+
+     text_species(plot_name = "Arimine", period = 5, data = vc5)
+     
+Arguments:
+
+    data:
+
+Examples:
+
+     text_species(plot_name="Arimine",period=5)
+     
+```
+
+**Examples (from .Rd):**
+```r
+### Name: text_species
+### Title: 各調査地の各調査期における出現種
+### Aliases: text_species
+
+### ** Examples
+
+
+text_species(plot_name="Arimine",period=5)
+
+
+
+
+
+```
+
+**Executed Example:**
+```{r text_species_example, eval=TRUE, error=TRUE}
+try(example('text_species', package = 'TateyamaVegetation', echo=TRUE, ask=FALSE), silent = TRUE)
+```
+
 ##  `topo`
 
 **Documentation:**
@@ -3503,12 +3648,11 @@ Source:
 
      中島・石田　「森林調査」
 
-     automatically generated skeleton
-
 Examples:
 
      vv5
-     
+     #listで分割
+     split(vv5, vv5$plot)
      head(dd5)
      
      names(VT5)
@@ -3528,7 +3672,8 @@ Examples:
 ### ** Examples
 
 vv5
-
+#listで分割
+split(vv5, vv5$plot)
 head(dd5)
 
 names(VT5)
