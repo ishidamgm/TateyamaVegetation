@@ -5,21 +5,21 @@
 \title{報告書用作図　出現頻度−平均被度}
 \usage{
 Fig_FrequencyCoverage(
-  d = VCrepo,
   plot_name = "Arimine",
   x = "f5",
   y = "c5",
-  sp = "sp"
+  sp = "sp",
+  data = VCrepo
 )
 }
 \arguments{
-\item{d}{data frame of tibble   VCrepo}
-
 \item{x}{column name of frequency}
 
 \item{y}{column name of coverage}
 
 \item{sp}{column name of species}
+
+\item{d}{data frame of tibble   VCrepo}
 }
 \description{
 報告書用作図　出現頻度−平均被度
@@ -28,6 +28,8 @@ Fig_FrequencyCoverage(
 library(ggplot2)
 Fig_FrequencyCoverage(plot_name="Mimatsu")
 Fig_FrequencyCoverage(plot_name="Arimine")
-Fig_FrequencyCoverage(plot_name="Arimine",x="f3",y="c3")
+Fig_FrequencyCoverage(plot_name="Arimine",x="f5",y="c5")
+
+
 
 }

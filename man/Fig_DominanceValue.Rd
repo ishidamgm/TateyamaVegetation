@@ -5,7 +5,7 @@
 \title{報告書用作図　総合優占度経年変化
 Figure of chronosequence for dominant variance}
 \usage{
-Fig_DominanceValue(plot_name = "Joudosan")
+Fig_DominanceValue(plot_name = "Joudosan", vc_repo = VCrepo)
 }
 \arguments{
 \item{plot_name}{}
@@ -28,5 +28,8 @@ par(mfrow=c(3,4))
 for(i in plt$plot_name)Fig_DominanceValue(i)
 
 par(mfrow=c(1,1))
+
+# 単年度版
+Fig_DominanceValue(plot_name="Arimine",vc_repo=VCrepo)
 
 }

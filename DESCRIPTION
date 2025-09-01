@@ -1,7 +1,7 @@
 Package: TateyamaVegetation
 Type: Package
 Title: 富山県立山植生モニタリング調査
-Version: 0.1.202508030
+Version: 0.1.20250901
 Authors@R: c(
     person("Megumi", "Ishida", email = "ishidam@sanchikanri.com", role = c("aut", "cre")),
     person("Haruki", "Nakajima", role = "aut"),

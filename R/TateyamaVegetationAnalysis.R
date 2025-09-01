@@ -1,4 +1,107 @@
 
+
+#' スプレッドシートで入力した野帳データ・フレーム(tibble)を
+#'　列名の変更、項目追加し計算用に構成します
+#'　
+#'　
+#' @param d 野帳データ修正版(tibble)
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#'
+#'
+#' #d                                                              #元の野帳データ
+#' #FieldNote_FormatArange(d,calc= CalculationInfo(2025,"有峰"))   #計算用データ
+#'
+#'
+FieldNote_FormatArange<-function(d=d,calc= CalculationInfo(2025,"有峰")){
+  pn<- match(plot_name_jp,VegetationSurveyYears$plot_name_jp)
+  plot_name <- VegetationSurveyYears$plot_name[match(plot_name_jp,VegetationSurveyYears$plot_name_jp)]
+  d.<-d[,calc$colnames$yachou]
+  names(d.)<-calc$colnames$calc
+  tibble(pn,plot=plot_name,d.)
+}
+
+
+
+#' 集計計算に用いるファイル名・スプレッドシートの列名　調査年と調査区名から返します
+#' VegetationSurveyYearsに基づきます
+#' 各調査期の列名が正しく入力されていることを確認してください。
+#'
+#' @param year
+#' @param plot_name_jp
+#'
+#' @returns
+#' @export
+#'
+#' @seealso \code{\link{SpeciesNameCheck}}, \code{\link{SpeciesNameCorrect}}, \code{\link{FieldNote_CheckCorrect}}
+#'
+#' @examples
+#' VegetationSurveyYears
+#' #各調査期の列名が正しく入力されていることを確認してください!!!
+#'
+#' CalculationInfo(2025,"有峰")
+#'
+#' #yachou  :エクセル等で入力したオリジナルの野帳ファイル名です
+#' #         保存する際はこの名前と同じにしてください【.xlsxがこのルールで命名されています。
+#'  .csvとして保存すると自動的にこの名前で保存されます】
+#' #yachou2 :オリジナルを整理した野帳ファイル名です
+#' #yachou :植生被度の列名となります
+#'
+#' # 計算用データ・フレーム行列名対応表　yachou_calc.colnames
+#'
+CalculationInfo <-function(year=2025,plot_name_jp="有峰"){
+
+  vy <- VegetationSurveyYears
+  i<-which(vy$plot_name_jp==plot_name_jp)
+  plot_name<-vy$plot_name[i]
+  no<-vy$no[i]
+  j<-grep(year,vy[i,])
+  yachou  <- paste0(vy$no[i],vy$plot_name_jp[i],"-植生野帳",year,".csv")
+  yachou2 <- paste0(vy$no[i],vy$plot_name_jp[i],"-植生野帳",year,"-最新",".csv")
+  clm <- as.character(unlist(vy[i,grep("Vegetation",names(vy))]))
+
+  # 計算用データ・フレーム行列名対応表　yachou_calc.colnames
+  yachou.colnames<-c("サブプロット","階層","種名",clm)
+  calc.colnames<-c("subplot", "layer",   "sp","dk01",paste0("c0",2:length(clm)) )
+  colnames <- data.frame(yachou=yachou.colnames,calc=calc.colnames)
+  clm2<-colnames$calc[match(clm,colnames$yachou)]
+  vt_label<-paste0(plot_name,"_",clm2)
+
+ # 被度表
+  hidohyou<-paste0("被度表-",vy$no[i],vy$plot_name_jp[i],"-",clm,".csv")
+  # 被度階級表
+  hidokaikyuhyou<-paste0("被度階級表-",vy$no[i],vy$plot_name_jp[i],"-",clm,".csv")
+
+  # 総合優占度_頻度_平均被度-10有峰.csv
+  sougou<-paste0("総合優占度_頻度_平均被度-",vy$no[i],vy$plot_name_jp[i],".csv")
+
+  #報告書用-頻度_被度_優占度表.csv
+  houkousho<-paste0("報告書用-頻度_被度_優占度表-",vy$no[i],vy$plot_name_jp[i],".csv")
+
+
+  #リストへ統合
+  list( year=year,
+        plot_name=  plot_name,
+        plot_name_jp=  plot_name_jp,
+        no=no,
+       yachou=yachou,yachou2=yachou2,
+       clm=clm,
+       clm2=clm2,
+       colnames=colnames,
+       hidohyou= hidohyou,
+       hidokaikyuhyou=hidokaikyuhyou,
+       sougou=sougou,
+       houkousho=houkousho,
+       vt_label=vt_label
+       )
+
+}
+
+
+
 #' csvファイルのエンコーディング変換
 #'
 #' 上書きします。必要に応じて事前にバックアップしておいてください。
@@ -39,7 +142,6 @@ EncodingExchange<-function(filename="test.csv",en_old="cp932",en_new="utf-8"){
 #' spj<-d$種名
 #' SpeciesNameCheck(spj)
 #'
-
 #'
 #'
 SpeciesNameCheck<-function(spj){
@@ -217,25 +319,29 @@ VegetationTableList<-function(DK=FALSE){
   return(vt)
 }
 
+
+
 #' 植生経年変化表　(粗表)
-#'
-#' @param VT
-#' @param VTdk
+#' @param plot_name vector of a plot name or plots names
+#' @param vt　a tibble (or data.frame) of vegetation table
+#' @param vtdk 　a tibble (or data.frame) of vegetation table
 #'
 #' @returns
 #' @export
 #'
 #' @examples
 #'
-#' VC<-VegetationChronologyTable(VT=VT,VTdk=VTdk)
-#' # usethis::use_data(VC,overwrite = TRUE)
-#' VC$Arimine
+#' VegetationChronologyTable()
+#'
+#' VegetationChronologyTable(plot_name="Arimine")
 #'
 #'
-VegetationChronologyTable<-function(VT=VT,VTdk=VTdk){
+#'
+#'
+VegetationChronologyTable<-function(plot_name=plt$plot_name,vt=VT,vtDK=VTdk,
+                               period=c("dk01","c02","c03","c04","c05")){
 
-  plot_name <- plt$plot_name
-  period<- c("dk01","c02","c03","c04","c05")
+
 
   vc <- list()
 
@@ -245,8 +351,8 @@ VegetationChronologyTable<-function(VT=VT,VTdk=VTdk){
       nm <- paste(i, j, sep = "_")
       print(nm)
 
-      m  <- VT[[nm]]
-      m2 <- VTdk[[nm]]
+      m  <- vt[[nm]]
+      m2 <- vtDK[[nm]]
       cn <- c(1, (ncol(m) - 3):ncol(m))
 
       dplyr::full_join(
@@ -261,9 +367,8 @@ VegetationChronologyTable<-function(VT=VT,VTdk=VTdk){
     vc[[i]] <- Reduce(function(x, y) dplyr::full_join(x, y, by = "sp"), vc_list)
   }
 
-  return(vc)
+  vc
 }
-
 
 #' 報告書用植生経年変化表　
 #'
@@ -281,9 +386,10 @@ VegetationChronologyTable<-function(VT=VT,VTdk=VTdk){
 #'VCrepo[["Kagamiishi"]]
 #'
 #'# usethis::use_data(VCrepo,overwrite = TRUE)
-VegetationChronologyTable_report<-function(plot_name="Arimine"){
+#'
+VegetationChronologyTable_report<-function(plot_name="Arimine", vc=VC){
   # データ読み込み
-  d<- VC[[plot_name]]
+  d<- vc[[plot_name]]
 
   # 選別・リネーム
 
@@ -394,8 +500,11 @@ plots_5periods_sum <- function(data=d,condition=form == "sasa") {
 #'
 #' par(mfrow=c(1,1))
 #'
-Fig_DominanceValue <- function(plot_name="Joudosan"){
-  d <- VCrepo[[plot_name]]
+#' # 単年度版
+#' Fig_DominanceValue(plot_name="Arimine",vc_repo=VCrepo)
+#'
+Fig_DominanceValue <- function(plot_name="Joudosan",vc_repo=VCrepo){
+  d <- vc_repo[[plot_name]]
   dv_cal <- d %>% filter(cal==1) %>%
     group_by(layer)  %>%
     summarize(across(starts_with("di"), sum))
@@ -424,12 +533,12 @@ Fig_DominanceValue <- function(plot_name="Joudosan"){
 #' library(ggplot2)
 #' Fig_FrequencyCoverage(plot_name="Mimatsu")
 #' Fig_FrequencyCoverage(plot_name="Arimine")
-#' Fig_FrequencyCoverage(plot_name="Arimine",x="f3",y="c3")
-
-
+#' Fig_FrequencyCoverage(plot_name="Arimine",x="f5",y="c5")
 #'
-Fig_FrequencyCoverage<-function(d=VCrepo,plot_name="Arimine",x="f5",y="c5",sp="sp"){
-  d_<-VCrepo[[plot_name]][,c(sp,x,y)]
+#'
+#'
+Fig_FrequencyCoverage<-function(plot_name="Arimine",x="f5",y="c5",sp="sp",data=VCrepo){
+  d_<-data[[plot_name]][,c(sp,x,y)]
   names(d_)<-c("sp","x","y")
   d_$x<-d_$x*100
   x12 <- range(d_$x) ; y12 <- range(d_$y)
@@ -446,7 +555,7 @@ g
 
 #' 報告書用作図　出現頻度−総合優占度
 #'
-#' @param d data frame of tibble   VCrepo
+#' @param data list of data frame (tibble)   default :   VCrepo
 #' @param plot_name
 #' @param x column name of frequency
 #' @param y column name of coverage
@@ -464,10 +573,11 @@ g
 #'　
 #' Fig_FrequencyDominace(plot_name="Mimatsu")
 #' Fig_FrequencyDominace(plot_name="Arimine")
-#' Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="c3")
+#' Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="di3")
+#' Fig_FrequencyDominace(plot_name="Arimine",x="f5",y="di5")
 #'
-Fig_FrequencyDominace<-function(d=VCrepo,plot_name="Arimine",x="f5",y="di5",sp="sp"){
-  d_<-VCrepo[[plot_name]][,c(sp,x,y)]
+Fig_FrequencyDominace<-function(plot_name="Arimine",x="f5",y="di5",data=VCrepo,sp="sp"){
+  d_<-data[[plot_name]][,c(sp,x,y)]
   names(d_)<-c("sp","x","y")
   d_$x<-d_$x*100
   x12 <- range(d_$x) ; y12 <- range(d_$y)
@@ -519,4 +629,54 @@ DT_VCrepo<-function(plot_name="Mimatsu"){
     DT::formatRound(columns = c(paste0("c",1:5),paste0("f",1:5)),digits = 2)%>%
     DT::formatRound(columns = paste0("di",1:5),digits = 1)
 
+}
+
+
+
+#' 各調査地の各調査期における出現種
+#'
+#' @param plot_name
+#' @param period
+#' @param data
+#'
+#' @returns
+#' @export
+#'
+#' @examples
+#'
+#' text_species(plot_name="Arimine",period=5)
+#'
+#'
+text_species<-function(plot_name="Arimine",period=5,data=vc5){
+  fclm <- paste0("f",period)
+  cclm <-paste0("c",period)
+  d<-data
+  d. <- d %>% filter(plot==plot_name)
+
+  tab <- table(d.$layer)
+  typ <- sptype$階層2[match(names(tab),sptype$階層)]
+  (typtab<-data.frame(typ,tab))
+
+
+  txt0<-paste(plot_name,"第",period,"期に(", paste(typ,tab,"種",collapse = ", "),")を記録した。\n")
+
+  cat(txt0)
+
+  for(i in 1:nrow(typtab)){
+    lifefom<-typtab$typ
+    #layer<-typtab$Var1
+
+    d. %>% filter(layer==names(tab)[i])%>%arrange(-.data[[fclm]]) -> d.freq
+    d. %>% filter(layer==names(tab)[i])%>%arrange(-.data[[cclm]]) ->d.cov
+    sp.freq<-paste(d.freq$sp,sprintf("%.1f%%",100*d.freq[[fclm]]),collapse = ", ")
+    sp.cov <-paste(d.cov$sp,sprintf("%.1f%%",d.cov[[cclm]]),collapse = ", ")
+
+
+    txt1<-paste(lifefom[i],"に関して\n")
+    txt2<-paste("種別の出現頻度は多い順に",sp.freq,"であった。\n")
+    txt3<-paste("また、種別の平均被度は多い順に",sp.cov,"であった。\n")
+
+    cat(paste(txt1,txt2,txt3))
+
   }
+}

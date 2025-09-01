@@ -12,4 +12,5 @@ RData_sptype()
 \examples{
 sptype
 
+
 }

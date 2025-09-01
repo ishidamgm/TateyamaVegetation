@@ -18,8 +18,6 @@ An object of class `tbl_df`.
 automatically generated skeleton
 
 中島・石田　「森林調査」
-
-automatically generated skeleton
 }
 \usage{
 data(vv5)
@@ -40,7 +38,8 @@ data/Domin-Kradina集計表
 }
 \examples{
 vv5
-
+#listで分割
+split(vv5, vv5$plot)
 head(dd5)
 
 names(VT5)

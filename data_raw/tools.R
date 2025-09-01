@@ -1,3 +1,8 @@
+library(devtools)
+
+
+devtools::install_github(ishidamgm/TateyamaVegetation)
+
 library(TateyamaVegetation)
 help(package="TateyamaVegetation")
 
@@ -10,6 +15,8 @@ devtools::install()
 
 package_docs_with_examples("TateyamaVegetation")
 
+#　Index.html
+pkgdown::build_site()
 #####
 devtools::document()
 devtools::install()

@@ -11,18 +11,7 @@
 #'
 "allXYZ"
 
-# APG ####
-#'  data/APG　植物目録
-#' 米倉浩司・梶田忠 (2007-) 植物和名ー学名インデックスYList を利用させていただきました。
-#'
-#' @docType data
-#' @name APG
-#' @usage data(APG)
-#' @format An object of class `data.frame`.
-#' @keywords datasets
-#' @examples
-#' APG
-"APG"
+
 
 # FieldNote_Arimine2019_raw ####
 #' data/整理前の野帳生データ(サンプル)　FieldNote_Arimine2019_raw
@@ -288,8 +277,28 @@
 #' @source automatically generated skeleton
 #' @examples
 #' vv5
-#'
+#' #listで分割
+#'split(vv5, vv5$plot)
+
 "vv5"
+
+# VV5 ####
+#' data/ 1-5期調査区サブプロット植生調査生データ(リスト版)
+#' VV5 for the period I-V (2020-2025)
+#'
+#' @docType data
+#' @name VV5
+#' @usage data(vv5)
+#' @format An object of class `tbl_df`.
+#' @keywords datasets
+#' @source automatically generated skeleton
+#' @examples
+#' VV5
+#' #tibbleに結合
+#' bind_rows(VV5,.id="plot")
+#'
+"VV5"
+
 
 # dd5 ####
 #' data/ 1-5期調査区サブプロット森林調査生データ
@@ -334,7 +343,6 @@
 #' @usage data(vv5)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @examples
 #' names(VT5)
 #'  VT[["Arimine_c04"]]
@@ -350,7 +358,6 @@
 #' @usage data(vv5)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @seealso [VegetationChronologyTable()]
 #' @examples
 #' VC

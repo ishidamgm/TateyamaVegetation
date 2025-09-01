@@ -5,19 +5,19 @@
 \title{報告書用作図　出現頻度−総合優占度}
 \usage{
 Fig_FrequencyDominace(
-  d = VCrepo,
   plot_name = "Arimine",
   x = "f5",
   y = "di5",
+  data = VCrepo,
   sp = "sp"
 )
 }
 \arguments{
-\item{d}{data frame of tibble   VCrepo}
-
 \item{x}{column name of frequency}
 
 \item{y}{column name of coverage}
+
+\item{data}{list of data frame (tibble)   default :   VCrepo}
 
 \item{sp}{column name of species}
 }
@@ -30,6 +30,7 @@ Fig_FrequencyDominace(
 　
 Fig_FrequencyDominace(plot_name="Mimatsu")
 Fig_FrequencyDominace(plot_name="Arimine")
-Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="c3")
+Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="di3")
+Fig_FrequencyDominace(plot_name="Arimine",x="f5",y="di5")
 
 }

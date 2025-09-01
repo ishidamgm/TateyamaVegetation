@@ -4,7 +4,7 @@
 \alias{VegetationChronologyTable_report}
 \title{報告書用植生経年変化表}
 \usage{
-VegetationChronologyTable_report(plot_name = "Arimine")
+VegetationChronologyTable_report(plot_name = "Arimine", vc = VC)
 }
 \arguments{
 \item{plot_name}{}
@@ -21,4 +21,5 @@ names(VCrepo)<-plt$plot_name
 VCrepo[["Kagamiishi"]]
 
 # usethis::use_data(VCrepo,overwrite = TRUE)
+
 }

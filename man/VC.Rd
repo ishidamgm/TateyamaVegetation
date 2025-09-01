@@ -7,9 +7,6 @@
 \format{
 An object of class `tbl_df`.
 }
-\source{
-automatically generated skeleton
-}
 \usage{
 data(vv5)
 }

@@ -4,19 +4,30 @@
 \alias{VegetationChronologyTable}
 \title{植生経年変化表　(粗表)}
 \usage{
-VegetationChronologyTable(VT = VT, VTdk = VTdk)
+VegetationChronologyTable(
+  plot_name = plt$plot_name,
+  vt = VT,
+  vtDK = VTdk,
+  period = c("dk01", "c02", "c03", "c04", "c05")
+)
 }
 \arguments{
-\item{VTdk}{}
+\item{plot_name}{vector of a plot name or plots names}
+
+\item{vt}{a tibble (or data.frame) of vegetation table}
+
+\item{vtdk}{a tibble (or data.frame) of vegetation table}
 }
 \description{
 植生経年変化表　(粗表)
 }
 \examples{
 
-VC<-VegetationChronologyTable(VT=VT,VTdk=VTdk)
-# usethis::use_data(VC,overwrite = TRUE)
-VC$Arimine
+VegetationChronologyTable()
+
+VegetationChronologyTable(plot_name="Arimine")
+
+
 
 
 }
