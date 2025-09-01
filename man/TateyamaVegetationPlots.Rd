@@ -15,5 +15,6 @@ data/ 立山植生モニタリング調査区一覧表
 }
 \examples{
 TateyamaVegetationPlots
+
 }
 \keyword{datasets}

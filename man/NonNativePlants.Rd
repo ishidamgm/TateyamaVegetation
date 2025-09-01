@@ -15,7 +15,7 @@ NonNativePlants
  SpeciesNameCheck(NonNativePlants$sp)
 }
 \usage{
-data(vv5)
+data(NonNativePlants)
 }
 \description{
 data/ 立山外来植物調査(大田道人・山下寿之・吉田めぐみ)

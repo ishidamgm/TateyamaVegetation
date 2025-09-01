@@ -15,8 +15,13 @@ devtools::install()
 
 package_docs_with_examples("TateyamaVegetation")
 
-#　Index.html
+#　Index.html gitHub に便利####
+# https://ishidamgm.github.io/TateyamaVegetation/reference/index.html
 pkgdown::build_site()
+
+
+
+
 #####
 devtools::document()
 devtools::install()
@@ -186,3 +191,20 @@ if (do_move) {
   )
   message("Done: copied into ", dest_base)
 }
+
+
+
+
+# data ############
+vv               # A tibble: 7,673 × 10
+vv4              # A data.frame:
+vv5              # A tibble: 7,673 × 10
+VT               # A list of tibbles: 5 × 10
+VTdk             # A list of tibbles: 5 × 10
+VC               # A list of tibbles:  × 10
+VCrepo           # A list of tibbles:  × 10
+vc5              # A tibble: 764 × 25
+
+
+dbind<-bind_rows(VT,.id="plot")
+VV<-split(vv, vv$plot)

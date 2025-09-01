@@ -9,7 +9,7 @@
 An object of class `tbl_df`.
 }
 \usage{
-data(vv5)
+data(vegetation_code)
 }
 \description{
 data/ 植物目録各調査区頻度分布コード

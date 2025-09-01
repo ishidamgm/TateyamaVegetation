@@ -176,6 +176,7 @@
 #' @keywords datasets
 #' @examples
 #' TateyamaVegetationPlots
+#'
 "TateyamaVegetationPlots"
 
 
@@ -417,7 +418,7 @@
 #'
 #' @docType data
 #' @name vegetation_code
-#' @usage data(vv5)
+#' @usage data(vegetation_code)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
 #' @source
@@ -433,7 +434,7 @@
 #'
 #' @docType data
 #' @name forest_code
-#' @usage data(vv5)
+#' @usage data(forest_code)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
 #' @source
@@ -448,7 +449,7 @@
 #'
 #' @docType data
 #' @name NonNativePlants
-#' @usage data(vv5)
+#' @usage data(NonNativePlants)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
 #' @source "第Ⅳ期外来種調査報告書用全体表.csv",

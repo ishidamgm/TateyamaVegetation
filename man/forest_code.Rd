@@ -13,7 +13,7 @@ forest_code
  SpeciesNameCheck(forest_code$sp)
 }
 \usage{
-data(vv5)
+data(forest_code)
 }
 \description{
 data/ 植生モニタリング調査(石田仁・中島春樹)
