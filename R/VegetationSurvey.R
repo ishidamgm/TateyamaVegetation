@@ -69,7 +69,7 @@ hindo<-function(r) {## floor(r/0.2-0.00001)+1
 #'  #
 #'
 #'  ( df2 <-　PlotSpecies_1to4 ("Arimine"))
-#'  # write.csv(df2, "data_raw/PlotSpecies有峰.csv")
+#'  # write.csv(df2, "data-raw/PlotSpecies有峰.csv")
 #'
 PlotSpecies_1to4 <-function(site="Mimatsu"){
   d<-subset(vv,plot==site)
