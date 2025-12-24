@@ -9,28 +9,26 @@ Fig_FrequencyDominace(
   x = "f5",
   y = "di5",
   data = VCrepo,
-  sp = "sp"
+  sp = "sp",
+  xlabel = "出現頻度(％)",
+  ylabel = "総合優占度"
 )
 }
 \arguments{
-\item{x}{column name of frequency}
+\item{plot_name}{name of survey plot  default}
 
-\item{y}{column name of coverage}
+\item{x}{vector of column names of x axis (mean of columes) such as x="f5"  or paste0("f",1:4)}
 
-\item{data}{list of data frame (tibble)   default :   VCrepo}
+\item{y}{vector of column names of x axis (mean of columes) such as y="di5" or  paste0("di",1:4)))}
 
-\item{sp}{column name of species}
+\item{data}{data=VCrepo}
+
+\item{sp}{a column name of species}
+
+\item{xlabel}{text : default is "出現頻度(％)"}
+
+\item{ylabel}{text : default is"総合優占度"}
 }
 \description{
 報告書用作図　出現頻度−総合優占度
-}
-\examples{
-　library(ggplot2)
-　library(ggrepel)
-　
-Fig_FrequencyDominace(plot_name="Mimatsu")
-Fig_FrequencyDominace(plot_name="Arimine")
-Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="di3")
-Fig_FrequencyDominace(plot_name="Arimine",x="f5",y="di5")
-
 }

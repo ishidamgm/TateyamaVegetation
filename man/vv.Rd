@@ -3,7 +3,8 @@
 \docType{data}
 \name{vv}
 \alias{vv}
-\title{data/ 1-5期調査区サブプロット植生調査生データ}
+\title{data/ 全期調査区サブプロット植生調査生データ
+5期末においてvv5(1-5期)と同じもの}
 \format{
 An object of class `tbl_df`.
 }
@@ -11,9 +12,17 @@ An object of class `tbl_df`.
 data(vv)
 }
 \description{
-data/ 1-5期調査区サブプロット植生調査生データ
+data/ 全期調査区サブプロット植生調査生データ
+5期末においてvv5(1-5期)と同じもの
 }
 \examples{
 vv
+# 調査区ごとの抽出
+subset(vv,plot=="Arimine")
+#listで分割
+VV<-split(vv, vv5$plot)
+#再結合
+dplyr::bind_rows(VV, .id = "plot")
+
 }
 \keyword{datasets}

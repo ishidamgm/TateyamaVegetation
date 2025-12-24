@@ -78,7 +78,6 @@
 #' @usage data(leg)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @examples
 #' leg
 "leg"
@@ -95,7 +94,6 @@
 #' @usage data(plt)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @examples
 #' plt
 "plt"
@@ -110,7 +108,6 @@
 #' @usage data(rasXYZ)
 #' @format An object of class `list`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @examples
 #' par(mfrow=c(3,3))
 #' for(i in 1:nrow(plt)){
@@ -238,8 +235,8 @@
 
 
 # vv ####
-#' data/ 1-5期調査区サブプロット植生調査生データ
-#'
+#' data/ 全期調査区サブプロット植生調査生データ
+#' 5期末においてvv5(1-5期)と同じもの
 #' @docType data
 #' @name vv
 #' @usage data(vv)
@@ -247,6 +244,13 @@
 #' @keywords datasets
 #' @examples
 #' vv
+#' # 調査区ごとの抽出
+#' subset(vv,plot=="Arimine")
+#' #listで分割
+#'VV<-split(vv, vv5$plot)
+#'#再結合
+#'dplyr::bind_rows(VV, .id = "plot")
+#'
 "vv"
 
 
@@ -259,7 +263,6 @@
 #' @usage data(vv4)
 #' @format An object of class `data.frame`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @examples
 #' vv4
 #'
@@ -275,30 +278,24 @@
 #' @usage data(vv5)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
-#' @source automatically generated skeleton
 #' @examples
+#' # NOTE:
+#'# vv5 is stored in long format.
+#'# For manual editing, it is often convenient to split by plot,
+#'# edit each subset, and then re-bind to vv5.
 #' vv5
 #' #listで分割
-#'split(vv5, vv5$plot)
-
+#'(VV5<-split(vv5, vv5$plot))
+#'#再結合
+#'dplyr::bind_rows(VV5, .id = "plot")
+#'
+#'# 調査区ごとの抽出
+#'(arimine <- subset(vv5, plot == "Arimine"))
+#'
+#'
 "vv5"
 
-# VV5 ####
-#' data/ 1-5期調査区サブプロット植生調査生データ(リスト版)
-#' VV5 for the period I-V (2020-2025)
-#'
-#' @docType data
-#' @name VV5
-#' @usage data(VV5)
-#' @format An object of class `tbl_df`.
-#' @keywords datasets
-#' @source automatically generated skeleton
-#' @examples
-#' VV5
-#' #tibbleに結合
-#' bind_rows(VV5,.id="plot")
-#'
-"VV5"
+
 
 
 # dd5 ####
@@ -347,7 +344,7 @@
 #' @examples
 #' names(VT5)
 #'  VT[["Arimine_c04"]]
-#'  VTdk[["Arimine_c04"]]
+#'  VTdk[["Arimine_c05"]]
 "VTdk"
 
 
@@ -357,10 +354,11 @@
 #' @docType data
 #' @name VC
 #' @usage data(VC)
-#' @format An object of class `tbl_df`.
+#' @format A named list of tibbles (one element per plot).
 #' @keywords datasets
 #' @seealso [VegetationChronologyTable()]
 #' @examples
+#' data("VC", package = "TateyamaVegetation")
 #' VC
 #' (d<- VC[["Arimine"]])
 #' nm<-names(d)
@@ -405,7 +403,6 @@
 #' @usage data(vc5)
 #' @format A  `tbl_df`.
 #' @keywords datasets
-#' @source
 #' @examples
 #' VCrepo
 #' vc5
@@ -421,7 +418,6 @@
 #' @usage data(vegetation_code)
 #' @format An object of class `tbl_df`.
 #' @keywords datasets
-#' @source
 #' @examples
 #'
 #' vegetation_code

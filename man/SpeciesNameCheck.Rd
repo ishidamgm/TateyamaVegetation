@@ -4,10 +4,12 @@
 \alias{SpeciesNameCheck}
 \title{種の和名が植物目録floraに記載されているか確認します}
 \usage{
-SpeciesNameCheck(spj)
+SpeciesNameCheck(spj, spj00 = flora$spj)
 }
 \arguments{
 \item{spj}{種名(和名)のベクトル}
+
+\item{spj00}{参照する種名(和名)のベクトル}
 }
 \value{
 記載の有無、記載のない入力種名
@@ -20,7 +22,8 @@ SpeciesNameCheck(c("ブナ","スギ","クロベ"))
 d<-FieldNote_Arimine2019_raw
 head(d)
 spj<-d$種名
-SpeciesNameCheck(spj)
+spj
+SpeciesNameCheck(spj,spj00=flora$spj)
 
 
 

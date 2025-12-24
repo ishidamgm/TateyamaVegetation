@@ -12,13 +12,17 @@
 #' @examples
 #'
 #'
-#' #d                                                              #元の野帳データ
-#' #FieldNote_FormatArange(d,calc= CalculationInfo(2025,"有峰"))   #計算用データ
+#' d<- FieldNote_Arimine2019_raw
+#' d                                                                #元の野帳データ
+#' FieldNote_FormatArange(d,calc= CalculationInfo(2025,"有峰"))     #計算用データ
 #'
 #'
 FieldNote_FormatArange<-function(d=d,calc= CalculationInfo(2025,"有峰")){
-  pn<- match(plot_name_jp,VegetationSurveyYears$plot_name_jp)
+  plot_name_jp<-calc$plot_name_jp
+
+  pn<- match(calc$plot_name_jp,VegetationSurveyYears$plot_name_jp)
   plot_name <- VegetationSurveyYears$plot_name[match(plot_name_jp,VegetationSurveyYears$plot_name_jp)]
+
   d.<-d[,calc$colnames$yachou]
   names(d.)<-calc$colnames$calc
   tibble(pn,plot=plot_name,d.)
@@ -129,7 +133,9 @@ EncodingExchange<-function(filename="test.csv",en_old="cp932",en_new="utf-8"){
 
 #' 種の和名が植物目録floraに記載されているか確認します
 #'
-#' @param spj　種名(和名)のベクトル
+#' @param spj　  種名(和名)のベクトル
+#'
+#' @param spj00　参照する種名(和名)のベクトル
 #'
 #' @returns　記載の有無、記載のない入力種名
 #'
@@ -140,20 +146,35 @@ EncodingExchange<-function(filename="test.csv",en_old="cp932",en_new="utf-8"){
 #' d<-FieldNote_Arimine2019_raw
 #' head(d)
 #' spj<-d$種名
-#' SpeciesNameCheck(spj)
+#' spj
+#' SpeciesNameCheck(spj,spj00=flora$spj)
 #'
 #'
 #'
-SpeciesNameCheck<-function(spj){
+SpeciesNameCheck<-function(spj,spj00=flora$spj){
+
   spj.<-spj
-  fl.i<-match(spj,  flora$spj)
+  fl.i<-match(spj,  spj00)
   if(anyNA(fl.i)){
     cat(unique(spj[is.na(fl.i)]), "はリストにありません。\n 種名を修正するか、floraに新たな種を追加してください。\n")
   } else {    cat("入力されている種名はすべて目録に含まれています。\n")}
 
 }
 
+#' Title
+#'
+#' @param sp. 生活型を知りたい種名のベクトル
+#'
+#' @return　入力した種名の生活型
+#' @export
+#'
+#' @examples
+#' SpeciesForm(c("ブナ","ハイマツ","ミヤマカンスゲ","コケモモ"))
+#'
+SpeciesForm<- function(sp.=c("ブナ","ハイマツ","ミヤマカンスゲ","コケモモ")) {
+  return(flora2$form[match(sp.,flora2$spj)])
 
+}
 
 #' 和名の置換
 #' 本調査の種和名はYList(米倉浩司・梶田忠 2007-)の第一和名に基づきます。
@@ -245,8 +266,11 @@ FieldNote_CheckCorrect<- function(d=FieldNote){
 #' @export
 #'
 #' @examples
+#' VegetationTable(d=subset(vv,plot=="Bijodaira"),period="dk01",DK=TRUE)
 #' VegetationTable(d=subset(vv,plot=="Arimine"),period="c04",DK=FALSE)
-#'
+#' VegetationTable(d=subset(vv,plot=="Arimine"),period="c05",DK=FALSE)
+#'  VegetationTable(d=subset(vv,plot=="Arimine"),period="c05",DK=TRUE)
+#'   VegetationTable(d=subset(vv,plot=="Kagamiishi"),period="c05",DK=TRUE)
 VegetationTable <- function(d=subset(vv,plot=="Arimine"),period="c04",DK=FALSE){
   # # 組成表　vt:VegetationTable ####
   vt <- d |>
@@ -254,7 +278,7 @@ VegetationTable <- function(d=subset(vv,plot=="Arimine"),period="c04",DK=FALSE){
     tidyr::pivot_wider(
       names_from = subplot,
       values_from = period,
-      values_fill = 0  # 欠損を0にする（合計表などに便利）
+      values_fill = 0  # 欠損を0にする
     )
 
   # # Domin_Krajina convert
@@ -268,15 +292,12 @@ VegetationTable <- function(d=subset(vv,plot=="Arimine"),period="c04",DK=FALSE){
 
 
 
-
-
-
   # # 頻度　VegetationTable ####
   vt |>
     dplyr::rowwise() |>
     dplyr::mutate(
       Mean = mean(dplyr::c_across(-sp), na.rm = TRUE),
-      Frequency = mean(dplyr::c_across(-sp) > 0, na.rm = TRUE),
+      Frequency = mean(dplyr::c_across(-c(sp, Mean)) > 0, na.rm = TRUE),
       FreqCode =hindo(Frequency),
       DominatIndex = 100 * sqrt(Mean * Frequency) / sqrt(10)
     ) |>
@@ -313,7 +334,7 @@ VegetationTableList<-function(DK=FALSE){
     for (j in  period) {
       nm <- paste(i, j, sep = "_")
       print(nm)
-      vt[[nm]] <- VegetationTable(subset(vv, plot == i),DK=DK, j)
+      vt[[nm]] <- VegetationTable(subset(vv, plot == i),DK=DK, period=j)
     }
   }
   return(vt)
@@ -333,15 +354,19 @@ VegetationTableList<-function(DK=FALSE){
 #'
 #' VegetationChronologyTable()
 #'
+#' VegetationChronologyTable(plot_name="Kagamiishi")
 #' VegetationChronologyTable(plot_name="Arimine")
 #'
+#' VC<-VegetationChronologyTable()
+#' #save(VC,file="data/VC.rda")
+#'
+#' vc5<-dplyr::bind_rows(VC)
+#' #save(vc5,file="data/vc5.rda")
 #'
 #'
 #'
 VegetationChronologyTable<-function(plot_name=plt$plot_name,vt=VT,vtDK=VTdk,
                                period=c("dk01","c02","c03","c04","c05")){
-
-
 
   vc <- list()
 
@@ -353,7 +378,7 @@ VegetationChronologyTable<-function(plot_name=plt$plot_name,vt=VT,vtDK=VTdk,
 
       m  <- vt[[nm]]
       m2 <- vtDK[[nm]]
-      cn <- c(1, (ncol(m) - 3):ncol(m))
+      cn <- c(1, (ncol(m) - 3):ncol(m))   #VT,VTdkのsp, Frequency FreqCode DominatIndex
 
       dplyr::full_join(
         m[, cn],
@@ -378,16 +403,29 @@ VegetationChronologyTable<-function(plot_name=plt$plot_name,vt=VT,vtDK=VTdk,
 #' @export
 #'
 #' @examples
-#'
+#' VegetationChronologyTable_report("Bijodaira")
 #' VegetationChronologyTable_report("Arimine")
 #' VCrepo<-lapply(plt$plot_name,VegetationChronologyTable_report)
 #'names(VCrepo)<-plt$plot_name
 #'
 #'VCrepo[["Kagamiishi"]]
+#'VCrepo[["Arimine"]]
 #'
 #'# usethis::use_data(VCrepo,overwrite = TRUE)
 #'
-VegetationChronologyTable_report<-function(plot_name="Arimine", vc=VC){
+#' # 報告書貼り付け用スクリプト
+#'
+#'　d<-as.data.frame(VCrepo[["Mimatsu"]])
+#'  j<-paste0("f",1:5)  #頻度列
+#'　d[,j]<-100*d[,j]    #　%　
+#'　d$cal[d$cal==1]<-"*"
+#'  d$cal[d$cal==0]<-""
+#'  d
+#'  # library(clipr)
+#'  # write_clip(d)
+#'
+#'
+VegetationChronologyTable_report<-function(plot_name="Arimine",vc=VC){
   # データ読み込み
   d<- vc[[plot_name]]
 
@@ -407,7 +445,7 @@ VegetationChronologyTable_report<-function(plot_name="Arimine", vc=VC){
     setNames(c("sp", paste0("f", 1:5), paste0("F", 1:5), paste0("c", 1:5), paste0("di", 1:5)))  %>%
     dplyr::mutate(layer,.before="sp") %>%
     dplyr::mutate(form,.after="sp") %>%
-    arrange(layer, sp)
+    dplyr::arrange(layer, sp)
 
   # 1~5期出現した種を解析対象とする
   cal<-as.numeric((rowSums(d_[,paste0("f",1:5)]>0)==5))
@@ -477,39 +515,172 @@ plots_5periods_sum <- function(data=d,condition=form == "sasa") {
 
 
 
-#' 報告書用作図　総合優占度経年変化
-#' Figure of chronosequence for dominant variance
+#' @title 総合優占度経年変化の図の描画 (統合関数)
+#' @description plot_nameがNULLの場合は全プロット、値が指定された場合は単独プロットを描画します。
 #'
-#' @param plot_name
-#'
-#' @returns
+#' @param plot_name 描画したいプロット名（単一）。NULLの場合は全て描画。
+#' @param vc_repo 植生データ（リスト）。
+#' @param ... 内部関数に渡す追加引数（例: legend_locationなど）。
+#' @returns 描画オブジェクト（返り値なし）。
 #' @export
 #'
 #' @examples
-#' library(dplyr)
-#' library(ggrepel)
+#' # 実行前のparを保存
+#' old_par <- par(no.readonly = TRUE)
+#' #　凡例あり
+#' par(mfrow = c(1, 1), mar = c(5, 4, 4, 8), xpd = NA)
+#' Fig_DominanceValue(plot_name="Arimine")
+#' #' # svg出力 ####
+#' \dontrun{
+#' library(svglite)
 #'
-#' Fig_DominanceValue("Kaminokodaira")
-#' Fig_DominanceValue("Arimine")
-#' Fig_DominanceValue("Matsuotoge")
+#' for(i in 1:nrow(plt)){
 #'
-#' Fig_DominanceValue(plt$plot_name[9])
+#'   svglite(paste0(plt$no[i],"-",plt$plot_name[i], ".svg"),
+#'           width  = 200/25.4,
+#'           height = 120/25.4)
 #'
-#' par(mfrow=c(3,4))
-#' for(i in plt$plot_name)Fig_DominanceValue(i)
+#'   par(mfrow = c(1, 1), mar = c(5, 4, 4, 8), xpd = NA)  # ←デバイスの中で固定
+#'   Fig_DominanceValue(plot_name = plt$plot_name[i])
 #'
-#' par(mfrow=c(1,1))
-#'
-#' # 単年度版
-#' Fig_DominanceValue(plot_name="Arimine",vc_repo=VCrepo)
-#'
-Fig_DominanceValue <- function(plot_name="Joudosan",vc_repo=VCrepo){
-  d <- vc_repo[[plot_name]]
-  dv_cal <- d %>% filter(cal==1) %>%
-    group_by(layer)  %>%
-    summarize(across(starts_with("di"), sum))
+#'   dev.off()
+#' }
+#' }
+#'  #　凡例なし
+#' par(mfrow = c(1, 1), mar = c(5, 4, 4, 2))
+#' Fig_DominanceValue(plot_name="Arimine",show_legend=FALSE)
+#' #全調査区
+#' par(mfrow = c(3, 4), mar = c(5, 4, 4, 2))
+#'  Fig_DominanceValue()
+#' par(old_par)
+Fig_DominanceValue <- function(plot_name = NULL, vc_repo=VCrepo, ...) {
 
-  barplot(as.matrix(dv_cal[,-1]),main=plot_name)
+  if (is.null(plot_name)) {
+    # 複数図描画：par(mfrow)を設定し、最後に凡例を描画する
+    .Fig_DominanceValue_allplots(vc_repo=VCrepo)
+  } else {
+    # 単独図描画：マージンを拡張し、右側に凡例を描画する
+    #par(mfrow=c(1,1), mar = c(5, 4, 4, 8), xpd = NA)
+    .Fig_DominanceValue_single(plot_name, vc_repo=VCrepo)
+  }
+}
+
+# 内部関数1: 凡例の描画のみを実行
+.Fig_DominanceValue_legend <- function(location = "topright", leg_title = "階層") {
+  layer_names <- c("ササ層", "草本層", "木本層")
+  n_layer <- length(layer_names)
+
+  fill_colors   <- grDevices::gray.colors(n_layer, start = 0, end = 0.8)
+  hatch_density <- c(NA, 20, 40)[seq_len(n_layer)]
+  hatch_angle   <- c(0, 45, -45)[seq_len(n_layer)]
+
+  legend(location,
+         inset = c(-0.25, 0),
+         xpd = TRUE,
+         legend  = layer_names,
+         fill    = fill_colors,
+         density = hatch_density,
+         angle   = hatch_angle,
+         title   = leg_title,
+         bty     = "n")
+}
+
+# 内部関数2: 単独プロット描画（凡例付き）
+.Fig_DominanceValue_single <- function(plot_name, vc_repo=VCrepo,show_legend = TRUE) {
+
+  plot_name_jp <- plt$plot_name_jp[plt$plot_name == plot_name]
+
+  # old_par <- par(no.readonly = TRUE)
+  # on.exit(par(old_par), add = TRUE)
+  #
+  # if(show_legend){
+  #   par(mar = c(5, 4, 4, 8), xpd = NA)  # xpd=NA 推奨（図領域/余白まで許可）
+  # }else{par(mar = c(5.1, 4.1, 4.1, 2.1))}
+
+
+  d <- vc_repo[[plot_name]]
+
+  dv_cal <- d |>
+    dplyr::filter(.data$cal == 1) |>
+    dplyr::group_by(.data$layer) |>
+    dplyr::summarise(dplyr::across(dplyr::starts_with("di"), sum), .groups = "drop")
+
+  n_layer <- nrow(dv_cal)
+  fill_colors   <- grDevices::gray.colors(n_layer, start = 0, end = 0.8)
+  hatch_density <- c(NA, 20, 40)[seq_len(n_layer)]
+  hatch_angle   <- c(0, 45, -45)[seq_len(n_layer)]
+
+  barplot(as.matrix(dv_cal[, -1]),
+          main = plot_name_jp,
+          names.arg = c("I", "II", "III", "IV", "V"),
+          col = fill_colors,
+          density = hatch_density,
+          angle = hatch_angle,
+          xlab = "期",
+          ylab = "総合優占度",
+          border = "black")
+
+  if(show_legend){.Fig_DominanceValue_legend(location = "topright")}
+}
+
+# 内部関数3: 全プロット描画（最後の空きスペースに凡例）
+.Fig_DominanceValue_allplots <- function(vc_repo=VCrepo) {
+  plot_names <- names(vc_repo) # プロット名のリストを取得
+
+  # レイアウト設定
+  par(mfrow = c(3, 4), mar = c(4, 4, 3, 1) + 0.1)
+  # old_par <- par(no.readonly = TRUE)
+  # on.exit(par(old_par))
+
+  # 10siteの図を描画
+  for (na in  plot_names) {
+    .Fig_DominanceValue_single(na,show_legend = FALSE)
+  }
+
+
+  # 最後の空きプロットに凡例を配置
+  plot.new()
+  .Fig_DominanceValue_legend(location = "center")
+}
+
+#' Title
+#'
+#' @param plot_name
+#' @param vc_repo
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#'
+#'Fig_DominanceValue_layer("Arimine")
+#'Fig_DominanceValue_layer(plot_name ="Joudosan")
+#'Fig_DominanceValue_layer(plot_name ="Midagahara")
+#'
+Fig_DominanceValue_layer <- function(plot_name ="Bijodaira", period=5,vc_repo=VCrepo, ...) {
+  #par保全
+  old_par <- par(no.readonly = TRUE)
+  on.exit(par(old_par))
+  #データ取り込み
+  d <- vc_repo[[plot_name]]
+
+  d<-d[!is.na(d$layer),] #弥陀ヶ原の池塘面積除外
+
+  dv_cal <- d |>
+    dplyr::filter(.data$cal == 1) |>
+    dplyr::group_by(.data$layer) |>
+    dplyr::summarise(dplyr::across(dplyr::starts_with("di"), sum), .groups = "drop")
+
+  #layer_code=data.frame(cod=c("B2","C","S","水面"),jp=c("低木層","草本層","ササ","水面"))
+
+
+  par(mfrow=c(1,3))
+  　main.txt <-laynm<- sptype$階層2[match(dv_cal$layer,sptype$階層)]
+  #　main.txt <- c("低木層　(B2)","草本層　(C)","ササ　(S)")
+  for (i in 1:nrow(dv_cal))barplot(  as.numeric(dv_cal[i,-1]),names=c("I","II","III","IV","V"),main=main.txt[i],ylab="総合優占度　(％)")
+
+
 }
 
 
@@ -538,6 +709,7 @@ Fig_DominanceValue <- function(plot_name="Joudosan",vc_repo=VCrepo){
 #'
 #'
 Fig_FrequencyCoverage<-function(plot_name="Arimine",x="f5",y="c5",sp="sp",data=VCrepo){
+  plot_name_jp<-plt$plot_name_jp[plt$plot_name==plot_name]
   d_<-data[[plot_name]][,c(sp,x,y)]
   names(d_)<-c("sp","x","y")
   d_$x<-d_$x*100
@@ -548,46 +720,75 @@ Fig_FrequencyCoverage<-function(plot_name="Arimine",x="f5",y="c5",sp="sp",data=V
     geom_text_repel(size=3,fontface="bold",max.overlaps=100)+
     geom_hline(yintercept=0,linetype="dashed",colour="blue") +
     geom_vline(xintercept=0,linetype="dashed",colour="blue")+
-    labs(title=plot_name)+ theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 20))
+    labs(title=plot_name_jp)+ theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 20))
 g
   }
 
 
 #' 報告書用作図　出現頻度−総合優占度
 #'
-#' @param data list of data frame (tibble)   default :   VCrepo
-#' @param plot_name
-#' @param x column name of frequency
-#' @param y column name of coverage
-#' @param sp column name of species
+#' @param plot_name   name of survey plot  default
+#' @param x   vector of column names of x axis (mean of columes) such as x="f5"  or paste0("f",1:4)
+#' @param y   vector of column names of x axis (mean of columes) such as y="di5" or  paste0("di",1:4)))
+#' @param data data=VCrepo
+#' @param sp  a column name of species
+#' @param xlabel text : default is "出現頻度(％)"
+#' @param ylabel text : default is"総合優占度"
 #'
-#' @returns
-#'
+#' @return
 #' @export
 #'
-#' @import ggplot2
-#'
 #' @examples
-#'　library(ggplot2)
-#'　library(ggrepel)
-#'　
-#' Fig_FrequencyDominace(plot_name="Mimatsu")
-#' Fig_FrequencyDominace(plot_name="Arimine")
-#' Fig_FrequencyDominace(plot_name="Arimine",x="f3",y="di3")
-#' Fig_FrequencyDominace(plot_name="Arimine",x="f5",y="di5")
+#'  Fig_FrequencyDominace(plot_name="Arimine",x="f5",y="di5")
+#' Fig_FrequencyDominace(plot_name="Arimine",x=paste0("f",1:4),y=paste0("di",1:4),xlabel="I-IV期平均 出現頻度(％)",ylabel="I-IV期平均 総合優占度")
 #'
-Fig_FrequencyDominace<-function(plot_name="Arimine",x="f5",y="di5",data=VCrepo,sp="sp"){
-  d_<-data[[plot_name]][,c(sp,x,y)]
-  names(d_)<-c("sp","x","y")
-  d_$x<-d_$x*100
+#'
+#'#' \dontrun{
+#' library(svglite)
+#'
+#' for(i in 1:nrow(plt)){
+#'
+#'   svglite(paste0("Fig_FrequencyDominace-",plt$no[i],"-",plt$plot_name[i], ".svg"),
+#'          width  = 680/96 , height = 504/96  )
+#'
+#'   p<-Fig_FrequencyDominace(plot_name=plt$plot_name[i],x="f5",y="di5"
+#'   ,xlabel="V期 出現頻度(％)",ylabel="V期 総合優占度")
+#'   print(p)
+#'   dev.off()
+#' }
+#' #######
+#' for(i in 1:nrow(plt)){
+#'
+#'   svglite(paste0("Fig_FrequencyDominace-I-IV-",plt$no[i],"-",plt$plot_name[i], ".svg"),
+#'          width  = 680/96 , height = 504/96  )
+#'  　p<- Fig_FrequencyDominace(plot_name=plt$plot_name[i],x=paste0("f",1:4),y=paste0("di",1:4),xlabel="I-IV期平均 出現頻度(％)",ylabel="I-IV期平均 総合優占度")
+#'   print(p)
+#'   dev.off()
+#' }
+#' }
+#'
+#'
+#' }
+#'
+Fig_FrequencyDominace<-function(plot_name="Arimine",x="f5",y="di5",data=VCrepo,sp="sp",xlabel="出現頻度(％)",ylabel="総合優占度"){
+  plot_name_jp<-plt$plot_name_jp[plt$plot_name==plot_name]
+  # d_<-data[[plot_name]][,c(sp,x,y)]
+  # names(d_)<-c("sp","x","y")
+  # d_$x<-d_$x*100
+  d_<-data[[plot_name]]
+  sp_<-d_$sp
+  x_<-apply(d_[,x],1,mean)*100
+  y_<-apply(d_[,y],1,mean)
+  d_<-data.frame(sp=sp_,x=x_,y=y_)
+  d_<-tibble(sp=sp_,x=x_,y=y_)
   x12 <- range(d_$x) ; y12 <- range(d_$y)
   g<-ggplot(d_, aes(x, y , label = sp )) + xlim(x12[1]-15,x12[2])+ylim(y12[1]-7,y12[2])+
-    xlab("出現頻度(％)")+  ylab("総合優占度")+
+    xlab(xlabel)+  ylab(ylabel)+
     geom_point(col="red") +
     geom_text_repel(size=3,fontface="bold",max.overlaps=100)+
     geom_hline(yintercept=0,linetype="dashed",colour="blue") +
     geom_vline(xintercept=0,linetype="dashed",colour="blue")+
-    labs(title=plot_name)+ theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 20))
+    labs(title=plot_name_jp)+ theme(plot.title = element_text(hjust = 0.5), text = element_text(size = 20))
   g
 }
 
@@ -666,8 +867,8 @@ text_species<-function(plot_name="Arimine",period=5,data=vc5){
     lifefom<-typtab$typ
     #layer<-typtab$Var1
 
-    d. %>% filter(layer==names(tab)[i])%>%arrange(-.data[[fclm]]) -> d.freq
-    d. %>% filter(layer==names(tab)[i])%>%arrange(-.data[[cclm]]) ->d.cov
+    d. %>% filter(layer==names(tab)[i])%>%dplyr::arrange(-.data[[fclm]]) -> d.freq
+    d. %>% filter(layer==names(tab)[i])%>%dplyr::arrange(-.data[[cclm]]) ->d.cov
     sp.freq<-paste(d.freq$sp,sprintf("%.1f%%",100*d.freq[[fclm]]),collapse = ", ")
     sp.cov <-paste(d.cov$sp,sprintf("%.1f%%",d.cov[[cclm]]),collapse = ", ")
 

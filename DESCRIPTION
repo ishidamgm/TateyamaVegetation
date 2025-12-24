@@ -1,14 +1,14 @@
 Package: TateyamaVegetation
 Type: Package
-Title: 富山県立山植生モニタリング調査
-Version: 0.1.20250901-2
+Title: Vegetation Monitoring Data and Tools for the Tateyama Region, Japan
+Version: 0.1.20251224
 Authors@R: c(
     person("Megumi", "Ishida", email = "ishidam@sanchikanri.com", role = c("aut", "cre")),
     person("Haruki", "Nakajima", role = "aut"),
     person("Satoru", "Kojima", role = "aut"),
-    person(given = "富山県", role = "fnd", comment = "Sponsor"))
+    person(given = "Toyama Prefecture", role = "fnd", comment = "Sponsor"))
 Maintainer: Megumi Ishida <ishidam@sanchikanri.com>
-Description: 1998年～。富山県の支援を受けて実施された、立山地域における植生モニタリング調査のデータを含みます。
+Description: Provides tools and datasets for long-term vegetation monitoring in the Tateyama region (Toyama Prefecture, Japan), including subplot-based survey data from periods I-V (1998-2025).
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -24,7 +24,8 @@ Imports:
     ggrepel,
     magrittr, 
     metR,
-    tools
+    tools,
+    DT
 Suggests:
     testthat,
     knitr,

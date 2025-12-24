@@ -7,9 +7,6 @@
 \format{
 An object of class `data.frame`.
 }
-\source{
-automatically generated skeleton
-}
 \usage{
 data(plt)
 }

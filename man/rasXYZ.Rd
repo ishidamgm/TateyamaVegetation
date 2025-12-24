@@ -7,9 +7,6 @@
 \format{
 An object of class `list`.
 }
-\source{
-automatically generated skeleton
-}
 \usage{
 data(rasXYZ)
 }

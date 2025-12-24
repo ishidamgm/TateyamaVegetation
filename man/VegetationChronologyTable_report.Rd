@@ -13,13 +13,26 @@ VegetationChronologyTable_report(plot_name = "Arimine", vc = VC)
 報告書用植生経年変化表
 }
 \examples{
-
+VegetationChronologyTable_report("Bijodaira")
 VegetationChronologyTable_report("Arimine")
 VCrepo<-lapply(plt$plot_name,VegetationChronologyTable_report)
 names(VCrepo)<-plt$plot_name
 
 VCrepo[["Kagamiishi"]]
+VCrepo[["Arimine"]]
 
 # usethis::use_data(VCrepo,overwrite = TRUE)
+
+# 報告書貼り付け用スクリプト
+
+　d<-as.data.frame(VCrepo[["Mimatsu"]])
+ j<-paste0("f",1:5)  #頻度列
+　d[,j]<-100*d[,j]    #　\%　
+　d$cal[d$cal==1]<-"*"
+ d$cal[d$cal==0]<-""
+ d
+ # library(clipr)
+ # write_clip(d)
+
 
 }

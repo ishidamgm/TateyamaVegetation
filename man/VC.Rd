@@ -5,7 +5,7 @@
 \alias{VC}
 \title{data/ Vegetation chronosequence}
 \format{
-An object of class `tbl_df`.
+A named list of tibbles (one element per plot).
 }
 \usage{
 data(VC)
@@ -14,6 +14,7 @@ data(VC)
 data/ Vegetation chronosequence
 }
 \examples{
+data("VC", package = "TateyamaVegetation")
 VC
 (d<- VC[["Arimine"]])
 nm<-names(d)

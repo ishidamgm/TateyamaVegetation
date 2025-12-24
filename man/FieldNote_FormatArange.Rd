@@ -17,8 +17,9 @@ FieldNote_FormatArange(d = d, calc = CalculationInfo(2025, "有峰"))
 \examples{
 
 
-#d                                                              #元の野帳データ
-#FieldNote_FormatArange(d,calc= CalculationInfo(2025,"有峰"))   #計算用データ
+d<- FieldNote_Arimine2019_raw
+d                                                                #元の野帳データ
+FieldNote_FormatArange(d,calc= CalculationInfo(2025,"有峰"))     #計算用データ
 
 
 }

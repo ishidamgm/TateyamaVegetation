@@ -1,4 +1,164 @@
+# 期末植物目録.R
+
+#　2025/12/17-　>>>>>> ####
+
 library(tidyverse)
+
+# flora2の作り直し　#####
+
+## 森林forest_code ####
+forest_code
+#ForestFloraMatrix() 参照
+
+## 植生vegetation_code ####
+if(0){
+  m<-VegetationFloraMatrix(VCrepo)
+  head(m)
+  sp<-names(m)[-1]
+  vc<-c(); for( i in sp)vc<-c(vc,VegetationFloraCode(cod=m[[i]]))
+  vegetation_code<-data.frame(sp,vegetation_code=vc)
+  # usethis::use_data(vegetation_code,overwrite = TRUE)
+}
+
+vegetation_code
+
+## 外来植物 nonnative_code ####
+# IVから調査地点など変更あり最初から作り直し
+# オリジナルを転置しcsvで扱いやすいように編集
+d<-read.csv("data-raw/Nonnative_第Ⅴ期報告書用全体表3-5-1.csv")
+d[is.na(d)]<-0
+dim(d)
+names(d)
+(sp<-names(d)[5:ncol(d)])
+
+###　種名のチェック　 YPlant ####
+SpeciesNameCheck(sp,spj00=APG$種名)
+which(APG$種名=="コガネスゲ")
+which(APG$種名=="オウゴンスゲ")
+which(APG$種名=="タカネスイバ")
+which(APG$種名=="エゾコヌカグサ")
+### 地点リスト　no_chiten ####
+no<-d$no
+chiten<-d$地点名
+(no_chiten<-data.frame(no=no[no!=0],chiten=chiten[chiten!=""]))
+
+#### 空セル補完 ####
+no[no == ""] <- NA
+no <- zoo::na.locf(no)
+
+chiten[chiten == ""] <- NA
+chiten <- zoo::na.locf(chiten)
+
+#### new data ; d2 ####
+d2<-d
+d2[,1]<-no
+d2[,2]<-chiten
+d2
+
+### 第Ⅴ期抽出 ####
+d2<-d2[is.element(d2$X,paste0("R",2:7)),]
+
+### 地点別記録値平均 ####
+d3<-c()
+for(i in 1:length(sp)){
+  d3<-cbind(d3,ceiling(tapply(d2[,names(d2)==sp[i]],d2$地点名,mean)))
+}
+
+d3<-data.frame(d3)
+names(d3)<-sp
+no_V<-no[match(rownames(d3),chiten)]
+
+d3<-data.frame(no=no_V,d3)
+d3<-d3[order(as.numeric(d3$no)),]
+
+### write.csv(d3,file="data-raw/Nonnative_各種各調査地点V期平均値_期末植物目録.CSV") ####
+d3<-read.csv("data-raw/Nonnative_各種各調査地点V期平均値_期末植物目録.CSV")
+
+### nonnative_code ####
+sp<-names(d3)[-c(1,2)]
+sn<-list(弘追=1:5,弥美=6:14,天大=15:28,室=29:43,弥=44:48)
+
+nn_code<-function(ii){
+  s<-c()
+  for (i in 1:length(sn)){
+    s<-c(s,paste("-",names(sn)[i],paste(d3[sn[[i]],ii],collapse=""),sep=""))
+  }
+  paste(s,collapse="")
+}
+
+spc<-c();for (i in 3:ncol(d3))spc<-c(spc,paste(nn_code(i),sep=""));spc
+spc<-substr(spc,2,999)
+(spc<-data.frame(sp,spc))
+nonnative_code<-spc
+
+##　bacKup VI flora flora2 ####
+flora_IV<-flora
+#save(flora_IV,file="data/flora_IV.rda")
+flora2_IV<-flora2
+#save(flora2_IV,file="data/flora2_IV.rda")
+
+# flora2_V  = flora2
+d1<-forest_code
+d2<-vegetation_code
+d3<-nonnative_code
+(sp00<-unique(c(d1$sp,d2$sp,d3$sp)))
+(i.APG<-na.omit(match(sp00,APG$種名)))
+
+(sp_na<-sp00[is.na(i.APG)])
+(sp<-sp00[!is.na(i.APG)])
+names(APG)
+head(flora2)
+head(d<-APG[i.APG,c("ID0","X.2","種名","学名","科名.和.","科名")])
+names(d)<-names(flora2)[1:6]
+# 植物相コード入力
+d<-data.frame(d,forest_code="",vegetation_code="",nonnative_code="")
+head(d)
+
+head(flora2)
+# Forest_code
+d$forest_code[match(d1$sp,d$spj)]<-d1$forest_code
+# Vegetation_code
+d2$sp[is.na(match(d2$sp,d$spj))]
+d2<-d2[!is.na(match(d2$sp,d$spj)),] #[1] "カヤツリグサ科" "水面"  除外
+d2$sp[is.na(match(d2$sp,d$spj))] 　 #character(0)　除外確認
+d$vegetation_code[match(d2$sp,d$spj)]<-d2$vegetation_code
+
+# NonNative_code
+# APG種名リストにないものは省く
+i<-match(d3$sp,d$spj)
+na_i<-is.na(i)
+d3.<-d3[!na_i,]
+d$nonnative_code[match(d3.$sp,d$spj)]<-d3.$spc
+
+# 除外されたもの
+(omit_nonnative<-d3[na_i,])
+#save(omit_nonnative,file="data/omit_nonnative.rda")
+
+## 生活型入力  ####
+names(d)
+d$form<-flora2$form[match(d$spj,flora2$spj)]
+flora2_V<-d
+flora_V<-d[,1:6]
+
+#save(flora_V,file="data/flora_V.rda")
+#save(flora2_V,file="data/flora2_V.rda")
+library(dplyr)
+flora<-tibble(flora_V)
+flora2<-tibble(flora2_V)
+#save(flora,file="data/flora.rda")
+#save(flora2,file="data/flora2.rda")
+
+# <<<<flora2# <<<< ####
+
+# 目録作成 ####
+d<-flora2
+memo<-paste("【森】",d$forest_code,"【植】",d$vegetation_code,"【外】",d$nonnative_code)
+
+(fl.<-  FloraListMaker(d$spj,memo))
+
+# cat(fl.,file="data-raw/FloraList_V.html")  # html保存
+
+# 以下参考　IV期　作業フアイル　########
 # 森林調査 ####
 # d<-tibble(dd5)
 # names(d)
@@ -275,7 +435,8 @@ spc<-substr(spc,2,999)
 ### write.csv(spc,file="第Ⅳ期_外来種分布一覧.csv")
 ### write.table(spc,"clipboard")
 ### write.csv(data.frame(site),file="2013外来種分布一覧_site.csv")
-
+# NonNativePlants4<-NonNativePlants
+# save(NonNativePlants4,file="data/NonNativePlants4.rda")
 
 ## 調査データ結合 #########
 dir()

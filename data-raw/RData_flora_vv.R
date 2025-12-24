@@ -20,7 +20,7 @@ vc5
 
 # YList読み込み ####
 # 米倉浩司・梶田忠 (2003-) 「BG Plants 和名－学名インデックス」読み込み
-YList<-read.csv("20210514YList.csv") #data-raw/
+YList<-read.csv("../works/csv/20210514YList.csv") #data-raw/
 names(YList)
 
 # 【【植】 0000-0-0000-0

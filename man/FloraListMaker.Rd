@@ -27,14 +27,14 @@ memo.<-c("位山","平井","平井","平井","キャンパス","位山","名古�
 sp0<-unique(vv$sp)#'
 (fl. <- FloraListMaker(sp0))
 
-# cat(fl.,file="data_raw/test_FloraList.html")  # html保存
+# cat(fl.,file="data-raw/test_FloraList.html")  # html保存
 
 # 植生調査植物目録(美松・有峰)
 sp0<-unique(subset(vv,plot=="Mimatsu")$sp)
-# cat(FloraListMaker(sp0),file="data_raw/FloraList_Mimatsu.html")
+# cat(FloraListMaker(sp0),file="data-raw/FloraList_Mimatsu.html")
 
 sp0<-unique(subset(vv,plot=="Arimine")$sp)
-# cat(FloraListMaker(sp0),file="data_raw/FloraList_Arimine.html")
+# cat(FloraListMaker(sp0),file="data-raw/FloraList_Arimine.html")
 
  #期末植物目録
   d<-flora2

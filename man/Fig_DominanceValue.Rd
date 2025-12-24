@@ -2,34 +2,50 @@
 % Please edit documentation in R/TateyamaVegetationAnalysis.R
 \name{Fig_DominanceValue}
 \alias{Fig_DominanceValue}
-\title{報告書用作図　総合優占度経年変化
-Figure of chronosequence for dominant variance}
+\title{総合優占度経年変化の図の描画 (統合関数)}
 \usage{
-Fig_DominanceValue(plot_name = "Joudosan", vc_repo = VCrepo)
+Fig_DominanceValue(plot_name = NULL, vc_repo = VCrepo, ...)
 }
 \arguments{
-\item{plot_name}{}
+\item{plot_name}{描画したいプロット名（単一）。NULLの場合は全て描画。}
+
+\item{vc_repo}{植生データ（リスト）。}
+
+\item{...}{内部関数に渡す追加引数（例: legend_locationなど）。}
+}
+\value{
+描画オブジェクト（返り値なし）。
 }
 \description{
-報告書用作図　総合優占度経年変化
-Figure of chronosequence for dominant variance
+plot_nameがNULLの場合は全プロット、値が指定された場合は単独プロットを描画します。
 }
 \examples{
-library(dplyr)
-library(ggrepel)
+# 実行前のparを保存
+old_par <- par(no.readonly = TRUE)
+#　凡例あり
+par(mfrow = c(1, 1), mar = c(5, 4, 4, 8), xpd = NA)
+Fig_DominanceValue(plot_name="Arimine")
+#' # svg出力 ####
+\dontrun{
+library(svglite)
 
-Fig_DominanceValue("Kaminokodaira")
-Fig_DominanceValue("Arimine")
-Fig_DominanceValue("Matsuotoge")
+for(i in 1:nrow(plt)){
 
-Fig_DominanceValue(plt$plot_name[9])
+  svglite(paste0(plt$no[i],"-",plt$plot_name[i], ".svg"),
+          width  = 200/25.4,
+          height = 120/25.4)
 
-par(mfrow=c(3,4))
-for(i in plt$plot_name)Fig_DominanceValue(i)
+  par(mfrow = c(1, 1), mar = c(5, 4, 4, 8), xpd = NA)  # ←デバイスの中で固定
+  Fig_DominanceValue(plot_name = plt$plot_name[i])
 
-par(mfrow=c(1,1))
-
-# 単年度版
-Fig_DominanceValue(plot_name="Arimine",vc_repo=VCrepo)
-
+  dev.off()
+}
+}
+ #　凡例なし
+par(mfrow = c(1, 1), mar = c(5, 4, 4, 2))
+Fig_DominanceValue(plot_name="Arimine",show_legend=FALSE)
+#全調査区
+par(mfrow = c(3, 4), mar = c(5, 4, 4, 2))
+ Fig_DominanceValue()
+par(old_par)
 }

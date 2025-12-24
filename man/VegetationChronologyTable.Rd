@@ -25,8 +25,14 @@ VegetationChronologyTable(
 
 VegetationChronologyTable()
 
+VegetationChronologyTable(plot_name="Kagamiishi")
 VegetationChronologyTable(plot_name="Arimine")
 
+VC<-VegetationChronologyTable()
+#save(VC,file="data/VC.rda")
+
+vc5<-dplyr::bind_rows(VC)
+#save(vc5,file="data/vc5.rda")
 
 
 

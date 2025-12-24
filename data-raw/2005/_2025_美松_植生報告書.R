@@ -192,4 +192,26 @@ VV5[[calc$plot_name]]
 ## パッケージに反映させる場合は手作業でdata/VV5のバックアップ後、上書きし再ビルド
 if(save_file) save(VV5,file="VV5.rda")
 
+### 表に生活型ついていなかった
+
+
+library(clipr)
+(sp.<-read_clip())
+(form.<-SpeciesForm(sp.))
+write_clip(form.)
+
+#### 被度ではなくDKを使った階級表でなければならなかった
+d<-VegetationTable(d=subset(vv,plot=="Arimine"),period="c05",DK=TRUE)
+
+d<-data.frame(form=SpeciesForm(d$sp),d)
+d<-d[order(d$form,d$sp),] #並べ替え
+# write.csv(d,file="被度階級表-10有峰-被度2025-DK.csv")
+
+#### 被度ではなくDKを使った階級表でなければならなかった
+d<-VegetationTable(d=subset(vv,plot=="Mimatsu"),period="c05",DK=TRUE)
+
+d<-data.frame(form=SpeciesForm(d$sp),d)
+d<-d[order(d$form,d$sp),] #並べ替え
+# write.csv(d,file="被度階級表-06美松-被度2025-DK.csv")
+
 # 以上 ####

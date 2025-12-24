@@ -12,6 +12,8 @@ data(package="TateyamaVegetation")
 
 devtools::document()
 
+devtools::check()
+
 devtools::install()
 
 package_docs_with_examples("TateyamaVegetation")
@@ -20,7 +22,52 @@ package_docs_with_examples("TateyamaVegetation")
 # https://ishidamgm.github.io/TateyamaVegetation/reference/index.html
 pkgdown::build_site()
 
+# UTF-8 修正　20251214 ####
+data("VTdk", package = "TateyamaVegetation")
 
+fix_utf8_list_of_df <- function(x) {
+  # リスト名も一応正規化
+  names(x) <- enc2utf8(names(x))
+
+  lapply(x, function(df) {
+    if (is.data.frame(df)) {
+      df[] <- lapply(df, function(col) {
+        if (is.factor(col)) col <- as.character(col)
+        if (is.character(col)) col <- enc2utf8(col)
+        col
+      })
+    }
+    df
+  })
+}
+
+VTdk <- fix_utf8_list_of_df(VTdk)
+
+invisible(lapply(VTdk, tools::showNonASCII))
+
+######
+bad <- character()
+
+for (nm in names(VTdk)) {
+  x <- VTdk[[nm]]
+  msg <- tryCatch({
+    if (is.data.frame(x)) {
+      tools::showNonASCII(as.data.frame(x))
+    } else if (is.character(x)) {
+      tools::showNonASCII(x)
+    } else {
+      stop(sprintf("unsupported class: %s", paste(class(x), collapse = "/")))
+    }
+    NULL
+  }, error = function(e) e$message)
+
+  if (!is.null(msg)) {
+    cat("BAD:", nm, "->", msg, " [class:", paste(class(x), collapse="/"), "]\n")
+    bad <- c(bad, nm)
+  }
+}
+
+bad
 
 
 #####

@@ -13,6 +13,9 @@ VegetationTable(d = subset(vv, plot == "Arimine"), period = "c04", DK = FALSE)
 報告書用植生表(被度・ドミン-クラジナ被度　両方対応)
 }
 \examples{
+VegetationTable(d=subset(vv,plot=="Bijodaira"),period="dk01",DK=TRUE)
 VegetationTable(d=subset(vv,plot=="Arimine"),period="c04",DK=FALSE)
-
+VegetationTable(d=subset(vv,plot=="Arimine"),period="c05",DK=FALSE)
+ VegetationTable(d=subset(vv,plot=="Arimine"),period="c05",DK=TRUE)
+  VegetationTable(d=subset(vv,plot=="Kagamiishi"),period="c05",DK=TRUE)
 }
